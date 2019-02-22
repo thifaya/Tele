@@ -1,0 +1,23 @@
+.loginForm { 
+    padding-bottom: 1%;
+    padding-top: 1mm;
+    padding-right: 1mm;
+    padding-left: 1mm;
+
+}
+
+.border {    
+    width: auto;
+    height: 200px;
+    border:1px solid darkgrey;
+    border-style: outset;
+    margin: 7px;  
+    background-color: aquamarine;
+
+    padding-left: 35%;
+    padding-top: 3mm;
+}
+
+
+
+
