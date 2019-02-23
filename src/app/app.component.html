@@ -3,21 +3,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <body style="width: 100%; height: 100%">
-    <form method="post" action="./" id="Form1" style="border-bottom: 1px lightgrey solid">
-        
+    <form method="post" action="./" id="Form1" class="form1">
+
         <div class="page">
             <!-- Navigation bar  -->
             <div class="navbar">
                 <div class="title">
                     <h2><b>.::RAPID ANALYZER::.</b> water conservation and management</h2>
                 </div>
-                <div class="LoginLink">
+                <!--  <div class="LoginLink">
 
-                    [ <a href="../Login.aspx" id="HeadLoginView_HeadLoginStatus" hidden>Log In</a> ]
-                    [ <a href="Logout.aspx" id="HeadLoginView_A1" hidden>Log Out</a> ]
+                    [ <a href="../Login.aspx" id="HeadLoginView_HeadLoginStatus" >Log In</a> ]
+                    [ <a href="Logout.aspx" id="HeadLoginView_A1" >Log Out</a> ]
 
-                </div>
-
+              </div>  -->
             </div>
             <!--  /Navigation bar  -->
             <div class="main" style="padding-bottom: 5% ">
@@ -25,18 +24,17 @@
                 <fieldset class="login">
 
                     <!-- Log In Table  -->
-                    <table class="mainTab" cellpadding="0"  style=" border: 1px solid; border-color: lightgrey; padding-top: 3mm; padding-left: 35%;  height: 200px;  width: 99%; margin: 7px ">
-                            
-                            
+                    <table class="table1" cellpadding="0">
+
+
                         <tr>
-                            <td style="text-align: center" class="style1">
-                                <table  cellspacing="0" cellpadding="4" id="Login2"  style="margin-left: 450px; background-color: rgb(230, 229, 227) ; border-color:#E6E2D8; border-width:1px; border-style:Solid; border-collapse:collapse; font-size: medium">
+                            <td class="style1">
+                                <table class="table2" cellspacing="0" cellpadding="4" id="Login2">
                                     <tr>
                                         <td>
-                                            <table class="loginTab" cellpadding="0" style="color:#333333;font-family:Verdana;font-size:0.8em;font-weight:normal;width:567px;">
+                                            <table class="loginTable" cellpadding="0">
                                                 <tr>
-                                                    <td style="text-align: center" colspan="2" style="color:White;background-color:#5D7B9D;border-style:Dotted;font-size:Small;font-weight:bold;">Please
-                                                        Enter Your LogIn Credentials</td>
+                                                    <td class="loginNav" colspan="2">Please Enter Your LogIn Credentials</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="text-align: right"><label for="Login2_UserName">User
@@ -57,8 +55,8 @@
                                                             for="Login2_RememberMe">Remember me next time.</label></td>
                                                 </tr>
                                                 <tr>
-                                                    <td style="text-align: right" colspan="2"><input type="submit" name="Login2$LoginButton"
-                                                            value="Log In"></td>
+                                                    <td colspan="2"><input type="submit" class="loginButton" name="loginButton" value="Log In"></td>                                            
+                                                           
                                                 </tr>
                                             </table>
                                         </td>
@@ -67,41 +65,20 @@
                             </td>
                         </tr>
                     </table>
-                     <!-- /Log In Table  -->
+                    <!-- /Log In Table  -->
                 </fieldset>
 
 
             </div>
 
         </div>
-      
- <div class="footer" style="border-top: 1px lightgrey solid; text-align: center; background-color: silver; color: grey; padding-bottom: 255px ">
+
+        <div class="footer">
 
             Copyrights (c) Tsalano Business Solutions</div>
     </form>
-   
-</body>
 
-</html>
-
-
-<!--<body>
-    <h2>
-            <div class="navbar">
-                <p><span class="rapid"> <b>.::RAPID ANALYZER::.</b> </span><span class="text">water conservation and
-                        management</span></p>
-
-                        [ <a href="../Login.aspx" id="HeadLoginView_HeadLoginStatus">Log In</a> ]
-                        [ <a href="Logout.aspx" id="HeadLoginView_A1">Log Out</a> ]  
-            </div>
-            
-
-    </h2>
-    <app-login></app-login>
-    <form class="GreyForm">
-    <p class="copyright">Copyrights (c) Tsalano Business Solution</p>
-</form>
 </body>
 <router-outlet></router-outlet>
--->
 
+</html>
