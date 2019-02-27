@@ -4,15 +4,15 @@
 
 </head>
 
-<div class="alarmImg" >
-    <a href="/carltonville"> <img src="{{alarmPath}}" style="width: 12%; height: 12%" /> </a>
+<div class="image" >
+    <a href="/carltonville"> <img src="{{alarmPath}}" class="alarmImg" /> </a>
     <img src="{{rapidPath}}" class="rapidImg" />
     <div class="ActiveAlarm">
-        <b>Active Alarm ({{activeCount}})</b>
+        <b style="padding-left: 2%">Active Alarm ({{activeCount}})</b>
    </div>
     <div >
         <p class="date" >
-          <b>Report Date:: {{currentDate |date:"M/dd/yyyy h:mm:ss a"}}</b></p>
+          <b>Report Date: {{currentDate |date:"M/dd/yyyy h:mm:ss a"}}</b></p>
            <br/>
     </div>
 </div>

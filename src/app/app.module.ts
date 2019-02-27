@@ -1,9 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {RouterModule, Routes} from '@angular/router';
+// import {RouterModule, Routes} from '@angular/router';
 import { ChartModule } from 'angular2-highcharts';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material/toolbar';
+// import { MatRippleModule } from '@angular/material';
 
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
@@ -13,6 +17,9 @@ import { ComparisonMonthToMonthComponent } from './Comparison/comparison-month-t
 import { ComparisonYearToYearComponent } from './Comparison/comparison-year-to-year/comparison-year-to-year.component';
 import { CarltonvilleDashboardComponent } from './Dashboard/carltonville-dashboard/carltonville-dashboard.component';
 import { FochvilleDashboardComponent } from './Dashboard/fochville-dashboard/fochville-dashboard.component';
+import { InvoiceForecastComponent } from './Finances/invoice-forecast/invoice-forecast.component';
+import { ContactInfoComponent } from './Enquiries/contact-info/contact-info.component';
+import { UserManualComponent } from './Enquiries/user-manual/user-manual.component';
 
 declare var require: any;
 
@@ -24,13 +31,24 @@ declare var require: any;
     ComparisonYearToYearComponent,
     routingComponents,
     CarltonvilleDashboardComponent,
-    FochvilleDashboardComponent
+    FochvilleDashboardComponent,
+    InvoiceForecastComponent,
+    ContactInfoComponent,
+    UserManualComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatToolbarModule
   //  ChartModule.forRoot(require('highcharts')),
     // MdToolbarModule
+  ],
+  exports: [
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

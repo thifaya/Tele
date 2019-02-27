@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CarltonvilleDashboardComponent implements OnInit {
 
   constructor() { }
-  alarmPath: any = '../assets/ImageView/alarm.PNG';
+  alarmPath: any = '../assets/ImageView/alarmLED.PNG';
   rapidPath: any = '../assets/ImageView/rapid.PNG';
   activeCount = 0;
   currentDate: Date = new Date();

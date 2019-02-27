@@ -5,6 +5,9 @@ import { CarltonvilleDashboardComponent } from './Dashboard/carltonville-dashboa
 import { LoginComponent } from './login/login.component';
 import { ComparisonYearToYearComponent } from './Comparison/comparison-year-to-year/comparison-year-to-year.component';
 import { ComparisonMonthToMonthComponent } from './Comparison/comparison-month-to-month/comparison-month-to-month.component';
+import { InvoiceForecastComponent } from './Finances/invoice-forecast/invoice-forecast.component';
+import { ContactInfoComponent } from './Enquiries/contact-info/contact-info.component';
+import { UserManualComponent } from './Enquiries/user-manual/user-manual.component';
 
 // ROUTING...
 const routes: Routes = [
@@ -31,6 +34,21 @@ const routes: Routes = [
   {
     path: 'comparisonmonthtomonth',
     component: ComparisonMonthToMonthComponent
+  },
+
+  {
+    path: 'invoiceforecast',
+    component: InvoiceForecastComponent
+  },
+
+  {
+    path: 'contactinfo',
+    component: ContactInfoComponent
+  },
+
+  {
+    path: 'usermanual',
+    component: UserManualComponent
   }
 ];
 
