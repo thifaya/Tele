@@ -6,13 +6,18 @@
     margin: 0px auto 0px 0px
 }
 
+.LoginLink {
+    font-size:0.8em;
+    text-align: right;
+}
+
 .footer{
     text-align: center;
     color: grey;
     font-size: 4mm;
     border-top: 1px lightgrey solid;
     background-color: silver;
-    padding-bottom: 255px 
+    padding-bottom: 100% 
 }
 
 .form1 {
@@ -67,7 +72,7 @@ a {
     font-weight:bold;
  }
 
- .loginButton{
+ .loginButton {
     color:#284775;
     background-color:#FFFBFF;
     border-color:#CCCCCC;
@@ -75,5 +80,6 @@ a {
     border-style:Solid;
     font-family:Verdana;
     font-size:0.8em; 
-    text-align: right 
+    text-align: right;
+    
  }

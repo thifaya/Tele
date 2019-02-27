@@ -19,5 +19,69 @@
 }
 
 
+.form1 {
+    border-bottom: 1px lightgrey solid
+}
+
+a {
+    color: whitesmoke;
+}
+
+ .style1 {
+     width: 1064px;
+     text-align: center
+ }
+
+ .table1 {
+     padding-left: 40%;
+     border: 1px solid;
+     border-color: lightgrey;
+     padding-top: 3mm;
+     padding-left: 35%;
+     height: 200px;
+     width: 99%;
+     margin: 7px
+ }
+
+ .table2 {
+    margin-left: 450px;
+    background-color: rgb(230, 229, 227) ;
+    border-color:#E6E2D8;
+    border-width:1px;
+    border-style:Solid;
+    border-collapse:collapse;
+    font-size: medium
+ }
+
+ .loginTable {
+     align-content: center;
+     color:#333333;
+     font-family:Verdana;
+     font-size:0.8em;
+     font-weight:normal;
+     width:567px;
+ }
+
+ .loginNav {
+    text-align: center; 
+    color:White;
+    background-color:#5D7B9D;
+    border-style:Dotted;
+    font-size:Small;
+    font-weight:bold;
+ }
+
+ .loginButton{
+    color:#284775;
+    background-color:#FFFBFF;
+    border-color:#CCCCCC;
+    border-width:1px;
+    border-style:Solid;
+    font-family:Verdana;
+    font-size:0.8em; 
+    text-align: right 
+ }
+
+
 
 

@@ -1,0 +1,40 @@
+chart {
+    display: block;
+}
+
+.ActiveAlarm {
+    background-color: darkslategrey;
+    color: white;
+    width: 12%;
+    text-align: center
+}
+
+.alarmImg {
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+.rapidImg {
+    height: 12%;
+    margin-left: 20%
+}
+
+.dateDisplay {
+    position: absolute;
+    top: 220px;
+    left: 560px
+}
+
+.date {
+    position: absolute;
+    top: 220px;
+    left: 560px; 
+    text-align: center
+}
+
+.hint {
+    color: grey;
+    position: absolute;
+    top: 275px;
+    left: 500px;
+}

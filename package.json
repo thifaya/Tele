@@ -20,10 +20,16 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "@types/highcharts": "^5.0.36",
+    "angular2-highcharts": "^0.5.5",
+    "angularjs-gauge": "^2.2.0",
     "boostrap": "^2.0.0",
+    "chart.js": "^2.7.3",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
+    "npm": "^6.8.0",
     "rxjs": "~6.2.0",
+    "toolbar": "0.0.5",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
