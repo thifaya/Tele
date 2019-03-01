@@ -7,7 +7,7 @@
 }
 
 .border {    
-    width: auto;
+    width: 100%;
     height: 200px;
     border:1px solid darkgrey;
     border-style: outset;
@@ -28,7 +28,7 @@ a {
 }
 
  .style1 {
-     width: 1064px;
+     width: 100%;
      text-align: center
  }
 
@@ -44,7 +44,7 @@ a {
  }
 
  .table2 {
-    margin-left: 450px;
+   
     background-color: rgb(230, 229, 227) ;
     border-color:#E6E2D8;
     border-width:1px;
@@ -70,8 +70,9 @@ a {
     font-size:Small;
     font-weight:bold;
  }
+ 
 
- .loginButton{
+ .btnlogin{
     color:#284775;
     background-color:#FFFBFF;
     border-color:#CCCCCC;
@@ -82,6 +83,6 @@ a {
     text-align: right 
  }
 
-
-
-
+ .btnlogin:hover {
+    font-weight: bold;
+ }

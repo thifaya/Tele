@@ -20,6 +20,7 @@ import { FochvilleDashboardComponent } from './Dashboard/fochville-dashboard/foc
 import { InvoiceForecastComponent } from './Finances/invoice-forecast/invoice-forecast.component';
 import { ContactInfoComponent } from './Enquiries/contact-info/contact-info.component';
 import { UserManualComponent } from './Enquiries/user-manual/user-manual.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 declare var require: any;
 
@@ -34,7 +35,8 @@ declare var require: any;
     FochvilleDashboardComponent,
     InvoiceForecastComponent,
     ContactInfoComponent,
-    UserManualComponent
+    UserManualComponent,
+    NavBarComponent
 
   ],
   imports: [

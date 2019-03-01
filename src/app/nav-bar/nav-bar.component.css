@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul ul {
+   background-color:transparent
+
+}
+
+.list {
+    display: none;
+    position: absolute
+}
+
+.enquire:hover .list {
+    display: block;
+}
+
+li {
+    float: left;
+    margin-right: 1px;
+    margin: 3px;
+    margin-top: 3px;
+    padding-top: 3px;
+    padding-bottom: 0px;
+    line-height: 16.5px
+}
+
+span {
+    border: 0 outset steelblue;
+    padding-top: 0px;
+    margin-top: 0px; 
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    vertical-align: middle;
+    color: blue;
+    font-size: 3.5mm;
+    font-family: sans-serif;
+    position: relative;
+   display: inline-block
+}
+
+
+
+a {
+    margin: 0;
+    background: border-box;
+    font-size: 4mm;
+    color: black;
+    width: 100%;
+    text-decoration: none;
+    display: block;
+    text-align: center; 
+    
+}
+a:hover {
+    background-color: white;
+    opacity: 1px;
+    
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 60px; 
+    padding-top: 0px;
+    margin-top: 0px; 
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+   
+}
+
+.menu {
+    width: 100%;
+    overflow: auto;
+    background-size: cover;
+    margin-left: 40px;
+}
+
+.navbar {
+    padding-top: 0px;
+    margin-top: 0px; 
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    width: 100%;
+}
+
+body {
+    background-color: white;
+    height: 0.9cm;;
+    width: 100%;
+   
+}

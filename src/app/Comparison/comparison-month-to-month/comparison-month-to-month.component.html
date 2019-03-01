@@ -5,7 +5,7 @@
 </head>
 
 <body>
-
+    <app-nav-bar></app-nav-bar>
   <table class="mainTable" style="table-layout:fixed;width:98%;height:100%;margin: 1%" cellspacing="0" cellpadding="0">
     <tbody>
       <tr style="background-color:#ECE9D8;">
@@ -24,6 +24,59 @@
                     <td width="100%" height="100%">
                       <table>
                         <tbody>
+
+                          <!-- Compalsary row-->
+                   
+                        <tr isparameterrow="true" >
+
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select province:</span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div >
+                                <select class="DDLprovince" id="DDLprovince">
+                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="1">All</option>
+                                
+  
+                                </select>
+                              </div>
+                            </td>
+                            <td width="20"></td>
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select District/Metro:</span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div>
+                                <select class="DDLdistrict" id="DDLdistrict" >
+                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="1">All</option>
+  
+                                </select>
+                              </div>
+                            </td>
+
+                            <td style="padding:5px; "><span style="font-family:Verdana;font-size:8pt;">Select Municipality:</span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div>
+                                <select class="DDLmunicipality" id="DDLmunicipality">                                  
+                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="1">All</option>
+                                </select>
+                              </div>
+                            </td>
+
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select site:</span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div >
+                                <select class="DDLsite" id="DDLsite">
+                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="1">All</option>
+  
+                                </select>
+                              </div>
+                            </td>
+
+                        </tr>
+                        
+                        <!-- /Compalsary row -->
+
                           <tr isparameterrow="true">
                             <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Please Select
                                 Month:</span></td>
@@ -77,15 +130,18 @@
                       </table>
                     </td>
                     <td width="6"></td>
-                    <td align="center" valign="top" style="border-left:1px #CCCCCC Solid;padding:10px;">
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td><input style="font-family:Verdana;font-size:8pt;" type="submit" value="View Report"></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
+                   
+                  </tr>
+                  <tr style="margin-top: 1px;padding-bottom: 1px">
+                      <td class="cellbutton">
+                        <table>
+                            <tbody>
+                              <tr>
+                                <td><input type="submit" class="btnreport" id="btnreport" value="View Report"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
                   </tr>
                 </tbody>
               </table>

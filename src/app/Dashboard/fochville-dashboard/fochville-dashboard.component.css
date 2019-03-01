@@ -23,7 +23,7 @@ chart {
 .date {
     position: absolute;
    
-    top: 220px;
+    top: 250px;
     left: 560px; 
     text-align: center
 }
@@ -31,6 +31,6 @@ chart {
 .hint {
     color: grey;
     position: absolute;
-    top: 275px;
+    top: 295px;
     left: 500px;
 }
