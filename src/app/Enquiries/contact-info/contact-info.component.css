@@ -1,7 +1,27 @@
-.contactNumber {
-    border: 2px;
-    width: 100%;
-    border-color: grey;
-    
-    
+.main {
+    width: 97%;
+    height:97%;
+    margin-left: 15px;
+    margin-top: 25px;
+    margin-bottom: 0px;
+}
+
+fieldset {
+    border: 2px solid grey;
+    margin-top: 2%;
+}
+
+p {
+    font-size: 14px;
+    margin-left: 1%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+legend {
+    margin-left: 4px;
+    width: 17%
+}
+
+.address p {
+    margin-bottom: 4px;
 }

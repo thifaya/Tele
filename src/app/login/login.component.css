@@ -50,7 +50,8 @@ a {
     border-width:1px;
     border-style:Solid;
     border-collapse:collapse;
-    font-size: medium
+    font-size: medium;
+    margin-left: 367px;
  }
 
  .loginTable {
@@ -60,6 +61,7 @@ a {
      font-size:0.8em;
      font-weight:normal;
      width:567px;
+     
  }
 
  .loginNav {

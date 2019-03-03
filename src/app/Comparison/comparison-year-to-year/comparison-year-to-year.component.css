@@ -9,11 +9,11 @@
 .btnreport {
     font-family:Verdana;
     font-size:8pt;
-    color: black;
+    color: whitesmoke;
     background-color: steelblue;
     width: 100%;
     height: 0.67cm;
-    border: 1px ridge black;
+    border: 1px ridge steelblue;
     border-width:1px;
     border-style:Solid;
     text-align: right;
@@ -30,8 +30,7 @@
     
     border-style: unset;
     background-color: rgba(70, 131, 180, 0.664);
-    color: whitesmoke;
-    border-color: whitesmoke;
+    color: black;
     border-radius: 8px;
 }
 

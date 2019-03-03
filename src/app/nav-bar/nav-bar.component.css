@@ -10,12 +10,16 @@
 
 .list {
     display: none;
-    position: absolute
+    position: absolute;
+   
 }
 
-.enquire:hover .list {
+
+.Dropdown:hover .list {
     display: block;
+    background-color: white;
 }
+
 
 li {
     float: left;
@@ -38,7 +42,7 @@ span {
     font-size: 3.5mm;
     font-family: sans-serif;
     position: relative;
-   display: inline-block
+    
 }
 
 
@@ -57,6 +61,7 @@ a {
 a:hover {
     background-color: white;
     opacity: 1px;
+    cursor: pointer;
     
 }
 
@@ -92,4 +97,8 @@ body {
     height: 0.9cm;;
     width: 100%;
    
+}
+
+.list p {
+    margin: 0;
 }
