@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeartbeatComponent implements OnInit {
 
   constructor() { }
-
+  heartbeatPath: any = '../assets/ImageView/heartbeat.PNG';
   ngOnInit() {
   }
 

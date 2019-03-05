@@ -1,0 +1,167 @@
+.mainDiv {
+    width: 94%;
+    height:100%;
+    margin-top: 2.5%;
+    margin-left: 40px;
+    font-family: verdana;
+}
+
+.table1 {
+    width: 95%;
+    font-family: Verdana;
+    border: 2px solid #465C71;
+    background-color: whitesmoke;
+    
+}
+
+.lblcell {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11.8px;
+    margin-left: 3%;
+}
+
+.labelText {
+    width: 160px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+    
+}
+
+.componentStyle {
+    width: 181px;
+    font-size: small;
+}
+
+.checkboxTable {
+    font-size: small;
+    margin-top: 0px;
+    margin-left: 58%;
+}
+
+.checkboxTable input:hover {
+    cursor: pointer;
+}
+
+/* <![CDATA[ */
+#NavigationMenu img.icon {
+    border-style: none;
+    vertical-align: middle;
+}
+
+#NavigationMenu img.separator {
+    border-style: none;
+    display: block;
+}
+
+#NavigationMenu img.horizontal-separator {
+    border-style: none;
+    vertical-align: middle;
+}
+
+#NavigationMenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+#NavigationMenu ul.dynamic {
+    z-index: 1;
+}
+
+#NavigationMenu a {
+    text-decoration: none;
+    white-space: nowrap;
+    display: block;
+}
+
+#NavigationMenu a.static {
+    padding: 0px 5px 0px 5px;
+    text-decoration: none;
+}
+
+#NavigationMenu a.popout-dynamic {
+    background: url("/WebResource.axd?d=86UR9eAk9d-4-x6ORms8nV_KyBYSieIVbZEBvM1W9ChKrc6LhdVCW29qHe_84pqYWwCv0mvsG4R2e02zxmusVml9VteNJqN0PiI25rBYr3c1&t=636765208020000000") no-repeat right center;
+    padding-right: 14px;
+}
+
+.titlerow {
+    color:Gray;
+    background-color:#DDE4EC;
+    font-weight:bold;
+    text-align: left;
+}
+
+.titlerow td {
+    margin-left: 10%;
+    text-align: center
+}
+
+.tableBlock {
+    font-family:Verdana;
+    font-size: 9pt;
+}
+
+.tableBlock tbody tr TD {
+    width: 100%;
+    border-collapse:collapse;
+    text-align: left;
+    margin-left: 5%;
+        
+}
+
+.btnSave {
+    font-family:Verdana;
+    font-size:8pt;
+    color: whitesmoke;
+    background-color: steelblue;
+   
+    height: 0.67cm;
+    border: 1px ridge steelblue;
+    border-width:1px;
+    border-style:Solid;
+    border-radius: 6px;
+}
+
+.btnSave:hover {
+    
+    font-weight: lighter;
+    background-color: rgba(70, 131, 180, 0.664);
+}
+
+.btnSave:active {
+    
+    border-style: unset;
+    background-color: rgba(70, 131, 180, 0.664);
+    color: black;
+    border-radius: 8px;
+}
+
+.btnClear {
+    font-family:Verdana;
+    font-size:8pt;
+    color: whitesmoke;
+    background-color: steelblue;
+   
+    height: 0.67cm;
+    border: 1px ridge steelblue;
+    border-width:1px;
+    border-style:Solid;
+    text-align: right;
+    border-radius: 6px;
+}
+
+.btnClear:hover {
+    
+    font-weight: lighter;
+    background-color: rgba(70, 131, 180, 0.664);
+}
+
+.btnClear:active {
+    
+    border-style: unset;
+    background-color: rgba(70, 131, 180, 0.664);
+    color: black;
+    border-radius: 8px;
+}
+

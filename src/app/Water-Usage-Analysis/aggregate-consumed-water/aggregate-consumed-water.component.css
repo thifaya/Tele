@@ -58,6 +58,16 @@ body {
     font-size:8pt;
 }
 
+.DDLyear {
+    font-family:Verdana;
+    font-size:8pt;
+}
+
+.DDLmonth {
+    font-family:Verdana;
+    font-size:8pt;
+}
+
 .cellbutton {
     border-left:1px #CCCCCC Solid;
     padding:10px;
@@ -79,6 +89,7 @@ body {
     height:100%;
     margin: 1%;
     margin-top: 2%;
+    margin-left: 40px;
     
 }
 

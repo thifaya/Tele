@@ -9,6 +9,7 @@ export class MultiYearReceivedTrendsComponent implements OnInit {
 
   constructor() { }
 
+  currentDate: Date = new Date();
   ngOnInit() {
   }
 

@@ -1,102 +1,145 @@
 <head>
 
-    <title>.::RAPID ANALYZER::.</title>
-  
-  </head>
+  <title>.::RAPID ANALYZER::.</title>
+
+</head>
+
 <body>
   <app-nav-bar></app-nav-bar>
-<table class="table1" cellspacing="0" cellpadding="0">
-<tbody>
-  <tr style="background-color:#ECE9D8;">
-    <td style="width: 25%; display: none;"></td>
-    <td style="width: 6px; display: none;"></td>
-    <td style="width:100%;"></td>
-  </tr>
-  <tr>
-    <td colspan="3">
-      <div class="myDiv" >
-        <div>
-     <table class="table2" cellspacing="0" cellpadding="0">
-            <tbody>
-              <tr>
-                <td style="width: 100%;height: 100%">
-                  
-                  <table>
-                    <tbody>
-                      
-                      <!-- Compalsary row-->
-                 
-                      <tr isparameterrow="true" >
-                          <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select Province:</span></td>
-                          <td style="padding:5px;padding-right:0px;">
-                            <div >
-                              <select class="DDLprovince" id="DDLprovince">
-                                <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                <option value="1">All</option>
-                               </select>
-                            </div>
-                          </td>
-                          
-                      </tr>
-                      <tr isparameterrow="true" >
-                          <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select District or Metropolitician Municipality:</span></td>
-                          <td style="padding:5px;padding-right:0px;">
-                            <div>
-                              <select class="DDLdistrict" id="DDLdistrict" >
-                                <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                <option value="1">All</option>
+  <table class="table1" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr style="background-color:#ECE9D8;">
+        <td style="width: 25%; display: none;"></td>
+        <td style="width: 6px; display: none;"></td>
+        <td style="width:100%;"></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div class="myDiv">
+            <div>
+              <table class="table2" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr>
+                    <td style="width: 100%;height: 100%">
 
+                      <table>
+                        <tbody>
+
+                          <!-- Compalsary row-->
+
+                          <tr isparameterrow="true">
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select Province:</span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div>
+                                <select class="DDLprovince" id="DDLprovince">
+                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="1">All</option>
+                                </select>
+                              </div>
+                            </td>
+
+                          </tr>
+                          <tr isparameterrow="true">
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select District
+                                or Metropolitan Municipality:</span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div>
+                                <select class="DDLdistrict" id="DDLdistrict">
+                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="1">All</option>
+
+                                </select>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr isparameterrow="true">
+                            <td style="padding:5px; "><span style="font-family:Verdana;font-size:8pt;">Select Local
+                                Municipality:</span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div>
+                                <select class="DDLmunicipality" id="DDLmunicipality">
+                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="1">All</option>
+                                </select>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr isparameterrow="true">
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select Site:</span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div>
+                                <select class="DDLsite" id="DDLsite">
+                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="1">All</option>
+
+                                </select>
+                              </div>
+                            </td>
+                          </tr>
+                          <!--line space-->
+                          <div style="margin-bottom: 22px">
+                            <tr isparameterrow="true">
+                            </tr>
+                          </div>
+                         
+
+                          <!-- /Compalsary row -->
+
+                          <!--  Insert components here  -->
+                           <tr isparameterrow="true">
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select
+                                Trend</span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div id="ctl00_MainContent_ReportViewer1_ctl04_ctl07" style="font-family:Verdana;font-size:8pt;">
+                                <select class="DDLtrends" id="DDLtrends">                                  
+                                  <option value="1">Consumed&nbsp;Water</option>
+                                  <option value="2">Received&nbsp;Water</option>
+                                  <option value="3">Consumed&nbsp;And&nbsp;Received</option>
+                                  <option selected="selected" value="4">Water&nbsp;Level</option>
+
+                                </select>
+                              </div>
+                            </td>
+                            <td width="22"></td>
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select
+                              Month</span></td>
+                          <td style="padding:5px;padding-right:0px;">
+                            <div id="ctl00_MainContent_ReportViewer1_ctl04_ctl03" style="font-family:Verdana;font-size:8pt;">
+                              <select class="DDLmonth" id="DDLmonth">
+                                <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+  
                               </select>
                             </div>
                           </td>
-                      </tr>
-                      <tr isparameterrow="true" >
-                          <td style="padding:5px; "><span style="font-family:Verdana;font-size:8pt;">Select Local Municipality:</span></td>
-                          <td style="padding:5px;padding-right:0px;">
-                            <div>
-                              <select class="DDLmunicipality" id="DDLmunicipality">                                  
-                                <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                <option value="1">All</option>
-                              </select>
-                            </div>
-                          </td>
-                      </tr>
-                      
-                      <tr isparameterrow="true" >
-                          <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select Site:</span></td>
-                          <td style="padding:5px;padding-right:0px;">
-                            <div >
-                              <select class="DDLsite" id="DDLsite">
-                                <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                <option value="1">All</option>
+                          </tr>
+                         
 
-                              </select>
-                            </div>
-                          </td>
-                      </tr>
-                      <!--line space--> <div  style="margin-bottom: 22px">
-                      <tr isparameterrow="true" >
-                      </tr>
-                      </div>
-                                            
-                      <!-- /Compalsary row -->
-                      
-                      <!--  Insert components here  -->
-
-                      <!--  Insert components here  -->
-                    </tbody>
-                  </table>
-                </td>
-                
-   
-              </tr>
-              <!--line space--> <div  style="margin-bottom: 4%" >
-                <tr isparameterrow="true" >
-                </tr>
-                </div>
-              <tr style="margin-top: 1px;padding-bottom: 1px">
-                  <td class="cellbutton">
-                    <table>
+                          <!--  Insert components here  -->
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <!--line space-->
+                  <div style="margin-bottom: 4%">
+                    <tr isparameterrow="true">
+                    </tr>
+                  </div>
+                  <tr style="margin-top: 1px;padding-bottom: 1px">
+                    <td class="cellbutton">
+                      <table>
                         <tbody>
                           <tr>
                             <td><input type="submit" class="btnreport" id="btnreport" value="View Report"></td>
@@ -104,55 +147,80 @@
                         </tbody>
                       </table>
                     </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </td>
-  </tr>
-  <tr style="height:6px;font-size:2pt;">
-      <td class="cellblock" colspan="3">
-        <div>
-          <input type="hidden"><input type="hidden" value="false">
-         </div>
-      </td>
-    </tr>
-  <tr style="display:none;"></tr>
-  <tr>
-    <td style="width: 25%; height: 100%; vertical-align: top; display: none;">
-      <div style="width:100%;height:100%;">
-        <span>
-          <div style="display:none;">
-            <input type="hidden">
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </span>
-      </div>
-    </td>
-    <td style="margin: 0px; padding: 0px; width: 4px; height: 100%; vertical-align: middle; display: none; background-color: rgb(236, 233, 216);">
-      <div>
-        <input type="hidden"><input type="hidden" value="false">
-      </div>
-    </td>
-    <td style="height: 100%; vertical-align: top;">
-      <div style="height:100%;width:100%;overflow:auto;position:relative;">
-        <div style="height:100%;display:none;"></div>
-        <div>
-          <div style="visibility:none;" fornonreportcontentarea="false" newcontenttype="Microsoft.Reporting.WebFormsClient.ReportAreaContent.None">
-            <input type="hidden" value="None">
-          </div><input type="hidden"><span></span>
-          <div style="display:none;">
-            <span></span><input type="hidden"><input type="hidden"><input type="hidden" value="100">
+        </td>
+      </tr>
+      <tr style="height:6px;font-size:2pt;">
+        <td class="cellblock" colspan="3">
+          <div>
+            <input type="hidden"><input type="hidden" value="false">
           </div>
-          <div style="width: 100%; height: 100%; display: none;">
+        </td>
+      </tr>
+      <tr style="display:none;"></tr>
+      <tr>
+        <td style="width: 25%; height: 100%; vertical-align: top; display: none;">
+          <div style="width:100%;height:100%;">
+            <span>
+              <div style="display:none;">
+                <input type="hidden">
+              </div>
+            </span>
+          </div>
+        </td>
+        <td style="margin: 0px; padding: 0px; width: 4px; height: 100%; vertical-align: middle; display: none; background-color: rgb(236, 233, 216);">
+          <div>
+            <input type="hidden"><input type="hidden" value="false">
+          </div>
+        </td>
+        <td style="height: 100%; vertical-align: top;">
+          <div style="height:100%;width:100%;overflow:auto;position:relative;">
+            <div style="height:100%;display:none;"></div>
+            <div>
+              <div style="visibility:none;" fornonreportcontentarea="false" newcontenttype="Microsoft.Reporting.WebFormsClient.ReportAreaContent.None">
+                <input type="hidden" value="None">
+              </div><input type="hidden"><span></span>
+              <div style="display:none;">
+                <span></span><input type="hidden"><input type="hidden"><input type="hidden" value="100">
+              </div>
+              <div style="width: 100%; height: 100%; display: none;">
 
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </td>
-  </tr>
-</tbody>
-</table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
 </body>
 
+<!--
+<td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select
+                                            Site</span></td>
+                                        <td style="padding:5px;padding-right:0px;">
+                                          <div id="ctl00_MainContent_ReportViewer1_ctl04_ctl05" style="font-family:Verdana;font-size:8pt;">
+                                            <select name="ctl00$MainContent$ReportViewer1$ctl04$ctl05$ddValue" class="aspNetDisabled"
+                                              id="ctl00_MainContent_ReportViewer1_ctl04_ctl05_ddValue" style="font-family:Verdana;font-size:8pt;">
+                                              <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                              <option value="1">Blybank</option>
+                                              <option value="2">Carletonville</option>
+                                              <option value="3">Fochville&nbsp;-&nbsp;Big&nbsp;Reservoir</option>
+                                              <option value="4">Fochville&nbsp;-&nbsp;Small&nbsp;Reservoir</option>
+                                              <option value="5">North&nbsp;-&nbsp;Ext&nbsp;3&nbsp;Tower</option>
+                                              <option value="6">North&nbsp;-&nbsp;Reservoir</option>
+                                              <option value="7">Shawela</option>
+                                              <option value="8">South</option>
+                                              <option value="9">Wedela&nbsp;Big</option>
+                                              <option value="10">Wedela&nbsp;Small</option>
+                                              <option value="11">Welverdiend</option>
+
+                                            </select>
+                                          </div>
+                                        </td>
+
+-->

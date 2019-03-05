@@ -9,6 +9,7 @@ export class YearlyWaterConsumedComponent implements OnInit {
 
   constructor() { }
 
+  currentDate: Date = new Date();
   ngOnInit() {
   }
 

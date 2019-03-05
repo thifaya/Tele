@@ -9,6 +9,7 @@ export class YearlyWaterReceivedComponent implements OnInit {
 
   constructor() { }
 
+  currentDate: Date = new Date();
   ngOnInit() {
   }
 

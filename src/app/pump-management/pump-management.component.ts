@@ -9,6 +9,7 @@ export class PumpManagementComponent implements OnInit {
 
   constructor() { }
 
+  pumpPath = '../assets/ImageView/waterTower.PNG';
   ngOnInit() {
   }
 

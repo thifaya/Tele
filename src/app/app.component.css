@@ -1,4 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.page {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 80px;
+}
+
 .navbar {
+    
+    overflow: auto;
+   
     background-color: white;
     color: steelblue;
     width: 99%;
@@ -6,6 +21,7 @@
     font-family: Verdana, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-bottom: 30px;
     margin-top: 10px;
+    margin-left: 25px;
     
 }
 .title b {
@@ -20,13 +36,16 @@
     vertical-align: text-top;
 }
 
-footer{
+.footer{
     text-align: center;
-    color: silver;
+    color: grey;
     font-size: 4mm;
     border-top: 1px grey solid;
     background-color: #f5f5f5;
     position: relative;
+    height: 100px;
+    margin-top: -100px;
+    clear: both;
     top: 200px;
     width: 100%;
     padding-bottom: 20px;  

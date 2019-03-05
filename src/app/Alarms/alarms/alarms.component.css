@@ -1,0 +1,21 @@
+.tableBlock {
+    font-weight: bold;
+    font-size: 9pt;
+    font-family: verdana;
+    margin-left: 5%;
+}
+
+.titlerow {
+    background-color: lightgrey;
+    text-align: center;
+    border-color: white;
+}
+
+.header {
+    margin-top:4%;
+    background-color: slategrey;
+    text-align: center;
+    width: 94%;
+    margin-left: 3%;
+    color: white;
+}

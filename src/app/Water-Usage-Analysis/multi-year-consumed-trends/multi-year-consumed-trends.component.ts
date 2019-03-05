@@ -9,6 +9,7 @@ export class MultiYearConsumedTrendsComponent implements OnInit {
 
   constructor() { }
 
+  currentDate: Date = new Date();
   ngOnInit() {
   }
 

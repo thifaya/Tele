@@ -1,9 +1,10 @@
 .main {
-    width: 97%;
+    width: 90%;
     height:97%;
-    margin-left: 15px;
+    margin-left: 40px;
     margin-top: 25px;
     margin-bottom: 0px;
+    
 }
 
 fieldset {
@@ -12,13 +13,13 @@ fieldset {
 }
 
 p {
-    font-size: 14px;
-    margin-left: 1%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 1.5%; 
+    font-family:Verdana;
+    font-size:9pt;
 }
 
 legend {
-    margin-left: 4px;
+    margin-left: 1.5%;
     width: 17%
 }
 

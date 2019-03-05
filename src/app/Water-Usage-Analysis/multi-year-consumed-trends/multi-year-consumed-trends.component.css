@@ -79,7 +79,7 @@ body {
     height:100%;
     margin: 1%;
     margin-top: 2%;
-    
+    margin-left: 40px;    
 }
 
 .table2 {
@@ -95,4 +95,46 @@ body {
 
 select:hover {
     cursor: pointer;
+}
+/*-----------------------------------------------------------------------------------*/
+
+
+.header {
+    text-align: center;
+    background-color: slategrey;
+    color:white;
+    width: 93%;
+    margin-left: 40px;
+    margin-top: 2.5%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+.wrapper {
+    margin-top: 3%;
+    border: 1px solid lightgrey;
+    margin-left: 50px;
+    width: 90%;
+    height: 100%;
+    
+}
+
+p {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1.5%;
+    font-family:Verdana;
+    font-size: 9pt;
+}
+
+form {
+    border-right: 4px solid grey;
+    border-top: 2px solid grey;
+    height: 100%;
+    padding-bottom: 25%;
+    width: 87%;
+    background-color: lightgray;
+    margin-left: 6%;
+    margin-top: 4.5%;
+    margin-bottom: 1.2%;
 }

@@ -1,0 +1,31 @@
+.header {
+    text-align: center;
+    background-color: slategrey;
+    color: white;
+    width: 94%;
+    margin-left: 40px;
+    margin-top: 3.5%;
+}
+
+.wrapper {
+    margin-left: 5%;
+    width: 90%;
+    border: 2px solid grey;
+    margin-top: 3%;
+}
+
+legend {
+    font-weight: bold;
+    text-align: center;
+    background-color: lightgrey;
+    margin-left: 4px;
+    width: 90%
+}
+
+fieldset {
+    margin-top: 2%;
+    margin-bottom: 5%;
+    margin-left: 2%;
+    width: 96%;
+    border: 2px solid lightgrey
+}

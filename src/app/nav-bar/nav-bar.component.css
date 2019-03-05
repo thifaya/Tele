@@ -10,10 +10,12 @@
 
 .list {
     display: none;
-    position: absolute;
-   
+    position: absolute; 
 }
 
+.list table tr {
+    border-bottom: 1px solid blue;
+}
 
 .Dropdown:hover .list {
     display: block;
@@ -78,10 +80,12 @@ ul {
 }
 
 .menu {
-    width: 100%;
+    width: 94%;
     overflow: auto;
     background-size: cover;
     margin-left: 40px;
+    border-top: 1px solid blue;
+    border-bottom: 1px solid blue;
 }
 
 .navbar {
@@ -89,7 +93,7 @@ ul {
     margin-top: 0px; 
     margin-bottom: 0px;
     padding-bottom: 0px;
-    width: 100%;
+    width: 94.5%;
 }
 
 body {

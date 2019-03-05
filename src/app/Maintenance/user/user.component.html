@@ -1,12 +1,214 @@
 <head>
 
     <title>.::RAPID ANALYZER::.</title>
-  
-  </head>
-  
-  <body>
-      <app-nav-bar></app-nav-bar>
-      <p>
-  user works!
-</p>
+
+</head>
+
+<body>
+    <app-nav-bar></app-nav-bar>
+
+    <div class="mainDiv">
+
+        <span style="font-family: Verdana;color: #006699;"><strong>Enter New User Details:</strong></span><br /><br />
+        <span style="color:Red;"></span>
+
+        <table class="table1">
+            <div style="margin: 1%">
+                <tbody>
+                    <tr>
+
+                        <td class="labelText">
+                            Title:</td>
+                        <td class="componentStyle">
+                            <select id="ddlTitle" class="ddlTitle" style="height:16px;width:170px;">
+                                <option value="0" selected> ---- </option>
+                                <option value="1">Mr</option>
+                                <option value="2">Mrs</option>
+                                <option value="3">Miss</option>
+                                <option value="4">Dr</option>
+
+                            </select>
+                        </td>
+                        <td style="width: 402px; "  rowspan="10">
+                            <span style="font-family: Verdana; margin-left: 58%"><strong>Authorised Areas:</strong></span><br />
+                            &nbsp;&nbsp;&nbsp;
+                            <table class="checkboxTable">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input class="chkboxCreateupdateUser" id="chkboxCreateupdateUser" type="checkbox"><label
+                                                for="chkboxCreateupdateUserr">Create/Update User</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="chkboxStartStopPumps" id="chkboxStartStopPumps" type="checkbox"><label
+                                                for="chkboxStartStopPumps">Start/Stop Pumps</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input name="chkboxViewFinanceReport" id="chkboxViewFinanceReport" type="checkbox"><label
+                                                for="chkboxViewFinanceReport">View Finance Reports</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input name="chkboxAmendFinanceDetails" id="chkboxAmendFinanceDetails" type="checkbox">
+                                            <label for="chkboxAmendFinanceDetails">Amend Finance Details</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            &nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="labelText">
+                            Name:</td>
+                        <td class="componentStyle">
+                            <input style="width:225px;" type="text" class="txtname" id="txtname" placeholder="Please enter your Name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="labelText">
+                            Surname:</td>
+                        <td class="componentStyle">
+                            <input class="txtsurname" id="txtsurname" style="width:225px;" type="text" placeholder="Please enter your Surname">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="labelText">
+                            Designation:</td>
+                        <td class="componentStyle">
+                            <select class="DDLdesignation" id="DDLdesignation" style="height:16px;width:170px;">
+                                <option value="0"> ---- </option>
+                                <option value="4">User</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="labelText">
+                            Email:</td>
+                        <td class="componentStyle">
+                            <input name="txtEmail" id="txtEmail" style="width:225px;" type="email" placeholder="Please enter your email"
+                                name="mail" ng-model="email.text" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$"
+                                required>
+                            <!-- <p class="error" ng-show="myForm.mail.$error.required && myForm.mail.touched">
+                                            E-mail is required
+                                        </p>
+                                        <p class="error" ng-show="myForm.mail.$error.email || myForm.mail.$error.pattern">
+                                            E-mail is invalid
+                                    </p>
+                                -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="labelText">
+                            User Access Level</td>
+                        <td class="componentStyle">
+                            <select name="ddlAccessLevel" id="ddlAccessLevel" style="height:16px;width:170px;" onchange="javascript:setTimeout('__doPostBack(\'ctl00$MainContent$ddlAccessLevel\',\'\')', 0)">
+                                <option selected="selected" value="0"> ---- </option>
+                                <option value="1">Administrator</option>
+                                <option value="1">Administrator</option>
+                                <option value="1">Administrator</option>
+                                <option value="2">System User</option>
+                                <option value="2">Technician</option>
+                                <option value="2">Technician</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="labelText">
+                            Username:</td>
+                        <td class="componentStyle">
+                            <input name="txtUsername" id="txtUsername" style="width:225px;" type="text" placeholder="Please enter your Username">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="labelText">
+                            Password:</td>
+                        <td class="componentStyle">
+                            <input class="txtPassword" id="txtPassword" style="width:225px;" type="password"
+                                placeholder="Please enter your Password">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="labelText">
+                            Default Site:</td>
+                        <td class="componentStyle">
+                            <select class="ddlMunicipalSite" id="ddlMunicipalSite" style="height:16px;width:170px;">
+                                <option value="0"> ---- </option>
+                                <option value="21">Fochville</option>
+                                <option value="25">Carletonville</option>
+
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="style4" colspan="3">
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+
+                        <td class="labelText">
+                        </td>
+                        <td class="componentStyle" colspan="2">
+                            <input class="btnSave" id="btnSave" type="submit" value="Submit">&nbsp;&nbsp;
+                            <input class="btnClear" id="btnClear" type="submit" value="Clear">&nbsp;&nbsp;
+
+                        </td>
+                    </tr>
+                </tbody>
+            </div>
+
+        </table>
+        <br />
+
+
+        <table id="tableBlock" border="1" width="70%" rules="all" cellspacing="0">
+
+            <tbody>
+                <tr class="titlerow">
+                    <td class="lblcell">Name</td>
+                    <td class="lblcell">Surname</td>
+                    <td class="lblcell">Active</td>
+                    <td class="lblcell">Edit</td>
+                    <td class="lblcell">Activate</td>
+                    <td class="lblcell">Deactivate</td>
+                    <td class="lblcell">Add</td>
+                </tr>
+                <tr>
+                    <td class="lblcell">Admin</td>
+                    <td class="lblcell">Admin</td>
+                    <td class="lblcell">True</td>
+                    <td class="lblcell"><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl00','')">Edit</a></td>
+                    <td class="lblcell"> <a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl01','')">Activate</a></td>
+                    <td class="lblcell"><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl02','')">Deactivate</a></td>
+                    <td class="lblcell"><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl03','')">Add
+                            New User</a></td>
+                </tr>
+                <tr>
+                    <td class="lblcell">Visitor</td>
+                    <td class="lblcell">Visitor</td>
+                    <td class="lblcell">True</td>
+                    <td class="lblcell"><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl04$ctl00','')">Edit</a></td>
+                    <td class="lblcell"><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl04$ctl01','')">Activate</a></td>
+                    <td class="lblcell"><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl04$ctl02','')">Deactivate</a></td>
+                    <td class="lblcell"><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl04$ctl03','')">Add
+                            New User</a></td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
 </body>
