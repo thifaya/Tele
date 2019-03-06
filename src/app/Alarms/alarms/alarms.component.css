@@ -9,6 +9,7 @@
     background-color: lightgrey;
     text-align: center;
     border-color: white;
+    
 }
 
 .header {
@@ -18,4 +19,5 @@
     width: 94%;
     margin-left: 3%;
     color: white;
+    font-family: Verdana;
 }

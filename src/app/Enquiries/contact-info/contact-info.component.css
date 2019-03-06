@@ -10,17 +10,19 @@
 fieldset {
     border: 2px solid grey;
     margin-top: 2%;
+    width: 99%;
 }
 
 p {
-    margin-left: 1.5%; 
+    margin-left: 1.7%; 
     font-family:Verdana;
     font-size:9pt;
 }
 
 legend {
-    margin-left: 1.5%;
-    width: 17%
+    margin-left: 1.7%;
+    width: 20%;
+    font-family: Verdana;
 }
 
 .address p {

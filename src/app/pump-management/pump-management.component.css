@@ -19,7 +19,8 @@ legend {
     text-align: center;
     background-color: lightgrey;
     margin-left: 4px;
-    width: 90%
+    width: 90%;
+    font-family: Verdana;
 }
 
 fieldset {

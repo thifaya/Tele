@@ -82,9 +82,20 @@ a {
     border-style:Solid;
     font-family:Verdana;
     font-size:0.8em; 
-    text-align: right 
+    margin-left: 90%;
  }
 
  .btnlogin:hover {
     font-weight: bold;
+ }
+
+ .chckboxRemember {
+    margin-left: 1%; 
+    margin-top: 3%; 
+ }
+
+ .lblInvalid {
+     color: red;
+     font-family: verdana;
+     font-size: 8pt;
  }
