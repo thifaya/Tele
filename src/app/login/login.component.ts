@@ -9,9 +9,15 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
   invalid = false;
+  username: any;
+  password: any;
 
   setTest() {
+    if ( this.username === 'Admin' && this.password === 'admin') {
+    this.invalid = false;
+    } else {
     this.invalid = true;
+    }
   }
 
   ngOnInit() {

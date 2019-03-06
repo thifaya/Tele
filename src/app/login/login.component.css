@@ -83,6 +83,7 @@ a {
     font-family:Verdana;
     font-size:0.8em; 
     margin-left: 90%;
+    cursor: progress;
  }
 
  .btnlogin:hover {
@@ -98,4 +99,8 @@ a {
      color: red;
      font-family: verdana;
      font-size: 8pt;
+ }
+
+ .chckboxRemember:hover {
+     cursor: pointer;
  }

@@ -14,7 +14,11 @@
 }
 
 .list table tr {
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid black;
+}
+
+.list table tr:active {
+    cursor: progress;
 }
 /*
 .list table {
@@ -44,9 +48,9 @@ span {
     margin-bottom: 0px;
     padding-bottom: 0px;
     vertical-align: middle;
-    color: blue;
-    font-size: 3.5mm;
-    font-family: sans-serif;
+    color: black;
+    font-size: 3mm;
+    font-family: Verdana;
     position: relative;
     
 }
@@ -88,8 +92,8 @@ ul {
     overflow: auto;
     background-size: cover;
     margin-left: 40px;
-    border-top: 1px solid blue;
-    border-bottom: 1px solid blue;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .navbar {
