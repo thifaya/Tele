@@ -94,9 +94,9 @@
                     <tr>
                         <td class="labelText">
                             Email:</td>
-                        <td class="componentStyle">
-                            <input name="txtEmail" id="txtEmail" style="width:225px;" type="email" placeholder="Please enter your email"
-                                name="mail" ng-model="email.text" ng-pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$" required>
+                        <td class="componentStyle">                                              <!--^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2.3}+$     \w+@\w+\..{2,3}(.{2,3})?-->
+                            <input name="txtEmail" id="txtEmail" style="width:225px;" pattern="^\w+@\w+\..{2,3}(.{2,3})?$"  type="email" placeholder="Please enter your email"
+                                name="mail" ng-model="email.text" required>
                            
                         </td>
                     </tr>

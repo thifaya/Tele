@@ -38,27 +38,27 @@ body {
     margin-top: 0px;
 }
 
-.DDLprovince {
+.ddlprovince {
     font-family:Verdana;
     font-size:8pt;
 }
 
-.DDLdistrict {
+.ddldistrict {
     font-family:Verdana;
     font-size:8pt;
 }
 
-.DDLmunicipality {
+.ddlmunicipality {
     font-family:Verdana;
     font-size:8pt;
 }
 
-.DDLsite {
+.ddlSite {
     font-family:Verdana;
     font-size:8pt;
 }
 
-.DPdate {
+.dpDate {
     font-family:Verdana;
     font-size:8pt;
 }

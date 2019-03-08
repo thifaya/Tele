@@ -40,42 +40,42 @@ body {
 
 
 
-.DDLprovince {
+.ddlprovince {
     font-family:Verdana;
     font-size:8pt;
 }
 
-.DDLdistrict {
+.ddldistrict {
     font-family:Verdana;
     font-size:8pt;
 }
 
-.DDLmunicipality {
+.ddlmunicipality {
     font-family:Verdana;
     font-size:8pt;
 }
 
-.DDLsite {
+.ddlSite {
     font-family:Verdana;
     font-size:8pt;
 }
 
-.DDLyear {
+.ddlyear {
     font-family:Verdana;
     font-size:8pt;
 }
 
-.DDLmonth {
+.ddlmonth {
     font-family:Verdana;
     font-size:8pt;
 }
 
-.TXThousehold {
+.txthousehold {
     font-family:Verdana;
     font-size:8pt;
 }
 
-.TXTwaterAllocation {
+.txtwaterAllocation {
     font-family:Verdana;
     font-size:8pt;
 }
