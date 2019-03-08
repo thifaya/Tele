@@ -20,8 +20,8 @@
                         <td class="labelText">
                             Title:</td>
                         <td class="componentStyle">
-                            <select id="ddlTitle" class="ddlTitle" style="height:16px;width:170px;">
-                                <option value="0" selected> ---- </option>
+                            <select id="ddlTitle" class="ddlTitle" style="width:170px;" required>
+                                <option value=""> ---- </option>
                                 <option value="1">Mr</option>
                                 <option value="2">Mrs</option>
                                 <option value="3">Miss</option>
@@ -70,23 +70,23 @@
                         <td class="labelText">
                             Name:</td>
                         <td class="componentStyle">
-                            <input style="width:225px;" type="text" class="txtname" id="txtname" placeholder="Please enter your Name">
+                            <input style="width:225px;" type="text" class="txtName" id="txtName" placeholder="Please enter your Name" required>
                         </td>
                     </tr>
                     <tr>
                         <td class="labelText">
                             Surname:</td>
                         <td class="componentStyle">
-                            <input class="txtsurname" id="txtsurname" style="width:225px;" type="text" placeholder="Please enter your Surname">
+                            <input class="txtSurname" id="txtSurname" style="width:225px;" type="text" placeholder="Please enter your Surname" required>
                         </td>
                     </tr>
                     <tr>
                         <td class="labelText">
                             Designation:</td>
                         <td class="componentStyle">
-                            <select class="DDLdesignation" id="DDLdesignation" style="height:16px;width:170px;">
-                                <option value="0"> ---- </option>
-                                <option value="4">User</option>
+                            <select class="ddlDesignation" id="ddlDesignation" style="width:170px;" required>
+                                <option value="" > ---- </option>
+                                <option value="4" aria-required="true">User</option>
 
                             </select>
                         </td>
@@ -96,29 +96,22 @@
                             Email:</td>
                         <td class="componentStyle">
                             <input name="txtEmail" id="txtEmail" style="width:225px;" type="email" placeholder="Please enter your email"
-                                name="mail" ng-model="email.text" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$"
-                                required>
-                            <!-- <p class="error" ng-show="myForm.mail.$error.required && myForm.mail.touched">
-                                            E-mail is required
-                                        </p>
-                                        <p class="error" ng-show="myForm.mail.$error.email || myForm.mail.$error.pattern">
-                                            E-mail is invalid
-                                    </p>
-                                -->
+                                name="mail" ng-model="email.text" ng-pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$" required>
+                           
                         </td>
                     </tr>
                     <tr>
                         <td class="labelText">
                             User Access Level</td>
                         <td class="componentStyle">
-                            <select name="ddlAccessLevel" id="ddlAccessLevel" style="height:16px;width:170px;" onchange="javascript:setTimeout('__doPostBack(\'ctl00$MainContent$ddlAccessLevel\',\'\')', 0)">
-                                <option selected="selected" value="0"> ---- </option>
+                            <select name="ddlAccessLevel" id="ddlAccessLevel" style="width:170px;" required>
+                                <option value="">---</option>
                                 <option value="1">Administrator</option>
                                 <option value="1">Administrator</option>
                                 <option value="1">Administrator</option>
                                 <option value="2">System User</option>
-                                <option value="2">Technician</option>
-                                <option value="2">Technician</option>
+                                <option value="3">Technician</option>
+                                <option value="3">Technician</option>
 
                             </select>
                         </td>
@@ -127,7 +120,7 @@
                         <td class="labelText">
                             Username:</td>
                         <td class="componentStyle">
-                            <input name="txtUsername" id="txtUsername" style="width:225px;" type="text" placeholder="Please enter your Username">
+                            <input name="txtUsername" id="txtUsername" style="width:225px;" type="text" placeholder="Please enter your Username" required>
                         </td>
                     </tr>
                     <tr>
@@ -135,7 +128,7 @@
                             Password:</td>
                         <td class="componentStyle">
                             <input class="txtPassword" id="txtPassword" style="width:225px;" type="password"
-                                placeholder="Please enter your Password">
+                                placeholder="Please enter your Password" required>
                         </td>
                     </tr>
 
@@ -143,8 +136,8 @@
                         <td class="labelText">
                             Default Site:</td>
                         <td class="componentStyle">
-                            <select class="ddlMunicipalSite" id="ddlMunicipalSite" style="height:16px;width:170px;">
-                                <option value="0"> ---- </option>
+                            <select class="ddlMunicipalSite" id="ddlMunicipalSite" style="width:170px;" required>
+                                <option value=""> ---- </option>
                                 <option value="21">Fochville</option>
                                 <option value="25">Carletonville</option>
 
@@ -162,7 +155,7 @@
                         </td>
                         <td class="componentStyle" colspan="2">
                             <input class="btnSave" id="btnSave" type="submit" value="Submit">&nbsp;&nbsp;
-                            <input class="btnClear" id="btnClear" type="submit" value="Clear">&nbsp;&nbsp;
+                            <input class="btnClear" id="btnClear" type="reset" value="Clear">&nbsp;&nbsp;
 
                         </td>
                     </tr>

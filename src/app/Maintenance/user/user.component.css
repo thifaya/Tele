@@ -36,6 +36,11 @@
 .checkboxTable input:hover {
     cursor: pointer;
 }
+ select:hover {
+     cursor: pointer;
+ }
+
+
 /*{
 
 #NavigationMenu img.icon {

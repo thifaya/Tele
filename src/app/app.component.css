@@ -13,7 +13,6 @@ body {
 .navbar {
     
     overflow: auto;
-   
     background-color: white;
     color: steelblue;
     width: 99%;
@@ -24,6 +23,7 @@ body {
     margin-left: 25px;
     
 }
+
 .title b {
     color: slategrey;
     font-family:  Verdana
@@ -31,7 +31,6 @@ body {
 
 .LoginLink {
     font-size:0.8em;
-    text-align: right;
     font-family: Verdana;
     vertical-align: text-top;
     color: red;
@@ -50,7 +49,6 @@ body {
     top: 200px;
     width: 100%;
     padding-bottom: 20px;  
-    
 }
 
 a:hover {
@@ -58,7 +56,7 @@ a:hover {
    font-style: unset;
    opacity: 2px;
    font-weight: bold;
-
+   cursor: pointer;
 }
 
 a {

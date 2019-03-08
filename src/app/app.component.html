@@ -11,10 +11,10 @@
                 <div class="title">
                     <h4><b>.::RAPID ANALYZER::.</b> Water Conservation and Management</h4>
                 </div>
-                <div class="LoginLink" >
-
+                <div class="LoginLink" *ngIf="router.url != '/'" >
+                        
                     Welcome <span><b>Admin</b></span>!
-                    [ <a id="HeadLoginView_A1" href="../Logout.aspx">Log Out</a> ]
+                    [ <a id="logout" class="logout" href="/"  onclick="return confirm('Are You sure you want to logout?')" >Log Out</a> ]
                 </div>
 
             </div>
@@ -22,7 +22,7 @@
            
             <router-outlet></router-outlet>
         </div>
-
+        
         
 
     </form>

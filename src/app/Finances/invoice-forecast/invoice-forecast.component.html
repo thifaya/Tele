@@ -90,7 +90,7 @@
                                 number of households:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div id="ctl00_MainContent_ReportViewer1_ctl04_ctl03" style="font-family:Verdana;font-size:8pt;">
-                                <input class="TXThousehold" id="TXThousehold" type="text" size="30">
+                                <input class="txtHousehold" id="txtHousehold" type="text" size="30" required>
                               </div>
                             </td>
                             <td width="22"></td>
@@ -98,7 +98,7 @@
                                 Basic Water Allocation per Household (L):</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div style="font-family:Verdana;font-size:8pt;">
-                                <input class="TXTwaterAllocation" id="TXTwaterAllocation" type="text" size="30">
+                                <input class="txtWaterAllocation" id="txtWaterAllocation" type="text" size="30" required>
                               </div>
                             </td>
                           </tr>
@@ -107,8 +107,8 @@
                                 Year of Assesment :</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div style="font-family:Verdana;font-size:8pt;">
-                                <select id="DDLyear" class="DDLyear">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                <select id="ddlYear" class="ddlYear" required>
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
                                   <option value="1">2019</option>
                                   <option value="2">2018</option>
                                   <option value="3">2017</option>
@@ -124,8 +124,8 @@
                                 Month:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div style="font-family:Verdana;font-size:8pt;">
-                                <select class="DDLmonth" id="DDLmonth">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                <select class="ddlMonth" id="ddlMonth" required>
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
                                   <option value="1">January</option>
                                   <option value="2">February</option>
                                   <option value="3">March</option>
