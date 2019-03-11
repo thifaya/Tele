@@ -19,6 +19,38 @@
     outline: transparent
 }
 
+.titlerow {
+    background-color: lightgrey;
+    text-align: center;
+    margin: 3%;
+}
+
+.header {
+    margin-top:4%;
+    background-color: slategrey;
+    text-align: center;
+    width: 94%;
+    color: white;
+    font-family: Verdana;
+}
+
+.tableBlock {
+    font-weight: bold;
+    font-size: 9pt;
+    font-family: verdana;
+    margin-left: 5%;
+    border: 1px solid whitesmoke;
+}
+
+.total {
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+.value {
+    margin-left: 15%;
+}
+
 /*
 .btnreport:hover {
     font-weight: lighter;
@@ -89,7 +121,7 @@ body {
     width:100%;
     height:100%;
     margin: 1%;
-    margin-top: 3.5%;
+    margin-top: 2%;
     margin-left: 40px;
     
 }
@@ -107,4 +139,11 @@ body {
 
 select:hover {
     cursor: pointer;
+}
+
+.pageHeading {
+    margin-left: 40px;
+    margin-top: 2.5%;
+    color: steelblue;
+    font-family: Verdana;
 }

@@ -28,3 +28,10 @@ legend {
 .address p {
     margin-bottom: 4px;
 }
+
+.pageHeading {
+    margin-left: 40px;
+    margin-top: 2.5%;
+    color: steelblue;
+    font-family: Verdana;
+}

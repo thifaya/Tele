@@ -9,6 +9,9 @@ export class LevelTrendsComponent implements OnInit {
 
   constructor() { }
 
+    formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    format = this.formats[0];
+
   ngOnInit() {
   }
 

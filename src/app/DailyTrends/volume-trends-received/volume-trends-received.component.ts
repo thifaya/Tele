@@ -9,6 +9,8 @@ export class VolumeTrendsReceivedComponent implements OnInit {
 
   constructor() { }
 
+  test = false;
+
   ngOnInit() {
   }
 

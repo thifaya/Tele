@@ -31,3 +31,10 @@
     text-align: center;
    
 }
+
+.pageHeading {
+    margin-left: 40px;
+    margin-top: 2.5%;
+    color: steelblue;
+    font-family: Verdana;
+}
