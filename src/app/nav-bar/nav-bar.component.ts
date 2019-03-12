@@ -9,6 +9,8 @@ export class NavBarComponent implements OnInit {
 
   constructor() { }
 
+  manualPath: any = '../assets/User_Manual.pdf';
+
   ngOnInit() {
   }
 
