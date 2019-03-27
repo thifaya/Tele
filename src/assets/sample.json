@@ -1,0 +1,14 @@
+   [   
+      {"name": "Admin", "surname": "Admin", "Active": true, "username": "Admin", "password": "admin"},
+      {"name": "Visitor", "surname": "Visitor", "Active": true, "username": "User", "password": "user"},
+      {"title": "1",
+      "name": "Tebogo",
+      "surname": "Molelo",
+      "designation": "1",
+      "Active": true,
+      "dmail": "tebomollo@gmail.com",
+      "access_level": "4",
+      "username": "Faya",
+      "password": "1234",
+      "site": "2"}
+    ]      

@@ -110,9 +110,17 @@ select:hover {
     cursor: pointer;
 }
 
+
 .pageHeading {
     margin-left: 40px;
     margin-top: 2.5%;
     color: steelblue;
     font-family: Verdana;
+}
+
+.lbl {
+    color: red;
+    font-size: 65px;
+    font-family: Verdana;
+    text-align: center;
 }

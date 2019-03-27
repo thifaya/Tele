@@ -20,12 +20,9 @@
                         <td class="labelText">
                             Title:</td>
                         <td class="componentStyle">
-                            <select id="ddlTitle" class="ddlTitle" style="width:170px;" required>
-                                <option value="" style="font-weight: bold; font-size: 5%" > .... </option>
-                                <option value="1">Mr</option>
-                                <option value="2">Mrs</option>
-                                <option value="3">Miss</option>
-                                <option value="4">Dr</option>
+                            <select id="ddlTitle" class="ddlTitle" style="width:170px;"  required>
+                                <option value="" style="font-weight: bold; font-size: 5%"  > .... </option>
+                                <option *ngFor="let title of titles" value="{{title.ID}}">{{title.Name}}</option>
 
                             </select>
                         </td>
@@ -70,14 +67,14 @@
                         <td class="labelText">
                             Name:</td>
                         <td class="componentStyle">
-                            <input style="width:225px;" type="text" class="txtName" id="txtName" placeholder="Please enter your Name" required>
+                            <input style="width:225px;" name="Name" type="text" class="txtName" id="txtName" placeholder="Please enter your Name" required>
                         </td>
                     </tr>
                     <tr>
                         <td class="labelText">
                             Surname:</td>
                         <td class="componentStyle">
-                            <input class="txtSurname" id="txtSurname" style="width:225px;" type="text" placeholder="Please enter your Surname" required>
+                            <input class="txtSurname" name="Surname" id="txtSurname" style="width:225px;" type="text" placeholder="Please enter your Surname" required>
                         </td>
                     </tr>
                     <tr>
@@ -86,7 +83,7 @@
                         <td class="componentStyle">
                             <select class="ddlDesignation" id="ddlDesignation" style="width:170px;" required>
                                 <option value="" style="font-weight: bold; font-size: 5%" > .... </option>
-                                <option value="4" aria-required="true">User</option>
+                                <option *ngFor="let designation of designations" value="{{designation.ID}}">{{designation.Name}}</option>
 
                             </select>
                         </td>
@@ -102,16 +99,16 @@
                     </tr>
                     <tr>
                         <td class="labelText">
-                            User Access Level</td>
+                            User Access Level:</td>
                         <td class="componentStyle">
                             <select name="ddlAccessLevel" id="ddlAccessLevel" style="width:170px;" required>
                                 <option value="" style="font-weight: bold; font-size: 5%" > ....</option>
                                 <option value="1">Administrator</option>
-                                <option value="1">Administrator</option>
-                                <option value="1">Administrator</option>
-                                <option value="2">System User</option>
-                                <option value="3">Technician</option>
-                                <option value="3">Technician</option>
+                                <option value="2">Administrator</option>
+                                <option value="3">Administrator</option>
+                                <option value="4">System User</option>
+                                <option value="5">Technician</option>
+                                <option value="6">Technician</option>
 
                             </select>
                         </td>
@@ -138,8 +135,7 @@
                         <td class="componentStyle">
                             <select class="ddlMunicipalSite" id="ddlMunicipalSite" style="width:170px;" required>
                                 <option value="" style="font-weight: bold; font-size: 5%" > .... </option>
-                                <option value="21">Fochville</option>
-                                <option value="25">Carletonville</option>
+                                <option  *ngFor="let site of sites" value="{{site.Name}}">{{site.Name}}</option>
 
                             </select>
                         </td>
@@ -166,7 +162,7 @@
         <br />
 
 
-        <table class="tableBlock" border="1" width="70%" rules="all" cellspacing="0">
+        <table class="tableBlock" border="1" width="70%" rules="all" cellspacing="0" >
 
             <tbody>
                 <tr class="titlerow">
@@ -178,24 +174,15 @@
                     <td  >Deactivate</td>
                     <td  >Add</td>
                 </tr>
-                <tr>
-                    <td  >Admin</td>
-                    <td  >Admin</td>
-                    <td  >True</td>
-                    <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl00','')">Edit</a></td>
-                    <td  > <a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl01','')">Activate</a></td>
+    
+                <tr *ngFor="let user of users">
+                    <td  >{{user.Name}}</td>
+                    <td  >{{user.Surname}}</td>
+                    <td  >{{user.IsActive}}</td>
+                    <td  ><a class="editLink" style="color: lightsteelblue" (click)="datatest()">Edit</a></td>
+                    <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl01','')">Activate</a></td>
                     <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl02','')">Deactivate</a></td>
                     <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl03','')">Add
-                            New User</a></td>
-                </tr>
-                <tr>
-                    <td  >Visitor</td>
-                    <td  >Visitor</td>
-                    <td  >True</td>
-                    <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl04$ctl00','')">Edit</a></td>
-                    <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl04$ctl01','')">Activate</a></td>
-                    <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl04$ctl02','')">Deactivate</a></td>
-                    <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl04$ctl03','')">Add
                             New User</a></td>
                 </tr>
             </tbody>

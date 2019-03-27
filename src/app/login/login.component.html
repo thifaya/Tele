@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <div class="main" style="padding-bottom: 5% ">
+    <div class="main" style="padding-bottom: 5% " >
 
     <fieldset class="login">
   
@@ -18,32 +18,36 @@
                     <table class="table2" cellspacing="0" cellpadding="4" id="Login2">
                         <tr>
                             <td>
-                                <table class="loginTable" cellpadding="0">
+                                <form #loginForm="ngForm" (submit)="loginUser($event)" >
+                                 <table class="loginTable" cellpadding="0" >
                                     <tr>
                                         <td class="loginNav" colspan="2">Please Enter Your LogIn Credentials</td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: right"><label for="Login2_UserName">User
                                                 Name:</label></td>
-                                        <td><input name="username" type="text" id="txtUsername" class="txtUsername"
+                                        <td><input ng-module="loginUserData.username"  name="username" type="text" id="txtUsername" class="txtUsername" 
                                                 style="font-size:Small;width:200px;" placeholder="Enter Your Username" required></td>
                                     </tr>
                                     <tr>
                                         <td style="text-align: right"><label for="Login2_Password">Password:</label></td>
-                                        <td><input name="password" type="password" id="txtPassword" class="txtPassword"
+                                        <td><input ng-module="loginUserData.password" name="password" type="password" id="txtPassword" class="txtPassword" 
                                                 style="font-size:Small;width:200px;" placeholder="Enter Your Password" required></td>
                                     </tr>
+                                    <tr><td style="color:Red; font-family: Verdana;" colspan="3" *ngIf = 'invalid'>Invalid username or password</td></tr>
                                     <tr>
                                         <td style="text-align: left;border-style:None;" colspan="2" ><input
                                                 id="chckboxRemember" class="chckboxRemember" type="checkbox" /><label
-                                                for="Login2_RememberMe">Remember me next time.</label></td>
+                                                for="RememberMe">Remember me next time.</label></td>
                                     </tr>
-                                    <tr><td style="color:Red;" colspan="2" *ngIf = 'false'>Invalid username or password</td></tr>
                                     <tr>
-                                        <td colspan="2"><input type="submit" class="btnlogin" id="btnlogin" name="loginButton" value="Log In"  routerLink='/comparisonyeartoyear' routerLinkActive='active'   ></td>                                            
+                                        
+                                        <td colspan="2"><input type="submit" class="btnlogin" id="btnlogin" name="loginButton" value="Log In"></td>                                            
                                             
                                     </tr>
-                                </table>
+                                </table>   
+                                </form>
+                                
                             </td>
                         </tr>
                     </table>

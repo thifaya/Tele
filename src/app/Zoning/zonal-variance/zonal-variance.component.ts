@@ -7,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ZonalVarianceComponent implements OnInit {
 
+
+msg: string;
   constructor() { }
+
+  function(month, year) {
+    if ( month === '7' && year === '4') {
+      this.msg = 'No Data Found';
+    } else {
+      this.msg = ' ';
+    }
+  }
 
   ngOnInit() {
   }

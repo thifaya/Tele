@@ -35,7 +35,7 @@
                               <div>
                                 <select class="ddlprovince" id="ddlprovince">
                                   <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
+                                  <option value="-1">All</option>
                                 </select>
                               </div>
                             </td>
@@ -72,13 +72,17 @@
                                 Site:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlSite" id="ddlSite">
+                                <select class="ddlSite" id="ddlSite" name="site">
                                   <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
-
+                                  <option value="1" label="All">All</option>
+                                  
                                 </select>
                               </div>
                             </td>
+                            <td>
+
+                            </td>
+
                           </tr>
                           <!--line space-->
                           <div style="margin-bottom: 22px">
@@ -92,7 +96,7 @@
                               </span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>                                                     
-                                <input type="date"  name="date" id="dpDate" class="dpDate" placeholder="Choose a Date" required>                            
+                                <input type="date"  name="date" id="dpDate" class="dpDate" ngModule="date" placeholder="Choose a Date" required>                            
          
 
                                
@@ -134,7 +138,7 @@
                       <table>
                         <tbody>
                           <tr>
-                            <td><input type="submit" class="btnreport" id="btnreport" value="View Report"></td>
+                            <td><input type="submit" class="btnreport" id="btnreport" value="View Report" ></td>
                           </tr>
                         </tbody>
                       </table>
@@ -191,5 +195,9 @@
       </tr>
     </tbody>
   </table>
+
+  <form >
+    <div [chart]="chart" style="width: 50%"></div>
+  </form>
 
 </body>

@@ -29,16 +29,20 @@ import { MultiYearConsumedTrendsComponent } from './Water-Usage-Analysis/multi-y
 import { MultiYearReceivedTrendsComponent } from './Water-Usage-Analysis/multi-year-received-trends/multi-year-received-trends.component';
 import { YearlyWaterConsumedComponent } from './Water-Usage-Analysis/yearly-water-consumed/yearly-water-consumed.component';
 import { YearlyWaterReceivedComponent } from './Water-Usage-Analysis/yearly-water-received/yearly-water-received.component';
+import { PageNotFoundComponent } from './404-Error/page-not-found/page-not-found.component';
 
 // ROUTING...
 const routes: Routes = [
+
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+
   {
     path: 'dashboard',
     component: FochvilleDashboardComponent
   },
 
   {
-    path: '',
+    path: 'login',
     component: LoginComponent
   },
 
@@ -177,6 +181,12 @@ const routes: Routes = [
     component: PumpManagementComponent
   },
 
+//
+
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  }
 ];
 
 @NgModule({
@@ -211,5 +221,7 @@ export const routingComponents = [
   MultiYearConsumedTrendsComponent,
   MultiYearReceivedTrendsComponent,
   YearlyWaterConsumedComponent,
-  YearlyWaterReceivedComponent
+  YearlyWaterReceivedComponent,
+
+  PageNotFoundComponent
   ];

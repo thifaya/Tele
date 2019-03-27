@@ -1,0 +1,5 @@
+{
+    "target": "http://154.0.172.85:5000",
+    "secure": false,
+    "changeOrigin": true
+}

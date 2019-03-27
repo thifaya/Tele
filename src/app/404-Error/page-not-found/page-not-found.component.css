@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+    vertical-align: -webkit-baseline-middle;
+    color: lightgrey;
+  
+    padding-bottom: 7%;
+    
+}
+
+div {
+    margin-top: 7,5%;
+    padding-top: 9%;
+    font-size: 90px;
+    font-weight: bold;
+}

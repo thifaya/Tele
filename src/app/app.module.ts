@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-// import {RouterModule, Routes} from '@angular/router';
-import { ChartModule } from 'angular2-highcharts';
+import { DataService } from './Server/data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { ChartModule } from 'angular-highcharts';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -76,9 +79,7 @@ import { YearlyWaterConsumedComponent } from './Water-Usage-Analysis/yearly-wate
 import { CarltonvilleFlowRateTrendsComponent } from './Trends/carltonville-flow-rate-trends/carltonville-flow-rate-trends.component';
 import { FochvilleFlowRateTrendsComponent } from './Trends/fochville-flow-rate-trends/fochville-flow-rate-trends.component';
 import { PumpManagementComponent } from './pump-management/pump-management.component';
-
-
-declare var require: any;
+import { PageNotFoundComponent } from './404-Error/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -113,14 +114,16 @@ declare var require: any;
     CarltonvilleFlowRateTrendsComponent,
     FochvilleFlowRateTrendsComponent,
     PumpManagementComponent,
+    PageNotFoundComponent
 
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-  //  ChartModule.forRoot(require('highcharts')),
-    // MdToolbarModule
+    ChartModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -156,13 +159,14 @@ declare var require: any;
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    RouterModule
   ],
   exports: [
     MatCardModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

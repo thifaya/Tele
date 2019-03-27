@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DateTimeFormats } from 'highcharts';
 // import { constants } from 'os';
-// import { chart.js } from 'chart.js';
+ import { chart } from 'chart.js';
 
 @Component({
   selector: 'app-fochville-dashboard',

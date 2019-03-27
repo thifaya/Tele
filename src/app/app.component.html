@@ -11,9 +11,9 @@
                 <div class="title">
                     <h4><b>.::RAPID ANALYZER::.</b> Water Conservation and Management</h4>
                 </div>
-                <div class="LoginLink" *ngIf="router.url != '/'" >
+                <div class="LoginLink" *ngIf="router.url != '/' && router.url != 'login'" >
                         
-                    Welcome <span><b>Admin</b></span>!
+                    Welcome <span (setName)="getName($event)"><b>{{message}}</b></span>!
                     [ <a id="logout" class="logout" href="/"  onclick="return confirm('Are You sure you want to logout?')" >Log Out</a> ]
                 </div>
 
@@ -28,7 +28,7 @@
 
     </form>
     
-    <footer class="footer">
+    <footer class="footer" *ngIf="router.url != '**'" >
 
             Copyrights (c) Tsalano Business Solutions</footer>
 </body>

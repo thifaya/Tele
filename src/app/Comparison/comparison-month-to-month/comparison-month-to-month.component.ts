@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/Server/data.service';
+// import { any } from '@amcharts/amcharts4/.internal/core/utils/Array';
+// import { string } from '@amcharts/amcharts4/core';
 
 @Component({
   selector: 'app-comparison-month-to-month',
@@ -7,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComparisonMonthToMonthComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private _monthServive: DataService) { }
 
   ngOnInit() {
   }
-
 }

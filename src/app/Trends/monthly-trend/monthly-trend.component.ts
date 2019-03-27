@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Chart } from 'angular-highcharts';
 
 @Component({
   selector: 'app-monthly-trend',
@@ -6,6 +7,51 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./monthly-trend.component.css']
 })
 export class MonthlyTrendComponent implements OnInit {
+
+  chart = new Chart({
+    chart: {
+      type: 'area'
+    },
+    title: {
+      text: 'Monthly Water Level',
+    },
+     xAxis: {
+      categories: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday'
+    ],
+    plotBands: [{ // visualize the weekend
+      color: 'rgba(68, 170, 213, .2)'
+  }]
+    },
+    yAxis: {
+      title: {
+          text: 'Level'
+      }
+  },
+  plotOptions: {
+    area: {
+        fillOpacity: 0.5,
+        marker: {
+          enabled: false
+      }
+    },
+},
+        credits: {
+      enabled: false
+    },
+    series: [
+      {
+        name: 'Date',
+        data: [1, 2, 3, 2, 4, 2, 3]
+      }
+    ]
+  });
 
   constructor() { }
 

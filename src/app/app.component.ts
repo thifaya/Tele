@@ -8,7 +8,15 @@ import { Location } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- constructor(private router: Router) {
 
- }
+  message: string;
+
+  constructor(private router: Router) {
+
+  }
+
+  getName($event) {
+    // _______
+    this.message = $event;
+  }
 }

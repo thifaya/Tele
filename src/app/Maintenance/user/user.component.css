@@ -176,3 +176,8 @@
     font-family: Verdana;
 }
 
+.editLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
