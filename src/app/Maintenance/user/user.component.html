@@ -81,7 +81,7 @@
                         <td class="labelText">
                             Designation:</td>
                         <td class="componentStyle">
-                            <select class="ddlDesignation" id="ddlDesignation" style="width:170px;" required>
+                            <select class="ddlDesignation" id="ddlDesignation" style="width:170px;"required>
                                 <option value="" style="font-weight: bold; font-size: 5%" > .... </option>
                                 <option *ngFor="let designation of designations" value="{{designation.ID}}">{{designation.Name}}</option>
 
@@ -133,7 +133,7 @@
                         <td class="labelText">
                             Default Site:</td>
                         <td class="componentStyle">
-                            <select class="ddlMunicipalSite" id="ddlMunicipalSite" style="width:170px;" required>
+                            <select class="ddlMunicipalSite" id="ddlMunicipalSite" style="width:170px;"  required>
                                 <option value="" style="font-weight: bold; font-size: 5%" > .... </option>
                                 <option  *ngFor="let site of sites" value="{{site.Name}}">{{site.Name}}</option>
 
@@ -150,7 +150,7 @@
                         <td class="labelText">
                         </td>
                         <td class="componentStyle" colspan="2">
-                            <input class="btnSave" id="btnSave" type="submit" value="Submit">&nbsp;&nbsp;
+                            <input class="btnSave" id="btnSave" type="submit" value="Submit" (click)="editClick($event)">&nbsp;&nbsp;
                             <input class="btnClear" id="btnClear" type="reset" value="Clear">&nbsp;&nbsp;
 
                         </td>

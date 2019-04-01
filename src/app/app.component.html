@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<html>
+<html  (NameEvent)="myname" >
 
 <body style="margin: 0px auto 0px 0px">
     <form method="post" action="./" id="Form1" class="form1">
@@ -11,15 +11,14 @@
                 <div class="title">
                     <h4><b>.::RAPID ANALYZER::.</b> Water Conservation and Management</h4>
                 </div>
-                <div class="LoginLink" *ngIf="router.url != '/' && router.url != 'login'" >
+                <div class="LoginLink" *ngIf="router.url != '/login'">
                         
-                    Welcome <span (setName)="getName($event)"><b>{{message}}</b></span>!
-                    [ <a id="logout" class="logout" href="/"  onclick="return confirm('Are You sure you want to logout?')" >Log Out</a> ]
+                    Welcome <span ><b>{{name | titlecase}}</b></span>!
+                    [ <a id="logout" class="logout"   (click)="logOut()" >Log Out</a> ]
                 </div>
 
             </div>
             <!--  /Navigation bar  -->
-           
            
             <router-outlet></router-outlet>
         </div>
@@ -28,7 +27,7 @@
 
     </form>
     
-    <footer class="footer" *ngIf="router.url != '**'" >
+    <footer class="footer"  >
 
             Copyrights (c) Tsalano Business Solutions</footer>
 </body>

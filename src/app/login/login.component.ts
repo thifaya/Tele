@@ -15,11 +15,31 @@ export class LoginComponent implements OnInit {
 
   loginUserData;
   invalid = false;
-  myData;
-  name: string;
-  @Output() public setName = new EventEmitter<string>();
+  userData;
 
-  constructor(private _http: HttpClient, private _auth: DataService, private router: Router) { }
+  // variable to store User's Details
+  UserId: number;
+  TitleId: number;
+  Name: string;
+  Surname: string;
+  Username: string;
+  Password: string;
+  ModifiedDate: Date;
+  ModifiedUserId: number;
+  IsActive: boolean;
+  Email: string;
+  DesignationID: number;
+  MunicipalSiteID: number;
+  UserAccessLevelId: number;
+  Create_Update_User: boolean;
+  Start_Stop_Pump: boolean;
+  View_Financial_Report: boolean;
+  Amend_Financial_Details: boolean;
+
+  @Output() NameEvent: EventEmitter<string> = new EventEmitter();
+
+  constructor(private _http: HttpClient, private _auth: DataService, private router: Router) {
+  }
 
 
   ngOnInit() {
@@ -35,82 +55,71 @@ export class LoginComponent implements OnInit {
 
     this.loginUserData = { 'username': username, 'password': password };
 
-   this._auth.login(this.loginUserData)
+   this._auth.loginService(this.loginUserData)
     .subscribe(
       res => {
         if (res.length === 1) {
           this.invalid = false;
           console.log(res);
           console.log(res.length);
-          console.log(res[0].UserId );
-          this.name = res[0].Name;
-          this.setName.emit(res[0].Name);
+
+          this.userData = res[0];
+          localStorage.setItem('userData', JSON.stringify(this.userData));
+
+          this.Name    = this.userData.Name;
+          localStorage.setItem('Name', JSON.stringify(this.userData.Name));
+
+          this.Surname = this.userData.Surname;
+          localStorage.setItem('Surname', JSON.stringify(this.userData.Surname));
+
+          this.Username = this.userData.UserName;
+          localStorage.setItem('Username', JSON.stringify(this.userData.Username));
+
+          this.Password = this.userData.Password;
+          localStorage.setItem('Password', JSON.stringify(this.userData.Password));
+
+          this.UserId = this.userData.UserId;
+          localStorage.setItem('UserId', JSON.stringify(this.userData.UserId));
+
+          this.Email = this.userData.Email;
+          localStorage.setItem('Email', JSON.stringify(this.userData.Email));
+
+          this.ModifiedDate = this.userData.ModifiedDate;
+          localStorage.setItem('ModifiedDate', JSON.stringify(this.userData.ModifiedDate));
+
+          this.TitleId = this.userData.TitleId;
+          localStorage.setItem('TitleId', JSON.stringify(this.userData.TitleId));
+
+          this.DesignationID = this.userData.DesignationID;
+          localStorage.setItem('DesignationID', JSON.stringify(this.userData.DesignationID));
+
+          this.MunicipalSiteID = this.userData.MunicipalSiteID;
+          localStorage.setItem('MunicipalSiteID', JSON.stringify(this.userData.MunicipalSiteID));
+
+          this.UserAccessLevelId = this.userData.UserAccessLevelId;
+          localStorage.setItem('UserAccessLevelId', JSON.stringify(this.userData.UserAccessLevelId));
+
+          this._auth.dataChanged(this.Name);
+
+          this.NameEvent.emit(this.Name);
+
+          console.log(this.Name);
+
           this.router.navigate(['/leveltrends']);
         } else {
           this.invalid = true;
+          console.log(res);
         }
 
       },
-      err => console.log(err));
+      err => {
+        window.alert(err.name + ':  ' + err.statusText);
+        console.log(err);
+      });
   }
 
 
-  login(event) {
-    event.preventDefault();
-    const target = event.target;
-    const username = target.querySelector('#txtUsername').value;
-    const password = target.querySelector('#txtPassword').value;
-    console.log(username);
-    console.log(password);
-
-
-    /*  this._auth.login(username, password).subscribe(data => {
-        if (username === data.username && password === data.password) {
-          this.router.navigate(['leveltrends']);
-          this.invalid = false;
-        } else {
-          this.invalid = true;
-        }
-      }); */
-  }
-/*
-  loginUser(event) {
-    event.preventDefault();
-    const target = event.target;
-    const username = target.querySelector('#txtUsername').value;
-    const password = target.querySelector('#txtPassword').value;
-
-    this.loginUserData = { 'username': username, 'password': password };
-
-    this._auth.loginUser(this.loginUserData)
-      .subscribe(
-        res => console.log(res),
-        err => console.log(err)
-      );
-  }
-
-     this._auth.loginUser(this.loginUserData)
-        .subscribe(
-          res => console.log(res),
-          err => console.log(err)
-        );
-
-
-        this._auth.loginUser(this.myData)
-      .subscribe(
-        res => {
-          if (res.status === 200 && res.result === true) {
-          // k
-          console.log(res);
-          this.router.navigate(['leveltrends']);
-        }},
-        err => {
-          this.invalid = true,
-          console.log(err);
-        }
-
-      );
-
+    /*
     loginuser(username, password) {
       this._auth.loginUser(username, password)
         .subscribe( data => {

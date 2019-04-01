@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User, IDesignation, ITitle, ISite } from './user';
-import { User1 } from './user1';
+import { AppComponent } from '../app.component';
+import { concatMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { forkJoin, BehaviorSubject } from 'rxjs';
+import { delay, take } from 'rxjs/operators';
 
 import { dataLoader } from '@amcharts/amcharts4/core';
 import { pipe } from '@angular/core/src/render3/pipe';
@@ -14,57 +16,99 @@ import { pipe } from '@angular/core/src/render3/pipe';
   providedIn: 'root'
 })
 export class DataService {
-/*
-  private _url = '../assets/sample.json';
-  private _urlMonths = '../assets/months.json';
-  private _urlTitle = '../assets/title.json';
+  /* headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+      'responseType': 'json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+  });   */
 
-  headers = new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+
+  // URL API from server //
+  private userURL = 'http://154.0.172.85:5000/users';
+  private loginURL = 'http://154.0.172.85:5000/login';
+
+  postHeader: HttpHeaders = new HttpHeaders({
+    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     'responseType': 'json',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
     'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
-});   */
-
-private loginURL = 'http://154.0.172.85:5000/login';
-
-  setHeader = new HttpHeaders({
-    ContentType: 'application/json',
-    responseType: 'json'
   });
-          // URL API from server //
 
-  constructor(private _http: HttpClient) { }
+  getHeader: HttpHeaders = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'responseType': 'json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+    'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+  });
+
+  defaultName: AppComponent;
+  userAPI;
+  titleAPI;
+  designationAPI;
+  siteAPI;
+
+  passName = JSON.parse(localStorage.getItem('Name'));
+
+  constructor(private _http: HttpClient) {
+  }
+
+  private dataSource = new BehaviorSubject(this.passName);
+
+  currentData = this.dataSource.asObservable();
+
+  dataChanged(data: string) {
+    this.dataSource.next(data);
+  }
 
 
-
-        // GET API
-  getTitle(): Observable<ITitle[]> {
-    return this._http.get<ITitle[]>('http://154.0.172.85:5000/title', {headers: this.setHeader});
+  // GET API
+  getTitle() {
+    return forkJoin(this._http.get<ITitle>('http://154.0.172.85:5000/title', { headers: this.getHeader }));
   }
 
   getUsers(): Observable<User[]> {
-    return this._http.get<User[]>('http://154.0.172.85:5000/users', {headers: this.setHeader});
+    return forkJoin(this._http.get<User>('http://154.0.172.85:5000/users', { headers: this.getHeader }));
   }
 
-  getDesignation(): Observable<IDesignation[]> {
-    return this._http.get<IDesignation[]>('http://154.0.172.85:5000/designation', {headers: this.setHeader});
+  getDesignation() {
+    return this._http.get<IDesignation>('http://154.0.172.85:5000/designation', { headers: this.getHeader });
   }
 
-  getSite(): Observable<ISite[]> {
-    return this._http.get<ISite[]>('http://154.0.172.85:5000/site', {headers: this.setHeader});
+  getSite() {
+    return this._http.get<ISite>('http://154.0.172.85:5000/site', { headers: this.getHeader });
   }
 
+  getFullData1() {
+    this.userAPI = this._http.get('http://154.0.172.85:5000/users', { headers: this.getHeader });
+    this.titleAPI = this._http.get('http://154.0.172.85:5000/title', { headers: this.getHeader });
+   // this.designationAPI = this._http.get('http://154.0.172.85:5000/designation', { headers: this.getHeader });
+   // this.siteAPI = this._http.get('http://154.0.172.85:5000/site', { headers: this.getHeader });
 
-      // POST API
-  loginUser(user) {
-   // this.user = 'username=' + username + '&password=' + password;
-    return this._http.post<any>('http://154.0.172.85:5000/login', user);
+    return forkJoin([
+      this.userAPI,
+      this.titleAPI,
+    //  this.designationAPI,
+    //  this.siteAPI
+ ]);
   }
 
-  login(user: User) {
-    return this._http.post<any>(this.loginURL, user, {headers: this.setHeader} );
+  getFullData2() {
+   this.designationAPI = this._http.get('http://154.0.172.85:5000/designation', { headers: this.getHeader });
+   this.siteAPI = this._http.get('http://154.0.172.85:5000/site', { headers: this.getHeader });
+
+   return forkJoin([
+    this.designationAPI,
+    this.siteAPI
+]);
+  }
+  // POST API
+
+  loginService(user: User) {
+    return this._http.post<any>(this.loginURL, user, { headers: this.postHeader });
   }
 }
