@@ -31,7 +31,7 @@ export class DataService {
   private loginURL = 'http://154.0.172.85:5000/login';
 
   postHeader: HttpHeaders = new HttpHeaders({
-    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+    'Content-Type': 'application/json',
     'responseType': 'json',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
@@ -39,7 +39,7 @@ export class DataService {
   });
 
   getHeader: HttpHeaders = new HttpHeaders({
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;',
     'responseType': 'json',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
@@ -68,11 +68,11 @@ export class DataService {
 
   // GET API
   getTitle() {
-    return forkJoin(this._http.get<ITitle>('http://154.0.172.85:5000/title', { headers: this.getHeader }));
+    return this._http.get<ITitle[]>('http://154.0.172.85:5000/title', { headers: this.getHeader });
   }
 
   getUsers(): Observable<User[]> {
-    return forkJoin(this._http.get<User>('http://154.0.172.85:5000/users', { headers: this.getHeader }));
+    return this._http.get<User[]>('http://154.0.172.85:5000/users', { headers: this.getHeader });
   }
 
   getDesignation() {
@@ -83,23 +83,19 @@ export class DataService {
     return this._http.get<ISite>('http://154.0.172.85:5000/site', { headers: this.getHeader });
   }
 
-  getFullData1() {
-    this.userAPI = this._http.get('http://154.0.172.85:5000/users', { headers: this.getHeader });
-    this.titleAPI = this._http.get('http://154.0.172.85:5000/title', { headers: this.getHeader });
-   // this.designationAPI = this._http.get('http://154.0.172.85:5000/designation', { headers: this.getHeader });
-   // this.siteAPI = this._http.get('http://154.0.172.85:5000/site', { headers: this.getHeader });
-
+  getDropDownValue() {
     return forkJoin([
-      this.userAPI,
-      this.titleAPI,
-    //  this.designationAPI,
-    //  this.siteAPI
+    this._http.get<ITitle[]>('http://154.0.172.85:5000/title', { headers: this.getHeader }).toPromise(),
+    this._http.get<IDesignation[]>('http://154.0.172.85:5000/designation', { headers: this.getHeader }).toPromise(),
+    this._http.get<ISite[]>('http://154.0.172.85:5000/site', { headers: this.getHeader }).toPromise()
  ]);
   }
 
   getFullData2() {
-   this.designationAPI = this._http.get('http://154.0.172.85:5000/designation', { headers: this.getHeader });
-   this.siteAPI = this._http.get('http://154.0.172.85:5000/site', { headers: this.getHeader });
+   this.designationAPI = this._http.get('http://154.0.172.85:5000/designation', { headers: this.getHeader }).toPromise();
+   this.siteAPI = this._http.get('http://154.0.172.85:5000/site', { headers: this.getHeader }).toPromise();
+   this.userAPI = this._http.get<User[]>('http://154.0.172.85:5000/users', { headers: this.getHeader });
+   this.titleAPI = this._http.get<ITitle[]>('http://154.0.172.85:5000/title', { headers: this.getHeader });
 
    return forkJoin([
     this.designationAPI,

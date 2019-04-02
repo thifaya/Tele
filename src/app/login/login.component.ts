@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../Server/data.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
 
   @Output() NameEvent: EventEmitter<string> = new EventEmitter();
 
-  constructor(private _http: HttpClient, private _auth: DataService, private router: Router) {
+  constructor(private cookie: CookieService, private _auth: DataService, private router: Router) {
   }
 
 
@@ -116,6 +117,24 @@ export class LoginComponent implements OnInit {
         window.alert(err.name + ':  ' + err.statusText);
         console.log(err);
       });
+  }
+
+  // Remember me checkBox
+  rememberMe(event) {
+    this.invalid = false;
+    event.preventDefault();
+    const target = event.target;
+    const username = target.querySelector('#txtUsername').value;
+    const password = target.querySelector('#txtPassword').value;
+    const check = target.querySelector('#chckboxRemember').checked;
+    if (check) {
+      this.cookie.set('username', username);
+      this.cookie.set('password', password);
+      console.log('Checkbox is ' + check);
+    } else {
+      console.log('Checkbox is ' + check);
+    }
+
   }
 
 

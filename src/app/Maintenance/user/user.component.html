@@ -4,191 +4,193 @@
 
 </head>
 
-<body>
+<body >
     <app-nav-bar></app-nav-bar>
     <h6 class="pageHeading"><b>Maintenance Page: User</b></h6>
-    <div class="mainDiv">
+    <form >
+        <div class="mainDiv">
 
-        <span style="font-family: Verdana;color: #006699;"><strong>Enter New User Details:</strong></span><br /><br />
-        <span style="color:Red;"></span>
-
-        <table class="table1">
-            <div style="margin: 1%">
+            <span style="font-family: Verdana;color: #006699;"><strong>Enter New User Details:</strong></span><br /><br />
+            <span style="color:Red;"></span>
+    
+            <table class="table1"  id="table1">
+                <div style="margin: 1%">
+                    <tbody>
+                        <tr>
+    
+                            <td class="labelText">
+                                Title:</td>
+                            <td class="componentStyle">
+                                <select id="ddlTitle" class="ddlTitle" style="width:170px;"  required>
+                                    <option value="" style="font-weight: bold; font-size: 5%"  > .... </option>
+                                    <option *ngFor="let title of titles" value="{{title.ID}}">{{title.Name}}</option>
+    
+                                </select>
+                            </td>
+                            <td style="width: 402px; "  rowspan="10">
+                                <span style="font-family: Verdana; margin-left: 58%;"><strong>Authorised Areas:</strong></span><br />
+                                &nbsp;&nbsp;&nbsp;
+                                <table class="checkboxTable">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <input class="chkboxCreateupdateUser" id="chkboxCreateupdateUser" type="checkbox"><label
+                                                    for="chkboxCreateupdateUserr">Create/Update User</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input class="chkboxStartStopPumps" id="chkboxStartStopPumps" type="checkbox"><label
+                                                    for="chkboxStartStopPumps">Start/Stop Pumps</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input name="chkboxViewFinanceReport" id="chkboxViewFinanceReport" type="checkbox"><label
+                                                    for="chkboxViewFinanceReport">View Finance Reports</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input name="chkboxAmendFinanceDetails" id="chkboxAmendFinanceDetails" type="checkbox">
+                                                <label for="chkboxAmendFinanceDetails">Amend Finance Details</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                &nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labelText">
+                                Name:</td>
+                            <td class="componentStyle">
+                                <input style="width:225px;" name="Name" type="text" class="txtName" id="txtName" value="" placeholder="Please enter your Name" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labelText">
+                                Surname:</td>
+                            <td class="componentStyle">
+                                <input class="txtSurname" name="Surname" id="txtSurname" style="width:225px;" type="text" value="" placeholder="Please enter your Surname" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labelText">
+                                Designation:</td>
+                            <td class="componentStyle">
+                                <select class="ddlDesignation" id="ddlDesignation" style="width:170px;"required>
+                                    <option value="" style="font-weight: bold; font-size: 5%" > .... </option>
+                                    <option *ngFor="let designation of designations" value="{{designation.ID}}">{{designation.Name}}</option>
+    
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labelText">
+                                Email:</td>
+                            <td class="componentStyle">                                              <!--^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2.3}+$     \w+@\w+\..{2,3}(.{2,3})?-->
+                                <input name="txtEmail" id="txtEmail" style="width:225px;" pattern="^\w+@\w+\..{2,3}(.{2,3})?$"  type="email" placeholder="Please enter your email"
+                                    name="mail" ng-model="email.text" required>
+                               
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labelText">
+                                User Access Level:</td>
+                            <td class="componentStyle">
+                                <select name="ddlAccessLevel" id="ddlAccessLevel" style="width:170px;" required>
+                                    <option value="" style="font-weight: bold; font-size: 5%" > ....</option>
+                                    <option value="1">Administrator</option>
+                                    <option value="2">Administrator</option>
+                                    <option value="3">Administrator</option>
+                                    <option value="4">System User</option>
+                                    <option value="5">Technician</option>
+                                    <option value="6">Technician</option>
+    
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labelText">
+                                Username:</td>
+                            <td class="componentStyle">
+                                <input name="txtUsername" id="txtUsername" style="width:225px;" type="text" placeholder="Please enter your Username" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labelText">
+                                Password:</td>
+                            <td class="componentStyle">
+                                <input class="txtPassword" id="txtPassword" style="width:225px;" type="password"
+                                    placeholder="Please enter your Password" required>
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td class="labelText">
+                                Default Site:</td>
+                            <td class="componentStyle">
+                                <select class="ddlMunicipalSite" id="ddlMunicipalSite" style="width:170px;"  required>
+                                    <option value="" style="font-weight: bold; font-size: 5%" > .... </option>
+                                    <option  *ngFor="let site of sites" value="{{site.Name}}">{{site.Name}}</option>
+    
+                                </select>
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td class="style4" colspan="3">
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+    
+                            <td class="labelText">
+                            </td>
+                            <td class="componentStyle" colspan="2">
+                                <input class="btnSave" id="btnSave" type="submit" value="Submit" >&nbsp;&nbsp;
+                                <input class="btnClear" id="btnClear" type="reset" value="Clear">&nbsp;&nbsp;
+    
+                            </td>
+                        </tr>
+                    </tbody>
+                </div>
+    
+            </table>
+            <br />
+    
+    
+            <table class="tableBlock" id="tableBlock" border="1" width="70%" rules="all" cellspacing="0" >
+    
                 <tbody>
-                    <tr>
-
-                        <td class="labelText">
-                            Title:</td>
-                        <td class="componentStyle">
-                            <select id="ddlTitle" class="ddlTitle" style="width:170px;"  required>
-                                <option value="" style="font-weight: bold; font-size: 5%"  > .... </option>
-                                <option *ngFor="let title of titles" value="{{title.ID}}">{{title.Name}}</option>
-
-                            </select>
-                        </td>
-                        <td style="width: 402px; "  rowspan="10">
-                            <span style="font-family: Verdana; margin-left: 58%;"><strong>Authorised Areas:</strong></span><br />
-                            &nbsp;&nbsp;&nbsp;
-                            <table class="checkboxTable">
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <input class="chkboxCreateupdateUser" id="chkboxCreateupdateUser" type="checkbox"><label
-                                                for="chkboxCreateupdateUserr">Create/Update User</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input class="chkboxStartStopPumps" id="chkboxStartStopPumps" type="checkbox"><label
-                                                for="chkboxStartStopPumps">Start/Stop Pumps</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input name="chkboxViewFinanceReport" id="chkboxViewFinanceReport" type="checkbox"><label
-                                                for="chkboxViewFinanceReport">View Finance Reports</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input name="chkboxAmendFinanceDetails" id="chkboxAmendFinanceDetails" type="checkbox">
-                                            <label for="chkboxAmendFinanceDetails">Amend Finance Details</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            &nbsp;</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
+                    <tr class="titlerow">
+                        <td  >Name</td>
+                        <td  >Surname</td>
+                        <td  >Active</td>
+                        <td  >Edit</td>
+                        <td  >Activate</td>
+                        <td  >Deactivate</td>
+                        <td  >Add</td>
                     </tr>
-                    <tr>
-                        <td class="labelText">
-                            Name:</td>
-                        <td class="componentStyle">
-                            <input style="width:225px;" name="Name" type="text" class="txtName" id="txtName" placeholder="Please enter your Name" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="labelText">
-                            Surname:</td>
-                        <td class="componentStyle">
-                            <input class="txtSurname" name="Surname" id="txtSurname" style="width:225px;" type="text" placeholder="Please enter your Surname" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="labelText">
-                            Designation:</td>
-                        <td class="componentStyle">
-                            <select class="ddlDesignation" id="ddlDesignation" style="width:170px;"required>
-                                <option value="" style="font-weight: bold; font-size: 5%" > .... </option>
-                                <option *ngFor="let designation of designations" value="{{designation.ID}}">{{designation.Name}}</option>
-
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="labelText">
-                            Email:</td>
-                        <td class="componentStyle">                                              <!--^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2.3}+$     \w+@\w+\..{2,3}(.{2,3})?-->
-                            <input name="txtEmail" id="txtEmail" style="width:225px;" pattern="^\w+@\w+\..{2,3}(.{2,3})?$"  type="email" placeholder="Please enter your email"
-                                name="mail" ng-model="email.text" required>
-                           
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="labelText">
-                            User Access Level:</td>
-                        <td class="componentStyle">
-                            <select name="ddlAccessLevel" id="ddlAccessLevel" style="width:170px;" required>
-                                <option value="" style="font-weight: bold; font-size: 5%" > ....</option>
-                                <option value="1">Administrator</option>
-                                <option value="2">Administrator</option>
-                                <option value="3">Administrator</option>
-                                <option value="4">System User</option>
-                                <option value="5">Technician</option>
-                                <option value="6">Technician</option>
-
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="labelText">
-                            Username:</td>
-                        <td class="componentStyle">
-                            <input name="txtUsername" id="txtUsername" style="width:225px;" type="text" placeholder="Please enter your Username" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="labelText">
-                            Password:</td>
-                        <td class="componentStyle">
-                            <input class="txtPassword" id="txtPassword" style="width:225px;" type="password"
-                                placeholder="Please enter your Password" required>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="labelText">
-                            Default Site:</td>
-                        <td class="componentStyle">
-                            <select class="ddlMunicipalSite" id="ddlMunicipalSite" style="width:170px;"  required>
-                                <option value="" style="font-weight: bold; font-size: 5%" > .... </option>
-                                <option  *ngFor="let site of sites" value="{{site.Name}}">{{site.Name}}</option>
-
-                            </select>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="style4" colspan="3">
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-
-                        <td class="labelText">
-                        </td>
-                        <td class="componentStyle" colspan="2">
-                            <input class="btnSave" id="btnSave" type="submit" value="Submit" (click)="editClick($event)">&nbsp;&nbsp;
-                            <input class="btnClear" id="btnClear" type="reset" value="Clear">&nbsp;&nbsp;
-
-                        </td>
+        
+                    <tr *ngFor="let user of users; let i = index" >
+                        <td  >{{user.Name}}</td>
+                        <td  >{{user.Surname}}</td>
+                        <td  >{{user.IsActive}}</td>
+                        <td  ><a class="editLink" (click)="editClick(i, user.Name, user.Surname, user.Password, user.Email, user.UserName)" [class.active]="i == selectedRow">Edit</a></td>
+                        <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl01','')">Activate</a></td>
+                        <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl02','')">Deactivate</a></td>
+                        <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl03','')">Add
+                                New User</a></td>
                     </tr>
                 </tbody>
-            </div>
-
-        </table>
-        <br />
-
-
-        <table class="tableBlock" border="1" width="70%" rules="all" cellspacing="0" >
-
-            <tbody>
-                <tr class="titlerow">
-                    <td  >Name</td>
-                    <td  >Surname</td>
-                    <td  >Active</td>
-                    <td  >Edit</td>
-                    <td  >Activate</td>
-                    <td  >Deactivate</td>
-                    <td  >Add</td>
-                </tr>
     
-                <tr *ngFor="let user of users">
-                    <td  >{{user.Name}}</td>
-                    <td  >{{user.Surname}}</td>
-                    <td  >{{user.IsActive}}</td>
-                    <td  ><a class="editLink" style="color: lightsteelblue" (click)="datatest()">Edit</a></td>
-                    <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl01','')">Activate</a></td>
-                    <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl02','')">Deactivate</a></td>
-                    <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl03','')">Add
-                            New User</a></td>
-                </tr>
-            </tbody>
-
-        </table>
-
-    </div>
+            </table>
+    
+        </div>
+    </form>
 
 </body>

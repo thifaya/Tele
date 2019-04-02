@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DateTimeFormats } from 'highcharts';
 // import { constants } from 'os';
- import { chart } from 'chart.js';
+import { chart } from 'chart.js';
 
 @Component({
   selector: 'app-fochville-dashboard',
@@ -10,7 +11,7 @@ import { DateTimeFormats } from 'highcharts';
 })
 export class FochvilleDashboardComponent implements OnInit {
 
-  constructor() {
+  constructor(private router: Router) {
     this.options = {
       title: { text: 'Angular 2 high charts example with selection event ' },
       chart: { zoomtype: 'gauge' },
@@ -33,7 +34,10 @@ export class FochvilleDashboardComponent implements OnInit {
   currentDate: Date = new Date();
 
 
- ngOnInit() {
+  ngOnInit() {
+    if (localStorage.getItem('userData') === null) {
+      this.router.navigate(['/']);
+    }
   }
 
 }

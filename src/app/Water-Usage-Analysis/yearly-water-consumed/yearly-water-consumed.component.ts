@@ -1,57 +1,62 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'angular-highcharts';
+import { Router } from '@angular/router';
+
 
 @Component({
-  selector: 'app-yearly-water-consumed',
-  templateUrl: './yearly-water-consumed.component.html',
-  styleUrls: ['./yearly-water-consumed.component.css']
+    selector: 'app-yearly-water-consumed',
+    templateUrl: './yearly-water-consumed.component.html',
+    styleUrls: ['./yearly-water-consumed.component.css']
 })
 export class YearlyWaterConsumedComponent implements OnInit {
 
-  chart = new Chart({
-    chart: {
-      type: 'column',
-      options3d: {
-          enabled: true,
-          alpha: 10,
-          beta: 25,
-          depth: 70
-      }
-  },
-  title: {
-      text: '3D chart with null values'
-  },
-  subtitle: {
-      text: 'Notice the difference between a 0 value and a null point'
-  },
-  plotOptions: {
-      column: {
-          depth: 25
-      }
-  },
-  xAxis: {
-      labels: {
-          skew3d: true,
-          style: {
-              fontSize: '16px'
-          }
-      }
-  },
-  yAxis: {
-      title: {
-          text: null
-      }
-  },
-  series: [{
-      name: 'Sales',
-      data: [2, 3, null, 4, 0, 5, 1, 4, 6, 3]
-  }]
-  });
+    chart = new Chart({
+        chart: {
+            type: 'column',
+            options3d: {
+                enabled: true,
+                alpha: 10,
+                beta: 25,
+                depth: 70
+            }
+        },
+        title: {
+            text: '3D chart with null values'
+        },
+        subtitle: {
+            text: 'Notice the difference between a 0 value and a null point'
+        },
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        xAxis: {
+            labels: {
+                skew3d: true,
+                style: {
+                    fontSize: '16px'
+                }
+            }
+        },
+        yAxis: {
+            title: {
+                text: null
+            }
+        },
+        series: [{
+            name: 'Sales',
+            data: [2, 3, null, 4, 0, 5, 1, 4, 6, 3]
+        }]
+    });
 
-  constructor() { }
+    constructor(private router: Router) { }
 
-  currentDate: Date = new Date();
-  ngOnInit() {
-  }
+    currentDate: Date = new Date();
+    ngOnInit() {
+        if (localStorage.getItem('userData') === null) {
+            this.router.navigate(['/']);
+        }
+    }
 
 }

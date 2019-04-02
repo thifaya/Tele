@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-zonal-variance',
@@ -8,11 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class ZonalVarianceComponent implements OnInit {
 
 
-msg: string;
-  constructor() { }
+  msg: string;
+  constructor(private router: Router) { }
 
   function(month, year) {
-    if ( month === '7' && year === '4') {
+    if (month === '7' && year === '4') {
       this.msg = 'No Data Found';
     } else {
       this.msg = ' ';
@@ -20,6 +22,9 @@ msg: string;
   }
 
   ngOnInit() {
+    if (localStorage.getItem('userData') === null) {
+      this.router.navigate(['/']);
+    }
   }
 
 }

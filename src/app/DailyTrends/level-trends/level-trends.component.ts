@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'angular-highcharts';
+import { Router } from '@angular/router';
 import { post } from 'selenium-webdriver/http';
 import { string } from '@amcharts/amcharts4/core';
 
@@ -10,7 +11,7 @@ import { string } from '@amcharts/amcharts4/core';
 })
 export class LevelTrendsComponent implements OnInit {
 
- public date = '';
+  public date = '';
 
   chart = new Chart({
     chart: {
@@ -59,7 +60,7 @@ export class LevelTrendsComponent implements OnInit {
     ]
   });
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
   format = this.formats[0];
@@ -70,12 +71,15 @@ export class LevelTrendsComponent implements OnInit {
     return 'Daily Level Trend For  ' + site;
   }
 
-  selectChangeHandler (event: any) {
+  selectChangeHandler(event: any) {
     this.selectedDay = event.target.value;
   }
 
 
   ngOnInit() {
+    if (localStorage.getItem('userData') === null) {
+      this.router.navigate(['/']);
+    }
   }
 
 }

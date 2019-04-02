@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-pump-management',
@@ -7,10 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PumpManagementComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   pumpPath = '../assets/ImageView/waterTower.PNG';
   ngOnInit() {
+    if (localStorage.getItem('userData') === null) {
+  this.router.navigate(['/']);
+}
   }
 
 }

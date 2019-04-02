@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { CookieService } from 'ngx-cookie-service';
 import { DataService } from './Server/data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -166,7 +167,7 @@ import { PageNotFoundComponent } from './404-Error/page-not-found/page-not-found
     MatCardModule,
     MatToolbarModule
   ],
-  providers: [DataService],
+  providers: [DataService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

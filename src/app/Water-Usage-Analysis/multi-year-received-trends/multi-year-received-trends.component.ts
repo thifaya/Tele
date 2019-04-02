@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'angular-highcharts';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-multi-year-received-trends',
@@ -12,32 +14,35 @@ export class MultiYearReceivedTrendsComponent implements OnInit {
     chart: {
       type: 'column',
       options3d: {
-          enabled: true,
-          alpha: 10,
-          beta: 25,
-          depth: 70
+        enabled: true,
+        alpha: 10,
+        beta: 25,
+        depth: 70
       }
-  },
-  plotOptions: {
-    column: {
+    },
+    plotOptions: {
+      column: {
         depth: 25
-    }
-},
-  title: {
+      }
+    },
+    title: {
       text: 'Highcharts Cylinder Chart'
-  },
-  series: [{
-    name: 'water',
-    data: [2, 3, null, 4, 0, 5, 1, 4, 6, 3]
-    // showInLegend: false
-  }]
+    },
+    series: [{
+      name: 'water',
+      data: [2, 3, null, 4, 0, 5, 1, 4, 6, 3]
+      // showInLegend: false
+    }]
   });
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   currentDate: Date = new Date();
   ngOnInit() {
+    if (localStorage.getItem('userData') === null) {
+      this.router.navigate(['/']);
+    }
   }
 
 }

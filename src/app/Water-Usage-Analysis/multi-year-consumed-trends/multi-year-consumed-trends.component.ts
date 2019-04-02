@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as am4core from '@amcharts/amcharts4/core';
+import { Router } from '@angular/router';
+
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { Chart } from 'angular-highcharts';
@@ -27,18 +29,18 @@ export class MultiYearConsumedTrendsComponent implements OnInit {
       line: {
         marker: {
           enabled: false
-      }
+        }
       }
     },
     yAxis: {
       title: {
-          text: 'month value'
+        text: 'month value'
       }
-  },
-     xAxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     },
-        credits: {
+    xAxis: {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    },
+    credits: {
       enabled: false
     },
     series: [
@@ -49,9 +51,12 @@ export class MultiYearConsumedTrendsComponent implements OnInit {
     ]
   });
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    if (localStorage.getItem('userData') === null) {
+      this.router.navigate(['/']);
+    }
   }
 
 }

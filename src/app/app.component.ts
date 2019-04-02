@@ -10,6 +10,7 @@ import { DataService } from '../app/Server/data.service';
 export class AppComponent {
 
   myname;
+  visible = false;
 
   name: string;
 
@@ -38,6 +39,9 @@ export class AppComponent {
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
     console.log(name);
+    if (localStorage.getItem('Name') != null) {
+        this.visible = true;
+    }
   }
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnDestroy() {

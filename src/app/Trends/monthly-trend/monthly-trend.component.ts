@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'angular-highcharts';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-monthly-trend',
@@ -53,9 +55,12 @@ export class MonthlyTrendComponent implements OnInit {
     ]
   });
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    if (localStorage.getItem('userData') === null) {
+      this.router.navigate(['/']);
+    }
   }
 
 }
