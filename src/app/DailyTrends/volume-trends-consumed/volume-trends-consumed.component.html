@@ -69,8 +69,8 @@
                               <td style="padding:5px;padding-right:0px;">
                                 <div >
                                   <select class="ddlSite" id="ddlSite">
-                                    <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                    <option value="1">All</option>
+                                    <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                    <option value="0">All</option>
     
                                   </select>
                                 </div>
@@ -117,7 +117,7 @@
                         <table>
                             <tbody>
                               <tr>
-                                <td><input type="submit" class="btnreport" id="btnreport" value="View Report"></td>
+                                <td><input type="submit" class="btnreport" id="btnreport" value="View Report" (click)="viewReport()"></td>
                               </tr>
                             </tbody>
                           </table>
@@ -168,6 +168,22 @@
             </div>
           </div>
         </td>
+      </tr>
+      <tr class="dataDisplay" *ngIf="test">
+        <h6 class="header"><b>Daily Volumes Report: Consumed for {{siteNane}} - Date: {{dateSelect}}</b></h6>
+
+        <div style="margin-left:30%;margin-top: 3%;"> 
+          <table class="tableBlock" border="1" width="35%" height="15%" rules="all" cellspacing="0">
+            <tbody>
+              <tr class="titlerow">
+                <td>Date</td>
+                <td>Time</td>
+                <td>Volume</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="total">Total Water Consumed: <span class="value">KL</span></p>
+        </div>
       </tr>
     </tbody>
   </table>

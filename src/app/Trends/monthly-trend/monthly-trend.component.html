@@ -70,9 +70,9 @@
                             <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select Site:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlSite" id="ddlSite">
+                                <select class="ddlSite" id="ddlSite" name="ddlSite">
                                   <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
+                                  <option value="0">All</option>
 
                                 </select>
                               </div>
@@ -93,11 +93,12 @@
                                 Trend</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div id="ctl00_MainContent_ReportViewer1_ctl04_ctl07" style="font-family:Verdana;font-size:8pt;">
-                                <select class="ddlTrends" id="ddlTrends" required>                                  
-                                  <option value="1">Consumed&nbsp;Water</option>
-                                  <option value="2">Received&nbsp;Water</option>
-                                  <option value="3">Consumed&nbsp;And&nbsp;Received</option>
-                                  <option selected="selected" value="4">Water&nbsp;Level</option>
+                                <select class="ddlTrends" id="ddlTrends" name="ddlTrends" required>
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>                                  
+                                  <option value="0">Consumed&nbsp;Water</option>
+                                  <option value="1">Received&nbsp;Water</option>
+                                  <option value="2">Consumed&nbsp;And&nbsp;Received</option>
+                                  <option value="3">Water&nbsp;Level</option>
 
                                 </select>
                               </div>
@@ -107,20 +108,20 @@
                               Month</span></td>
                           <td style="padding:5px;padding-right:0px;">
                             <div id="ctl00_MainContent_ReportViewer1_ctl04_ctl03" style="font-family:Verdana;font-size:8pt;">
-                              <select class="ddlMonth" id="ddlMonth" required>
+                              <select class="ddlMonth" id="ddlMonth" name="ddlMonth" required>
                                 <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                <option value="1">January</option>
-                                <option value="2">February</option>
-                                <option value="3">March</option>
-                                <option value="4">April</option>
-                                <option value="5">May</option>
-                                <option value="6">June</option>
-                                <option value="7">July</option>
-                                <option value="8">August</option>
-                                <option value="9">September</option>
-                                <option value="10">October</option>
-                                <option value="11">November</option>
-                                <option value="12">December</option>
+                                <option value="0">January</option>
+                                <option value="1">February</option>
+                                <option value="2">March</option>
+                                <option value="3">April</option>
+                                <option value="4">May</option>
+                                <option value="5">June</option>
+                                <option value="6">July</option>
+                                <option value="6">August</option>
+                                <option value="8">September</option>
+                                <option value="9">October</option>
+                                <option value="10">November</option>
+                                <option value="11">December</option>
   
                               </select>
                             </div>
@@ -143,7 +144,7 @@
                       <table>
                         <tbody>
                           <tr>
-                            <td><input type="submit" class="btnreport" id="btnreport" value="View Report"></td>
+                            <td><input type="submit" class="btnreport" id="btnreport" value="View Report" (click)="viewReport()"></td>
                           </tr>
                         </tbody>
                       </table>
@@ -198,8 +199,12 @@
     </tbody>
   </table>
 
-  <form>
-    <div [chart]="chart"></div>
+  <form *ngIf="test">
+    <h6 class="header">Monthly Trends Analysis</h6>
+    <p style="text-align: center">Today's Date: {{currentDate |date:"dd/MM/yyyy h:mm:ss a"}}</p>
+    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+  style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+    <div style="margin-left: 35px" [chart]="chart"></div>
   </form>
 
 </body>

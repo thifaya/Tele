@@ -56,6 +56,10 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.user();
+    this.titleService();
+    this.designService();
+    this.siteService();
+
    // this.DropDownValue();
    if (localStorage.getItem('userData') === null) {
      this.router.navigate(['/']);
@@ -120,15 +124,12 @@ export class UserComponent implements OnInit {
 
   }
 
-  testEvent(event) {
-    event.preventDefault();
-    const target = event.target;
-    target.querySelector('#txtName').value = 'Tebogo';
-    target.querySelector('#txtSurname').value = 'Mollo';
-    target.querySelector('#txtEmail').value = 't@m.com';
-    target.querySelector('#txtUsername').value = 'tebgo';
-    target.querySelector('#txtPassword').value = 'vsitor';
+  testEvent() {
+
     ///////////////////////////////////////////
+    console.log('Titles: ' + this.titles);
+    console.log('Designation: ' + this.designations);
+    console.log('Site' + this.sites);
   }
 
 

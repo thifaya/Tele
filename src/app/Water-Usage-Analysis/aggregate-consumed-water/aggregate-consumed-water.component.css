@@ -114,3 +114,27 @@ select:hover {
     color: steelblue;
     font-family: Verdana;
 }
+
+.titlerow {
+    background-color: lightgrey;
+    text-align: center;
+    margin: 3%;
+    font-weight: bold;
+}
+
+.header {
+    margin-top:4%;
+    background-color: slategrey;
+    text-align: center;
+    width: 94%;
+    color: white;
+    font-family: Verdana;
+}
+
+.tableBlock {
+    text-align: center;
+    font-size: 9pt;
+    font-family: verdana;
+    margin-left: 5%;
+    border: 1px solid whitesmoke;
+}

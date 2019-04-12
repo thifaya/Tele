@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'angular-highcharts';
 import { Router } from '@angular/router';
-import { post } from 'selenium-webdriver/http';
-import { string } from '@amcharts/amcharts4/core';
+import * as  moment from 'moment';
+import * as Highcharts from 'highcharts';
+import highcharts3D from 'highcharts/highcharts-3d.src';
+highcharts3D(Highcharts);
+
+// import { by, element } from 'protractor';
 
 @Component({
   selector: 'app-level-trends',
@@ -11,54 +14,15 @@ import { string } from '@amcharts/amcharts4/core';
 })
 export class LevelTrendsComponent implements OnInit {
 
-  public date = '';
+  public date;
+  site;
+  dateValue;
+  test: boolean;
+  siteName;
+  index;
 
-  chart = new Chart({
-    chart: {
-      type: 'line'
-    },
-    title: {
-      text: 'Daily Level Trend For  ' + this.date
-    },
-    plotOptions: {
-      line: {
-        marker: {
-          enabled: false
-        }
-      }
-    },
-    yAxis: {
-      title: {
-        text: 'Level'
-      }
-    },
-    responsive: {
-      rules: [{
-        condition: {
-          maxWidth: 500
-        },
-        chartOptions: {
-          legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-          }
-        }
-      }]
-    },
-    xAxis: {
-      categories: ['00:00', '04:00', '08:00', '12:00', '17:00', '21:00']
-    },
-    credits: {
-      enabled: false
-    },
-    series: [
-      {
-        name: 'Time',
-        data: [1, 2, 3, 2, 4, 2]
-      }
-    ]
-  });
+  Highcharts = Highcharts;
+  chartOptions;
 
   constructor(private router: Router) { }
 
@@ -67,19 +31,124 @@ export class LevelTrendsComponent implements OnInit {
   selectedDay: string;
 
 
-  post(site: string) {
-    return 'Daily Level Trend For  ' + site;
-  }
+  post() {
+    this.test = true;
 
-  selectChangeHandler(event: any) {
-    this.selectedDay = event.target.value;
+    this.site = document.querySelector('#ddlSite');
+    this.date = document.querySelector('#dpDate');
+
+    this.index = this.site.value;
+    this.dateValue = this.date.value;
+
+    this.siteName = this.site[++this.index].label;
+
+    this.chartOptions = {
+      chart: {
+         type: 'spline'
+      },
+      title: {
+        text: 'Daily Level Trend For  ' + this.siteName + ' Dated ' + moment(this.dateValue).format('LL')
+      },
+      plotOptions: {
+        line: {
+          marker: {
+            enabled: false
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: 'Level'
+        }
+      },
+      xAxis: {
+        categories: ['00:00', '04:00', '08:00', '12:00', '17:00', '21:00']
+      },
+      tooltip: {
+       //  valueSuffix: ' °C'
+      },
+      responsive: {
+        rules: [{
+          condition: {
+            maxWidth: 500
+          },
+          chartOptions: {
+            legend: {
+              //
+            }
+          }
+        }]
+      },
+      credits: {
+        enabled: false
+      },
+      series: [
+         {
+        name: 'Time',
+        data: [1, 2, 3, 2, 4, 2]
+      }]
+   };
+
+    console.log('Level Trend Report retrieved');
+/**/
   }
 
 
   ngOnInit() {
+    this.test = false;
     if (localStorage.getItem('userData') === null) {
-      this.router.navigate(['/']);
+    //  this.router.navigate(['/']);
     }
   }
 
 }
+
+
+/*
+    this.chart = new Chart({
+      chart: {
+        type: 'line'
+      },
+      title: {
+        text: 'Daily Level Trend For  ' + this.siteName + ' Dated ' + moment(this.date.value).format('LL')
+      },
+      plotOptions: {
+        line: {
+          marker: {
+            enabled: false
+          }
+        }
+      },
+      yAxis: {
+        title: {
+          text: 'Level'
+        }
+      },
+      responsive: {
+        rules: [{
+          condition: {
+            maxWidth: 500
+          },
+          chartOptions: {
+            legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle'
+            }
+          }
+        }]
+      },
+      xAxis: {
+        categories: ['00:00', '04:00', '08:00', '12:00', '17:00', '21:00']
+      },
+      credits: {
+        enabled: false
+      },
+      series: [
+        {
+          name: 'Time',
+          data: [1, 2, 3, 2, 4, 2]
+        }
+      ]
+    });
+*/

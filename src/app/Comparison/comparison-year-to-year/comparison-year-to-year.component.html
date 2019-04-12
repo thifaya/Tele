@@ -89,13 +89,12 @@
                             <div >
                               <select class="ddlYear1" id="ddlYear1" required>
                                 <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                <option value="1">2019</option>
-                                <option value="2">2018</option>
-                                <option value="3">2017</option>
-                                <option value="4">2016</option>
-                                <option value="5">2015</option>
-                                <option value="6">2014</option>
-
+                                <option value="0">2019</option>
+                                <option value="1">2018</option>
+                                <option value="2">2017</option>
+                                <option value="3">2016</option>
+                                <option value="4">2015</option>
+                                <option value="5">2014</option>
                               </select>
                             </div>
                           </td>
@@ -106,21 +105,16 @@
                           <div>
                             <select class="ddlYear2" id="ddlYear2" required>
                               <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                              <option value="1">2019</option>
-                              <option value="2">2018</option>
-                              <option value="3">2017</option>
-                              <option value="4">2016</option>
-                              <option value="5">2015</option>
-                              <option value="6">2014</option>
+                              <option value="0">2019</option>
+                              <option value="1">2018</option>
+                              <option value="2">2017</option>
+                              <option value="3">2016</option>
+                              <option value="4">2015</option>
+                              <option value="5">2014</option>
                             </select>
                           </div>
                         </td>
-                          <td ></td>
-                          <td ></td>
-                          <td ></td>
-                          <td ></td>
-                          <td ></td>                                  
-                        
+                          <td ></td>                                              
                           
                         </tr>
                         <tr isparameterrow="true" >
@@ -141,7 +135,7 @@
                       <table>
                           <tbody>
                             <tr>
-                              <td><input type="submit" class="btnreport" id="btnreport" value="View Report"></td>
+                              <td><input type="submit" class="btnreport" id="btnreport" value="View Report" (click)="viewReport()"></td>
                             </tr>
                           </tbody>
                         </table>
@@ -193,6 +187,59 @@
         </div>
       </td>
     </tr>
+    <tr class="dataForm" *ngIf="test">
+        <h6 class="header"><b>Year To Year Comparison</b></h6>
+        <p style="text-align: center; font-weight: bold">Today's Date: {{ currentDate | date: "dd/MM/yyyy h:mm:ss a" }}</p>
+  
+        <div style="margin-left: 24%">
+            <h6 class="subHeader">Comparison Year 1</h6>
+            <table class="tableYear" id="tableYear" border="1" width="70%" rules="all" cellspacing="0">
+              <tr class="titleRow">
+                <td>Year</td>
+                <td>Water Received</td>
+                <td>Water Consumed</td>
+                <td>Utilization Percentage</td>
+              </tr>
+              <tr>
+                  <td>{{year1}}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+            </table>
+      
+            <h6 class="subHeader">Comparison Year 2</h6>
+            <table class="tableYear" id="tableYear" border="1" width="70%" rules="all" cellspacing="0">
+              <tr class="titleRow">
+                <td>Year</td>
+                <td>Water Received</td>
+                <td>Water Consumed</td>
+                <td>Utilization Percentage</td>
+              </tr>
+              <tr>
+                  <td>{{year2}}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+            </table>
+  
+            <h6 class="subHeader" style="text-align: center; padding-bottom: 2%; ">Variances</h6>
+            <table>
+              <tbody>
+                <tr style="border-bottom: 1px solid white">
+                  <td>Water Received: </td>
+                  <td style="text-align: center; background-color: lightgrey">%</td>
+                </tr>
+                <tr>
+                  <td>Water Consumed: </td>
+                  <td style="text-align: center; background-color: lightgrey;">%</td>
+                </tr>
+              </tbody>
+            </table>
+  
+        </div>
+      </tr>
   </tbody>
 </table>
 

@@ -7,6 +7,7 @@ import { DataService } from './Server/data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ChartModule } from 'angular-highcharts';
+import { HighchartsChartModule } from 'highcharts-angular';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -121,6 +122,7 @@ import { PageNotFoundComponent } from './404-Error/page-not-found/page-not-found
   imports: [
     BrowserModule,
     FormsModule,
+    HighchartsChartModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

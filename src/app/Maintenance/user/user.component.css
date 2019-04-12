@@ -48,14 +48,15 @@
     text-align: left;
 }
 
-.titlerow td {
-    margin-left: 10%;
-    text-align: center
-}
 
 .tableBlock {
     font-family:Verdana;
     font-size: 9pt;
+}
+
+.titlerow td {
+    margin-left: 10%;
+    text-align: center
 }
 
 .tableBlock tbody tr {
@@ -65,9 +66,6 @@
     margin-left: 5%;
     font-size: 10pt;    
 }
-
-
-
 
 .btnSave {
     font-family:Verdana;

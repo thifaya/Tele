@@ -7,213 +7,295 @@
 <body>
   <app-nav-bar></app-nav-bar>
   <h6 class="pageHeading"><b>Finance: Revenue and Invoice Forecast</b></h6>
-  <table class="table1" cellspacing="0" cellpadding="0">
-    <tbody>
-      <tr style="background-color:#ECE9D8;">
-        <td style="width: 25%; display: none;"></td>
-        <td style="width: 6px; display: none;"></td>
-        <td style="width:100%;"></td>
-      </tr>
-      <tr>
-        <td colspan="3">
-          <div class="myDiv">
-            <div>
-              <table class="table2" cellspacing="0" cellpadding="0">
-                <tbody>
-                  <tr>
-                    <td style="width: 100%;height: 100%">
+  <form>
+    <table class="table1" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr style="background-color:#ECE9D8;">
+          <td style="width: 25%; display: none;"></td>
+          <td style="width: 6px; display: none;"></td>
+          <td style="width:100%;"></td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div class="myDiv">
+              <div>
+                <table class="table2" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td style="width: 100%;height: 100%">
 
-                      <table>
-                        <tbody>
+                        <table>
+                          <tbody>
 
-                          <!-- Compalsary row-->
+                            <!-- Compalsary row-->
 
-                          <tr isparameterrow="true">
-                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select Province:</span></td>
-                            <td style="padding:5px;padding-right:0px;">
-                              <div>
-                                <select class="ddlprovince" id="ddlprovince">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
-                                </select>
-                              </div>
-                            </td>
-
-                          </tr>
-                          <tr isparameterrow="true">
-                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select District
-                                or Metropolitan Municipality:</span></td>
-                            <td style="padding:5px;padding-right:0px;">
-                              <div>
-                                <select class="ddldistrict" id="ddldistrict">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
-
-                                </select>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr isparameterrow="true">
-                            <td style="padding:5px; "><span style="font-family:Verdana;font-size:8pt;">Select Local
-                                Municipality:</span></td>
-                            <td style="padding:5px;padding-right:0px;">
-                              <div>
-                                <select class="ddlmunicipality" id="ddlmunicipality">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
-                                </select>
-                              </div>
-                            </td>
-                          </tr>
-
-                          <tr isparameterrow="true">
-                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select Site:</span></td>
-                            <td style="padding:5px;padding-right:0px;">
-                              <div>
-                                <select class="ddlSite" id="ddlSite">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
-
-                                </select>
-                              </div>
-                            </td>
-                          </tr>
-                          <!--line space-->
-                          <div style="margin-bottom: 22px">
                             <tr isparameterrow="true">
+                              <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select
+                                  Province:</span></td>
+                              <td style="padding:5px;padding-right:0px;">
+                                <div>
+                                  <select class="ddlprovince" id="ddlprovince">
+                                    <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                    <option value="1">All</option>
+                                  </select>
+                                </div>
+                              </td>
+
                             </tr>
-                          </div>
+                            <tr isparameterrow="true">
+                              <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select District
+                                  or Metropolitan Municipality:</span></td>
+                              <td style="padding:5px;padding-right:0px;">
+                                <div>
+                                  <select class="ddldistrict" id="ddldistrict">
+                                    <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                    <option value="1">All</option>
 
-                          <!-- /Compalsary row -->
+                                  </select>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr isparameterrow="true">
+                              <td style="padding:5px; "><span style="font-family:Verdana;font-size:8pt;">Select Local
+                                  Municipality:</span></td>
+                              <td style="padding:5px;padding-right:0px;">
+                                <div>
+                                  <select class="ddlmunicipality" id="ddlmunicipality">
+                                    <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                    <option value="1">All</option>
+                                  </select>
+                                </div>
+                              </td>
+                            </tr>
 
-                          <tr isparameterrow="true">
-                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Please enter the
-                                number of households:</span></td>
-                            <td style="padding:5px;padding-right:0px;">
-                              <div id="ctl00_MainContent_ReportViewer1_ctl04_ctl03" style="font-family:Verdana;font-size:8pt;">
-                                <input class="txtHousehold" id="txtHousehold" type="text" size="30" required>
-                              </div>
-                            </td>
-                            <td width="22"></td>
-                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Please enter Free
-                                Basic Water Allocation per Household (L):</span></td>
-                            <td style="padding:5px;padding-right:0px;">
-                              <div style="font-family:Verdana;font-size:8pt;">
-                                <input class="txtWaterAllocation" id="txtWaterAllocation" type="text" size="30" required>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr isparameterrow="true">
-                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Please Select
-                                Year of Assesment :</span></td>
-                            <td style="padding:5px;padding-right:0px;">
-                              <div style="font-family:Verdana;font-size:8pt;">
-                                <select id="ddlYear" class="ddlYear" required>
-                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">2019</option>
-                                  <option value="2">2018</option>
-                                  <option value="3">2017</option>
-                                  <option value="4">2016</option>
-                                  <option value="5">2015</option>
-                                  <option value="6">2014</option>
+                            <tr isparameterrow="true">
+                              <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select
+                                  Site:</span></td>
+                              <td style="padding:5px;padding-right:0px;">
+                                <div>
+                                  <select class="ddlSite" id="ddlSite">
+                                    <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                    <option value="1">All</option>
 
-                                </select>
-                              </div>
-                            </td>
-                            <td width="22"></td>
-                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Please Select
-                                Month:</span></td>
-                            <td style="padding:5px;padding-right:0px;">
-                              <div style="font-family:Verdana;font-size:8pt;">
-                                <select class="ddlMonth" id="ddlMonth" required>
-                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">January</option>
-                                  <option value="2">February</option>
-                                  <option value="3">March</option>
-                                  <option value="4">April</option>
-                                  <option value="5">May</option>
-                                  <option value="6">June</option>
-                                  <option value="7">July</option>
-                                  <option value="8">August</option>
-                                  <option value="9">September</option>
-                                  <option value="10">October</option>
-                                  <option value="11">November</option>
-                                  <option value="12">December</option>
+                                  </select>
+                                </div>
+                              </td>
+                            </tr>
+                            <!--line space-->
+                            <div style="margin-bottom: 22px">
+                              <tr isparameterrow="true">
+                              </tr>
+                            </div>
 
-                                </select>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
+                            <!-- /Compalsary row -->
+
+                            <tr isparameterrow="true">
+                              <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Please enter the
+                                  number of households:</span></td>
+                              <td style="padding:5px;padding-right:0px;">
+                                <div id="ctl00_MainContent_ReportViewer1_ctl04_ctl03"
+                                  style="font-family:Verdana;font-size:8pt;">
+                                  <input class="txtHousehold" id="txtHousehold" name="txtHousehold" type="number"
+                                    size="30" required />
+                                </div>
+                              </td>
+                              <td width="22"></td>
+                              <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Please enter
+                                  Free
+                                  Basic Water Allocation per Household (L):</span></td>
+                              <td style="padding:5px;padding-right:0px;">
+                                <div style="font-family:Verdana;font-size:8pt;">
+                                  <input class="txtWaterAllocation" id="txtWaterAllocation" name="txtWaterAllocation"
+                                    type="number" size="30" required />
+                                </div>
+                              </td>
+                            </tr>
+                            <tr isparameterrow="true">
+                              <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Please Select
+                                  Year of Assesment :</span></td>
+                              <td style="padding:5px;padding-right:0px;">
+                                <div style="font-family:Verdana;font-size:8pt;">
+                                  <select id="ddlYear" class="ddlYear" name="ddlYear" required>
+                                    <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                    <option value="0">2019</option>
+                                    <option value="1">2018</option>
+                                    <option value="2">2017</option>
+                                    <option value="3">2016</option>
+                                    <option value="4">2015</option>
+                                    <option value="5">2014</option>
+
+                                  </select>
+                                </div>
+                              </td>
+                              <td width="22"></td>
+                              <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Please Select
+                                  Month:</span></td>
+                              <td style="padding:5px;padding-right:0px;">
+                                <div style="font-family:Verdana;font-size:8pt;">
+                                  <select class="ddlMonth" id="ddlMonth" name="ddlMonth" required>
+                                    <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+
+                                  </select>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
 
 
-                  </tr>
-                  <!--line space--> <div  style="margin-bottom: 4%" >
-                    <tr isparameterrow="true" >
                     </tr>
+                    <!--line space-->
+                    <div style="margin-bottom: 4%">
+                      <tr isparameterrow="true">
+                      </tr>
                     </div>
-                  <tr style="margin-top: 1px;padding-bottom: 1px">
-                    <td class="cellbutton">
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td><input type="submit" class="btnreport" id="btnreport" value="View Report"></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </td>
-      </tr>
-      <tr style="height:6px;font-size:2pt;width:8%">
-        <td class="cellblock" colspan="3">
-          <div>
-            <input type="hidden"><input type="hidden" value="false">
-          </div>
-        </td>
-      </tr>
-      <tr style="display:none;"></tr>
-      <tr>
-        <td style="width: 25%; height: 100%; vertical-align: top; display: none;">
-          <div style="width:100%;height:100%;">
-            <span>
-              <div style="display:none;">
-                <input type="hidden">
+                    <tr style="margin-top: 1px;padding-bottom: 1px">
+                      <td class="cellbutton">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td><input type="button" class="btnreport" id="btnreport" value="View Report"
+                                  (click)="viewReport()" /></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-            </span>
-          </div>
-        </td>
-        <td style="margin: 0px; padding: 0px; width: 4px; height: 100%; vertical-align: middle; display: none; background-color: rgb(236, 233, 216);">
-          <div>
-            <input type="hidden"><input type="hidden" value="false">
-          </div>
-        </td>
-        <td style="height: 100%; vertical-align: top;">
-          <div style="height:100%;width:100%;overflow:auto;position:relative;">
-            <div style="height:100%;display:none;"></div>
+            </div>
+          </td>
+        </tr>
+        <tr style="height:6px;font-size:2pt;width:8%">
+          <td class="cellblock" colspan="3">
             <div>
-              <div style="visibility:none;" fornonreportcontentarea="false" newcontenttype="Microsoft.Reporting.WebFormsClient.ReportAreaContent.None">
-                <input type="hidden" value="None">
-              </div><input type="hidden"><span></span>
-              <div style="display:none;">
-                <span></span><input type="hidden"><input type="hidden"><input type="hidden" value="100">
-              </div>
-              <div style="width: 100%; height: 100%; display: none;">
+              <input type="hidden"><input type="hidden" value="false">
+            </div>
+          </td>
+        </tr>
+        <tr style="display:none;"></tr>
+        <tr>
+          <td style="width: 25%; height: 100%; vertical-align: top; display: none;">
+            <div style="width:100%;height:100%;">
+              <span>
+                <div style="display:none;">
+                  <input type="hidden">
+                </div>
+              </span>
+            </div>
+          </td>
+          <td
+            style="margin: 0px; padding: 0px; width: 4px; height: 100%; vertical-align: middle; display: none; background-color: rgb(236, 233, 216);">
+            <div>
+              <input type="hidden"><input type="hidden" value="false">
+            </div>
+          </td>
+          <td style="height: 100%; vertical-align: top;">
+            <div style="height:100%;width:100%;overflow:auto;position:relative;">
+              <div style="height:100%;display:none;"></div>
+              <div>
+                <div style="visibility:none;" fornonreportcontentarea="false"
+                  newcontenttype="Microsoft.Reporting.WebFormsClient.ReportAreaContent.None">
+                  <input type="hidden" value="None">
+                </div><input type="hidden"><span></span>
+                <div style="display:none;">
+                  <span></span><input type="hidden"><input type="hidden"><input type="hidden" value="100">
+                </div>
+                <div style="width: 100%; height: 100%; display: none;">
 
+                </div>
               </div>
             </div>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </td>
+        </tr>
+        <tr *ngIf="test">
+          <h6 class="header">Water Revenue and Invoice Forecast for the month: {{monthName}}</h6>
+        <p style="color: grey; font-weight: bold">Water Revenue Forecast in ZAR <span
+            style="text-align: center; font-weight: bold; color: black; margin-left: 20%">Today's Date:
+            {{currentDate |date: "dd/MM/yyyy h:mm:ss a"}}</span></p>
+        <div style="margin-top: 3%;">
+          <table class="financeTable" id="financeTable" border="1" style="border-color: grey" width="70%" rules="all"
+            cellspacing="0">
+            <tr class="titleRow">
+              <td>Consumed Water (KL)</td>
+              <td>Cost Price (R) per L</td>
+              <td>Selling Price (R) per L</td>
+              <td>Free Basic Water per Household (L)</td>
+              <td>Loss%</td>
+              <td>Revenue</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>R</td>
+              <td>R</td>
+              <td>{{household.value}}</td>
+              <td></td>
+              <td style="color: white; background-color: slategrey; font-weight: bold">(R)</td>
+            </tr>
+          </table>
+          <hr border="5" color="black" style="margin-left:0%;" width="70%">
+          <p style="color: grey; font-weight: bold; margin-top: 3%">Water Invoice Payment Forecast in ZAR</p>
+          <table class="financeTable" id="financeTable" border="1" style="border-color: grey" width="55%" rules="all"
+            cellspacing="0">
+            <tr class="titleRow" id="titleRow">
+              <td>Received Water (KL)</td>
+              <td>Cost Price Per L</td>
+              <td>Projected Payment</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>R</td>
+              <td style="color: white; background-color: slategrey; font-weight: bold">R</td>
+            </tr>
+          </table>
+        </div>
 
+          <table style="width: 50%; margin-top: 5%" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr style="margin-top: 10%">
+                <td colspan="2" class="header" id="header"> STATS</td>
+              </tr>
+              <tr style="margin-top: 10%">
+                <td>Value of Allocated Free Basic Water: </td>
+                <td style="text-align: right">R</td>
+              </tr>
+              <tr style="margin-top: 10%">
+                <td>Available Water (KL): </td>
+                <td style="text-align: right">R</td>
+              </tr>
+              <tr style="margin-top: 10%">
+                <td>Cost of Available Water: </td>
+                <td style="text-align: right">R</td>
+              </tr>
+              <tr style="margin-top: 10%">
+                <td>Revenue Margin Before Loss% and FBW Allocation: </td>
+                <td style="text-align: right">R</td>
+              </tr>
+              <tr style="margin-top: 10%">
+                <td><b>USAGE INDICATOR: </b></td>
+                <td style="text-align: center; background-color: grey;"><b>%</b></td>
+              </tr>
+            </tbody>
+          </table>
+        </tr>
+       
+      </tbody>
+    </table>
+  </form>
 </body>
 
 <!--
