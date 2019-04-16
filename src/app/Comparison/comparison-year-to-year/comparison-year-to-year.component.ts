@@ -25,7 +25,7 @@ export class ComparisonYearToYearComponent implements OnInit {
   ngOnInit() {
     this.test = false;
     if (localStorage.getItem('userData') === null) {
-      this.router.navigate(['/']);
+    //  this.router.navigate(['/']);
     }
   }
 

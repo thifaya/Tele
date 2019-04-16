@@ -32,7 +32,7 @@ export class AggregateReceivedWaterComponent implements OnInit {
     viewReport() {
         this.test = true;
 
-        this.chart = new Chart({
+        this.chartOptions = {
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
@@ -87,7 +87,7 @@ export class AggregateReceivedWaterComponent implements OnInit {
                 ]
             }]
 
-        });
+        };
 
         console.log('Report for Aggregate Water Received Retrieved');
     }

@@ -12,9 +12,11 @@ export class CarltonvilleFlowRateTrendsComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  currentDate: Date = new Date();
+
   ngOnInit() {
     if (localStorage.getItem('userData') === null) {
-      this.router.navigate(['/']);
+      // this.router.navigate(['/']);
     }
   }
 

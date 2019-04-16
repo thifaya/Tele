@@ -9,12 +9,18 @@ import { Router } from '@angular/router';
 })
 export class FochvilleFlowRateTrendsComponent implements OnInit {
 
+  currentDate: Date = new Date;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
     if (localStorage.getItem('userData') === null) {
-      this.router.navigate(['/']);
+     // this.router.navigate(['/']);
     }
+
+    if (sessionStorage.getItem('username') === null) {
+       this.router.navigate(['/']);
+     }
   }
 
 }

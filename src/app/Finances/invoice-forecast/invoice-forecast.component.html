@@ -224,75 +224,81 @@
         </tr>
         <tr *ngIf="test">
           <h6 class="header">Water Revenue and Invoice Forecast for the month: {{monthName}}</h6>
-        <p style="color: grey; font-weight: bold">Water Revenue Forecast in ZAR <span
-            style="text-align: center; font-weight: bold; color: black; margin-left: 20%">Today's Date:
-            {{currentDate |date: "dd/MM/yyyy h:mm:ss a"}}</span></p>
-        <div style="margin-top: 3%;">
-          <table class="financeTable" id="financeTable" border="1" style="border-color: grey" width="70%" rules="all"
-            cellspacing="0">
-            <tr class="titleRow">
-              <td>Consumed Water (KL)</td>
-              <td>Cost Price (R) per L</td>
-              <td>Selling Price (R) per L</td>
-              <td>Free Basic Water per Household (L)</td>
-              <td>Loss%</td>
-              <td>Revenue</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>R</td>
-              <td>R</td>
-              <td>{{household.value}}</td>
-              <td></td>
-              <td style="color: white; background-color: slategrey; font-weight: bold">(R)</td>
-            </tr>
-          </table>
-          <hr border="5" color="black" style="margin-left:0%;" width="70%">
-          <p style="color: grey; font-weight: bold; margin-top: 3%">Water Invoice Payment Forecast in ZAR</p>
-          <table class="financeTable" id="financeTable" border="1" style="border-color: grey" width="55%" rules="all"
-            cellspacing="0">
-            <tr class="titleRow" id="titleRow">
-              <td>Received Water (KL)</td>
-              <td>Cost Price Per L</td>
-              <td>Projected Payment</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>R</td>
-              <td style="color: white; background-color: slategrey; font-weight: bold">R</td>
-            </tr>
-          </table>
-        </div>
-
-          <table style="width: 50%; margin-top: 5%" cellpadding="0" cellspacing="0">
-            <tbody>
-              <tr style="margin-top: 10%">
-                <td colspan="2" class="header" id="header"> STATS</td>
-              </tr>
-              <tr style="margin-top: 10%">
-                <td>Value of Allocated Free Basic Water: </td>
-                <td style="text-align: right">R</td>
-              </tr>
-              <tr style="margin-top: 10%">
-                <td>Available Water (KL): </td>
-                <td style="text-align: right">R</td>
-              </tr>
-              <tr style="margin-top: 10%">
-                <td>Cost of Available Water: </td>
-                <td style="text-align: right">R</td>
-              </tr>
-              <tr style="margin-top: 10%">
-                <td>Revenue Margin Before Loss% and FBW Allocation: </td>
-                <td style="text-align: right">R</td>
-              </tr>
-              <tr style="margin-top: 10%">
-                <td><b>USAGE INDICATOR: </b></td>
-                <td style="text-align: center; background-color: grey;"><b>%</b></td>
-              </tr>
-            </tbody>
-          </table>
+          <p style="text-align: center; font-weight: bold; color: black;">Today's Date:
+            {{currentDate |date: "dd/MM/yyyy h:mm a"}}</p>
         </tr>
-       
+
+      </tbody>
+    </table>
+    <table style="margin-left: 65px" width="94%" *ngIf="test">
+      <tbody>
+        <tr>
+          <td>
+
+            <p style="color: grey; font-weight: bold;">Water Revenue Forecast in ZAR </p>
+            <table class="financeTable" id="financeTable" border="1" width="100%" rules="all" cellspacing="0">
+              <tr class="titleRow">
+                <td>Consumed Water (KL)</td>
+                <td>Cost Price (R) per L</td>
+                <td>Selling Price (R) per L</td>
+                <td>Free Basic Water per Household (L)</td>
+                <td>Loss%</td>
+                <td>Revenue</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>R</td>
+                <td>R</td>
+                <td>{{household.value}}</td>
+                <td></td>
+                <td style="color: white; background-color: slategrey; ">( R1 345 675 657.00 )</td>
+              </tr>
+            </table>
+            <hr border="5" color="black" style="margin-left:0%;" width="100%">
+            <p style="color: grey; font-weight: bold; margin-top: 3%">Water Invoice Payment Forecast in ZAR</p>
+            <table class="financeTable" id="financeTable" border="1" width="75%" rules="all" cellspacing="0">
+              <tr class="titleRow" id="titleRow">
+                <td>Received Water (KL)</td>
+                <td>Cost Price Per L</td>
+                <td>Projected Payment</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>R</td>
+                <td style="color: white; background-color: slategrey; font-weight: bold">R</td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <table style="margin-left: 10%; margin-top: -5%"  cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr style="margin-top: 10%">
+                  <th colspan="2" class="header" id="header"> STATS</th>
+                </tr>
+                <tr style="margin-top: 10%">
+                  <td>Value of Allocated Free Basic Water: </td>
+                  <td style="text-align: right">R</td>
+                </tr>
+                <tr style="margin-top: 10%">
+                  <td>Available Water (KL): </td>
+                  <td style="text-align: right">R</td>
+                </tr>
+                <tr style="margin-top: 10%">
+                  <td>Cost of Available Water: </td>
+                  <td style="text-align: right; width: 30%">R1 652 836 893.00</td>
+                </tr>
+                <tr style="margin-top: 10%">
+                  <td>Revenue Margin Before Loss% and FBW Allocation: </td>
+                  <td style="text-align: right">R</td>
+                </tr>
+                <tr style="margin-top: 10%">
+                  <td><b>USAGE INDICATOR: </b></td>
+                  <td style="text-align: center; background-color: grey;"><b>%</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
       </tbody>
     </table>
   </form>

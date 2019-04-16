@@ -218,62 +218,67 @@
         </div>
       </td>
     </tr>
-    <tr class="dataForm" *ngIf="test">
+    <tr *ngIf="test">
       <h6 class="header"><b>Month to Month Comparison</b></h6>
-      <p style="text-align: center; font-weight: bold">Today's Date: {{ currentDate | date: "dd/MM/yyyy h:mm:ss a" }}</p>
+      <p style="text-align: center; font-weight: bold">Today's Date: {{ currentDate | date: "dd/MM/yyyy h:mm a" }}</p>
+    </tr>
+  </tbody>
+</table>
+<table style="margin-left: 85px; width: 95%;" *ngIf="test" cellpadding="2">
+  <tbody>
+    <tr>
+      <td style="width: 55%">
+        <h6 class="subHeader">Comparison Year 1</h6>
+        <table class="tableYear" id="tableYear" border="1" width="100%" rules="all" cellspacing="0">
+          <tr class="titleRow">
+            <th>Year</th>
+            <th>Month</th>
+            <th>Water Received</th>
+            <th>Water Consumed</th>
+            <th>Utilization Percentage</th>
+          </tr>
+          <tr>
+            <td>{{year1}}</td>
+            <td>{{month.value}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
 
-      <div style="margin-left: 24%">
-          <h6 class="subHeader">Comparison Year 1</h6>
-          <table class="tableYear" id="tableYear" border="1" width="70%" rules="all" cellspacing="0">
-            <tr class="titleRow">
-              <td>Year</td>
-              <td>Month</td>
-              <td>Water Received</td>
-              <td>Water Consumed</td>
-              <td>Utilization Percentage</td>
+        <h6 class="subHeader">Comparison Year 2</h6>
+        <table class="tableYear" id="tableYear" border="1" width="100%" rules="all" cellspacing="0">
+          <tr class="titleRow">
+            <th>Year</th>
+            <th>Month</th>
+            <th>Water Received</th>
+            <th>Water Consumed</th>
+            <th>Utilization Percentage</th>
+          </tr>
+          <tr>
+            <td>{{year2}}</td>
+            <td>{{month.value}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </td >
+      <td>
+        <table style="margin-left: 25%;" width="50%"> 
+          <tbody style="width: 30%">
+            <th class="tableHead" colspan="2" >Variances</th>
+            <tr style="border-bottom: 1px solid white">
+              <td>Water Received: </td>
+              <td style="text-align: center; background-color: lightgrey">%</td>
             </tr>
             <tr>
-                <td>{{year1}}</td>
-                <td>{{month.value}}</td>
-                <td></td>
-                <td></td>
-                <td></td>
+              <td>Water Consumed: </td>
+              <td style="text-align: center; background-color: lightgrey;">%</td>
             </tr>
-          </table>
-    
-          <h6 class="subHeader">Comparison Year 2</h6>
-          <table class="tableYear" id="tableYear" border="1" width="70%" rules="all" cellspacing="0">
-            <tr class="titleRow">
-              <td>Year</td>
-              <td>Month</td>
-              <td>Water Received</td>
-              <td>Water Consumed</td>
-              <td>Utilization Percentage</td>
-            </tr>
-            <tr>
-                <td>{{year2}}</td>
-                <td>{{month.value}}</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-          </table>
-
-          <h6 class="subHeader" style="text-align: center; padding-bottom: 2%; ">Variances</h6>
-          <table>
-            <tbody>
-              <tr style="border-bottom: 1px solid white">
-                <td>Water Received: </td>
-                <td style="text-align: center; background-color: lightgrey">%</td>
-              </tr>
-              <tr>
-                <td>Water Consumed: </td>
-                <td style="text-align: center; background-color: lightgrey;">%</td>
-              </tr>
-            </tbody>
-          </table>
-
-      </div>
+          </tbody>
+        </table>
+      </td>
     </tr>
   </tbody>
 </table>

@@ -69,12 +69,14 @@ export class LoginComponent implements OnInit {
 
           this.Name    = this.userData.Name;
           localStorage.setItem('Name', JSON.stringify(this.userData.Name));
+          sessionStorage.setItem('Name', JSON.stringify(this.userData.Name));
 
           this.Surname = this.userData.Surname;
           localStorage.setItem('Surname', JSON.stringify(this.userData.Surname));
 
           this.Username = this.userData.UserName;
           localStorage.setItem('Username', JSON.stringify(this.userData.Username));
+          sessionStorage.setItem('Username', JSON.stringify(this.userData.Username));
 
           this.Password = this.userData.Password;
           localStorage.setItem('Password', JSON.stringify(this.userData.Password));
@@ -136,21 +138,5 @@ export class LoginComponent implements OnInit {
     }
 
   }
-
-
-    /*
-    loginuser(username, password) {
-      this._auth.loginUser(username, password)
-        .subscribe( data => {
-          this.router.navigate(['/leveltrends']);
-        },
-          (err: HttpErrorResponse) => {
-            this.invalid = true;
-          }
-        );
-
-        console.log(this.loginData);
-    }
-  */
 
 }

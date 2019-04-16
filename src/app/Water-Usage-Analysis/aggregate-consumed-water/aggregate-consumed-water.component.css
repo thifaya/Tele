@@ -135,6 +135,7 @@ select:hover {
     text-align: center;
     font-size: 9pt;
     font-family: verdana;
-    margin-left: 5%;
     border: 1px solid whitesmoke;
+    vertical-align: top; 
+    margin-top: -15%; 
 }

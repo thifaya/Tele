@@ -32,7 +32,7 @@ export class AggregateConsumedWaterComponent implements OnInit {
     viewReport() {
         this.test = true;
 
-        this.chart = new Chart({
+        this.chartOptions = {
             chart: {
                 type: 'pie',
                 options3d: {
@@ -83,7 +83,7 @@ export class AggregateConsumedWaterComponent implements OnInit {
                     ['Sunday', 5.7]
                 ]
             }]
-        });
+        };
 
         console.log('Report for Aggregate Water Consumed Retrieved');
     }

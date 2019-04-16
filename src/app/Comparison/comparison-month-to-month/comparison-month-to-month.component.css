@@ -136,11 +136,23 @@ select:hover {
 .subHeader {
     margin-top:4%;
     background-color: slategrey;
+    width: 35%;
+    color: white;
+    font-family: Verdana;
+    padding-left: 4px;
+    font-weight: bold;
+}
+
+.tableHead {
+    margin-top:4%;
+    background-color: slategrey;
     width: 25%;
     color: white;
     font-family: Verdana;
     padding-left: 4px;
     font-weight: bold;
+    text-align: center;
+    padding-bottom: 2%;
 }
 
 .titleRow {
