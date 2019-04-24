@@ -40,7 +40,7 @@
     "jspdf": "^1.5.3",
     "material-design-icons": "^3.0.1",
     "moment": "^2.24.0",
-    "mssql": "^5.0.5",
+    "mssql": "^5.0.6",
     "ngx-auth": "^5.0.0",
     "ngx-cookie-service": "^2.1.0",
     "ngx-loading": "^3.0.1",

@@ -3,6 +3,7 @@ import { DataService } from 'src/app/Server/data.service';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { delay, take, concatMap, map } from 'rxjs/operators';
+import * as mssql from 'mssql';
 
 
 
@@ -19,6 +20,7 @@ export class UserComponent implements OnInit {
   public titles: object = [];
   public designations: object = [];
   public sites: object = [];
+  public accessLevels: Object = [];
 
   name: any;
   surname: any;
@@ -28,42 +30,25 @@ export class UserComponent implements OnInit {
 
   selectedRow: Number;
 
-  setHeader = new HttpHeaders({
+  getHeader = new HttpHeaders({
     'Content-Type': 'application/x-www-urlencoded;charset=utf-8;',
+    'responseType': 'json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+    'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
   });
+  // msSQL
 
 
   constructor(private _dataService: DataService, private _http: HttpClient, private router: Router) {
-    /* this._dataService.getFullData()
-       .subscribe(
-         data => {
-         this.users = data[0],
-         this.titles = data[1],
-         this.designations = data[2],
-         this.sites = data[3];
-       },
-       this._http.get('http://154.0.172.85:5000/users').subscribe(res => this.users = res);
-      this._http.get('http://154.0.172.85:5000/title').subscribe(res => this.titles = res);
-      this._http.get('http://154.0.172.85:5000/designation').subscribe(res => this.designations = res);
-      this._http.get('http://154.0.172.85:5000/site').subscribe(res => this.sites = res);
-        error => {
-         window.alert(error.name + ':  ' + error.message);
-        });
-        */
-
-
   }
 
   ngOnInit() {
-    this.user();
-    this.titleService();
-    this.designService();
-    this.siteService();
-
-   // this.DropDownValue();
-   if (localStorage.getItem('userData') === null) {
-     this.router.navigate(['/']);
-   }
+    this.DropDownValue();
+   // this.DropDownValue2();
+    if (localStorage.getItem('userData') === null) {
+      // this.router.navigate(['/']);
+    }
   }
 
   user() {
@@ -72,34 +57,44 @@ export class UserComponent implements OnInit {
   }
 
   DropDownValue() {
-    this._dataService.getDropDownValue()
-      .subscribe(res => {
-        this.titles = res[0];
-        this.designations = res[1];
-        this.sites = res[2];
-      },
-      err => console.log(err));
+    this._dataService.getUsers()
+      .subscribe(_user => {
+        this.users = _user;
+        this._dataService.getTitle()
+          .subscribe(_title => {
+            this.titles = _title;
+            this._dataService.getDesignation()
+              .subscribe(_designation => {
+                this.designations = _designation;
+                this._dataService.getSite()
+                  .subscribe(_site => {
+                    this.sites = _site;
+                    this._dataService.getAccessLevel()
+                      .subscribe(_access => {
+                        this.accessLevels = _access;
+                      });
+                  });
+              });
+          });
+      });
   }
-
-  /////////////////////////
-  titleService() {
-    this._dataService.getTitle()
-      .subscribe(res => this.titles = res);
+  DropDownValue2() {
+    this._http.get('http://154.0.172.85:5000/users', { headers: this.getHeader }).subscribe(user => {
+      this.users = user;
+      this._http.get('http://154.0.172.85:5000/title', { headers: this.getHeader }).subscribe(title => {
+        this.titles = title;
+        this._http.get('http://154.0.172.85:5000/designation', { headers: this.getHeader }).subscribe(designation => {
+          this.designations = designation;
+          this._http.get('http://154.0.172.85:5000/site', { headers: this.getHeader }).subscribe(site => {
+            this.sites = site;
+          });
+        });
+      });
+    });
   }
+  //////////////////////////////////////////////////
 
-  siteService() {
-    this._dataService.getSite()
-      .subscribe(data => this.sites = data)
-      .unsubscribe();
-  }
-
-  designService() {
-    this._dataService.getDesignation()
-      .subscribe(data => this.designations = data);
-  }
-  ///////////////////////////
-
-      //  Edit button click Event
+  //  Edit button click Event
   editClick(index, NAME, SURNAME, PASSWORD, EMAIL, USERNAME) {
     this.selectedRow = index;
     console.log(this.selectedRow);

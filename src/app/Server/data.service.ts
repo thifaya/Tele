@@ -83,24 +83,23 @@ export class DataService {
     return this._http.get<ISite>('http://154.0.172.85:5000/site', { headers: this.getHeader });
   }
 
-  getDropDownValue() {
-    return forkJoin([
-    this._http.get<ITitle[]>('http://154.0.172.85:5000/title', { headers: this.getHeader }).toPromise(),
-    this._http.get<IDesignation[]>('http://154.0.172.85:5000/designation', { headers: this.getHeader }).toPromise(),
-    this._http.get<ISite[]>('http://154.0.172.85:5000/site', { headers: this.getHeader }).toPromise()
- ]);
+  getAccessLevel() {
+    return this._http.get('http://154.0.172.85:5000/accessLevel', { headers: this.getHeader });
   }
 
-  getFullData2() {
-   this.designationAPI = this._http.get('http://154.0.172.85:5000/designation', { headers: this.getHeader }).toPromise();
-   this.siteAPI = this._http.get('http://154.0.172.85:5000/site', { headers: this.getHeader }).toPromise();
-   this.userAPI = this._http.get<User[]>('http://154.0.172.85:5000/users', { headers: this.getHeader });
-   this.titleAPI = this._http.get<ITitle[]>('http://154.0.172.85:5000/title', { headers: this.getHeader });
-
-   return forkJoin([
-    this.designationAPI,
-    this.siteAPI
-]);
+  getFullData2(u, t, d, s) {
+    this._http.get('http://154.0.172.85:5000/users', { headers: this.getHeader }).subscribe(user => {
+      u = user;
+      this._http.get('http://154.0.172.85:5000/title', { headers: this.getHeader }).subscribe(title => {
+        t = title;
+        this._http.get('http://154.0.172.85:5000/designation', { headers: this.getHeader }).subscribe(designation => {
+          d = designation;
+          this._http.get('http://154.0.172.85:5000/site', { headers: this.getHeader }).subscribe(site => {
+            s = site;
+          });
+        });
+      });
+    });
   }
   // POST API
 

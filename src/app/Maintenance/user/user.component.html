@@ -104,12 +104,7 @@
                             <td class="componentStyle">
                                 <select name="ddlAccessLevel" id="ddlAccessLevel" style="width:170px;" required>
                                     <option value="" style="font-weight: bold; font-size: 5%" > ....</option>
-                                    <option value="1">Administrator</option>
-                                    <option value="2">Administrator</option>
-                                    <option value="3">Administrator</option>
-                                    <option value="4">System User</option>
-                                    <option value="5">Technician</option>
-                                    <option value="6">Technician</option>
+                                    <option *ngFor="let level of accessLevels" value="{{level.UserAccessLevelId}}" >{{level.Description}}</option>
     
                                 </select>
                             </td>
@@ -180,7 +175,7 @@
                         <td  >{{user.Name}}</td>
                         <td  >{{user.Surname}}</td>
                         <td  >{{user.IsActive}}</td><!--"editClick(i, user.Name, user.Surname, user.Password, user.Email, user.UserName)"-->
-                        <td  ><a class="editLink" (click)="testEvent()" [class.active]="i == selectedRow">Edit</a></td>
+                        <td  ><a class="editLink" (click)="editClick(i, user.Name, user.Surname, user.Password, user.Email, user.UserName)" [class.active]="i == selectedRow">Edit</a></td>
                         <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl01','')">Activate</a></td>
                         <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl02','')">Deactivate</a></td>
                         <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl03','')">Add

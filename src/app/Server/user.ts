@@ -40,9 +40,4 @@ export interface ITitle {
     IsActive: boolean;
 }
 
-/*
-Telemetry Server details : 154.0.172.85
-Username: Administrator
-Password: D,~-\NDwuE+B+8nU45VQpa:n9=Gs<zk/+bABUp>"d5"(C%[Sb)
 
-*/
