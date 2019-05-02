@@ -5,8 +5,6 @@ import * as Highcharts from 'highcharts';
 import highcharts3D from 'highcharts/highcharts-3d.src';
 highcharts3D(Highcharts);
 
-// import { by, element } from 'protractor';
-
 @Component({
   selector: 'app-level-trends',
   templateUrl: './level-trends.component.html',
@@ -17,7 +15,7 @@ export class LevelTrendsComponent implements OnInit {
   public date;
   site;
   dateValue;
-  test: boolean;
+  invalid: boolean;
   siteName;
   index;
 
@@ -32,7 +30,7 @@ export class LevelTrendsComponent implements OnInit {
 
 
   post() {
-    this.test = true;
+    this.invalid = true;
 
     this.site = document.querySelector('#ddlSite');
     this.date = document.querySelector('#dpDate');
@@ -95,7 +93,13 @@ export class LevelTrendsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.test = false;
+    this.invalid = false;
+
+    if (sessionStorage.getItem('userData') === null) {
+      window.alert('Must Login First');
+    //  this.router.navigate(['/']);
+      }
+
     if (localStorage.getItem('userData') === null) {
     //  this.router.navigate(['/']);
     }

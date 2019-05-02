@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class ComparisonMonthToMonthComponent implements OnInit {
 
   currentDate: Date = new Date;
-  test: boolean;
+  invalid: boolean;
 
   month;
   year1;
@@ -27,14 +27,20 @@ export class ComparisonMonthToMonthComponent implements OnInit {
   constructor(private _dateService: DataService, private router: Router) { }
 
   ngOnInit() {
-    this.test = false;
+    this.invalid = false;
+
+    if (sessionStorage.getItem('userData') === null) {
+      window.alert('Must Login First');
+    //  this.router.navigate(['/']);
+      }
+
     if (localStorage.getItem('userData') === null) {
      // this.router.navigate(['/']);
     }
   }
 
   viewReport() {
-    this.test = true;
+    this.invalid = true;
     this.month = document.querySelector('#ddlMonth');
     this.y1 = document.querySelector('#ddlYear1');
     this.y2 = document.querySelector('#ddlYear2');

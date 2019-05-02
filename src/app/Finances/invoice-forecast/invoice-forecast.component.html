@@ -222,7 +222,7 @@
             </div>
           </td>
         </tr>
-        <tr *ngIf="test">
+        <tr *ngIf="invalid">
           <h6 class="header">Water Revenue and Invoice Forecast for the month: {{monthName}}</h6>
           <p style="text-align: center; font-weight: bold; color: black;">Today's Date:
             {{currentDate |date: "dd/MM/yyyy h:mm a"}}</p>
@@ -230,7 +230,7 @@
 
       </tbody>
     </table>
-    <table style="margin-left: 65px" width="94%" *ngIf="test">
+    <table style="margin-left: 65px" width="94%" *ngIf="invalid">
       <tbody>
         <tr>
           <td>
@@ -305,10 +305,5 @@
 </body>
 
 <!--
-
-  <input name="ctl00$MainContent$ReportViewer1$ToggleParam$img" title="Show / Hide Parameters" align="middle" id="ctl00_MainContent_ReportViewer1_ToggleParam_img" style="cursor:pointer;" onclick="void(0);" type="image" alt="Show / Hide Parameters" src="/Reserved.ReportViewerWebControl.axd?OpType=Resource&amp;Version=10.0.30319.1&amp;Name=Microsoft.Reporting.WebForms.Icons.SplitterHorizCollapse.png">
-<input name="ctl00$MainContent$ReportViewer1$ctl08$img" title="Show / Hide Document Map" align="top" id="ctl00_MainContent_ReportViewer1_ctl08_img" style="cursor:pointer;" onclick="void(0);" type="image" alt="Show / Hide Document Map" src="/Reserved.ReportViewerWebControl.axd?OpType=Resource&amp;Version=10.0.30319.1&amp;Name=Microsoft.Reporting.WebForms.Icons.SplitterVertCollapse.png">
-
-
 
 -->

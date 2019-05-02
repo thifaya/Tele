@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class ComparisonYearToYearComponent implements OnInit {
 
   currentDate: Date = new Date;
-  test: boolean;
+  invalid: boolean;
 
   year1;
   year2;
@@ -23,14 +23,20 @@ export class ComparisonYearToYearComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.test = false;
+    this.invalid = false;
+
+    if (sessionStorage.getItem('userData') === null) {
+      window.alert('Must Login First');
+    //  this.router.navigate(['/']);
+      }
+
     if (localStorage.getItem('userData') === null) {
     //  this.router.navigate(['/']);
     }
   }
 
   viewReport() {
-    this.test = true;
+    this.invalid = true;
 
     this.y1 = document.querySelector('#ddlYear1');
     this.y2 = document.querySelector('#ddlYear2');

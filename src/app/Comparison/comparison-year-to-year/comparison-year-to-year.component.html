@@ -196,14 +196,14 @@
           </div>
         </td>
       </tr>
-      <tr *ngIf="test">
+      <tr *ngIf="invalid">
         <h6 class="header"><b>Year To Year Comparison</b></h6>
         <p style="text-align: center; font-weight: bold">Today's Date: {{ currentDate | date: "dd/MM/yyyy h:mm a" }}
         </p>
       </tr>
     </tbody>
   </table>
-  <table style="margin-left: 85px; width: 95%;" *ngIf="test" cellpadding="2">
+  <table style="margin-left: 85px; width: 95%;" *ngIf="invalid" cellpadding="2">
     <tbody>
       <tr>
         <td style="width: 55%">
@@ -260,12 +260,5 @@
 </body>
 
 <!--
-  <input name="ctl00$MainContent$ReportViewer1$ToggleParam$img" title="Show / Hide Parameters" align="middle"
-            id="ctl00_MainContent_ReportViewer1_ToggleParam_img" style="cursor:pointer;" onclick="void(0);" type="image"
-            alt="Show / Hide Parameters">
-<input title="Show / Hide Document Map" align="top" style="cursor:pointer;" onclick="void(0);" type="image"
-            alt="Show / Hide Document Map">
-src="/Reserved.ReportViewerWebControl.axd?OpType=Resource&amp;Version=10.0.30319.1&amp;Name=Microsoft.Reporting.WebForms.Icons.SplitterVertCollapse.png"
-src="/Reserved.ReportViewerWebControl.axd?OpType=Resource&amp;Version=10.0.30319.1&amp;Name=Microsoft.Reporting.WebForms.Icons.SplitterHorizCollapse.png"
 
   -->

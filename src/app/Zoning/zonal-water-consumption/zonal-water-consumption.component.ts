@@ -13,7 +13,7 @@ export class ZonalWaterConsumptionComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('userData') === null) {
-      this.router.navigate(['/']);
+    //  this.router.navigate(['/']);
     }
   }
 

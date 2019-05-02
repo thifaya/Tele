@@ -12,11 +12,6 @@
     border-bottom: 1px solid black;
 }
 
-/*
-.list table {
-    border: 1px solid black;
-}
-*/
 .Dropdown:hover .list {
     display: block;
     background-color: white;

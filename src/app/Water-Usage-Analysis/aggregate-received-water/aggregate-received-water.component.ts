@@ -14,7 +14,7 @@ highcharts3D(Highcharts);
 })
 export class AggregateReceivedWaterComponent implements OnInit {
 
-    test: boolean;
+    invalid: boolean;
     currentDate: Date = new Date;
     Highcharts = Highcharts;
     chartOptions;
@@ -23,14 +23,14 @@ export class AggregateReceivedWaterComponent implements OnInit {
     constructor(private router: Router) { }
 
     ngOnInit() {
-        this.test = false;
+        this.invalid = false;
         if (localStorage.getItem('userData') === null) {
             //   this.router.navigate(['/']);
         }
     }
 
     viewReport() {
-        this.test = true;
+        this.invalid = true;
 
         this.chartOptions = {
             chart: {

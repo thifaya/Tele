@@ -14,7 +14,7 @@ export class HeartbeatComponent implements OnInit {
   heartbeatPath: any = '../assets/ImageView/heartbeat.PNG';
   ngOnInit() {
     if (localStorage.getItem('userData') === null) {
-      this.router.navigate(['/']);
+    //  this.router.navigate(['/']);
     }
   }
 

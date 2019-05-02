@@ -87,6 +87,10 @@ export class DataService {
     return this._http.get('http://154.0.172.85:5000/accessLevel', { headers: this.getHeader });
   }
 
+  getAlarms() {
+    return this._http.get('http://154.0.172.85:5000/alarms', { headers: this.getHeader });
+  }
+
   getFullData2(u, t, d, s) {
     this._http.get('http://154.0.172.85:5000/users', { headers: this.getHeader }).subscribe(user => {
       u = user;

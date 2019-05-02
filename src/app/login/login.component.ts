@@ -66,6 +66,7 @@ export class LoginComponent implements OnInit {
 
           this.userData = res[0];
           localStorage.setItem('userData', JSON.stringify(this.userData));
+          sessionStorage.setItem('userData', JSON.stringify(this.userData));
 
           this.Name    = this.userData.Name;
           localStorage.setItem('Name', JSON.stringify(this.userData.Name));
@@ -73,25 +74,30 @@ export class LoginComponent implements OnInit {
 
           this.Surname = this.userData.Surname;
           localStorage.setItem('Surname', JSON.stringify(this.userData.Surname));
+          sessionStorage.setItem('Surname', JSON.stringify(this.userData.Surname));
 
           this.Username = this.userData.UserName;
-          localStorage.setItem('Username', JSON.stringify(this.userData.Username));
-          sessionStorage.setItem('Username', JSON.stringify(this.userData.Username));
+          localStorage.setItem('Username', JSON.stringify(this.userData.UserName));
+          sessionStorage.setItem('Username', JSON.stringify(this.userData.UserName));
 
           this.Password = this.userData.Password;
           localStorage.setItem('Password', JSON.stringify(this.userData.Password));
 
           this.UserId = this.userData.UserId;
           localStorage.setItem('UserId', JSON.stringify(this.userData.UserId));
+          sessionStorage.setItem('UserId', JSON.stringify(this.userData.UserId));
 
           this.Email = this.userData.Email;
           localStorage.setItem('Email', JSON.stringify(this.userData.Email));
+          sessionStorage.setItem('Email', JSON.stringify(this.userData.Email));
 
           this.ModifiedDate = this.userData.ModifiedDate;
           localStorage.setItem('ModifiedDate', JSON.stringify(this.userData.ModifiedDate));
+          sessionStorage.setItem('ModifiedDate', JSON.stringify(this.userData.ModifiedDate));
 
           this.TitleId = this.userData.TitleId;
           localStorage.setItem('TitleId', JSON.stringify(this.userData.TitleId));
+          sessionStorage.setItem('TitleId', JSON.stringify(this.userData.TitleId));
 
           this.DesignationID = this.userData.DesignationID;
           localStorage.setItem('DesignationID', JSON.stringify(this.userData.DesignationID));

@@ -33,6 +33,7 @@ export class AppComponent {
     if (window.confirm('Are You sure you want to logout?')) {
     this.router.navigate(['/']);
     localStorage.clear();
+    sessionStorage.clear();
     }
   }
 
@@ -46,6 +47,7 @@ export class AppComponent {
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnDestroy() {
     localStorage.clear();
+    sessionStorage.clear();
   }
 
 }

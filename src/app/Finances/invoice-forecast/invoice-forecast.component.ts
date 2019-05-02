@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class InvoiceForecastComponent implements OnInit {
 
-  test: boolean;
+  invalid: boolean;
   currentDate: Date = new Date;
 
   month;
@@ -22,14 +22,14 @@ export class InvoiceForecastComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.test = false;
+    this.invalid = false;
     if (localStorage.getItem('userData') === null) {
      // this.router.navigate(['/']);
     }
   }
 
   viewReport() {
-    this.test = true;
+    this.invalid = true;
 
     this.month = document.querySelector('#ddlMonth');
     this.household = document.querySelector('#txtWaterAllocation');

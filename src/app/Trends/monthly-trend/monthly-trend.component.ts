@@ -22,7 +22,7 @@ export class MonthlyTrendComponent implements OnInit {
 
   chart;
   currentDate: Date = new Date;
-  test: boolean;
+  invalid: boolean;
 
   siteIndex;
   monthIndex;
@@ -38,14 +38,14 @@ export class MonthlyTrendComponent implements OnInit {
 
 
   ngOnInit() {
-    this.test = false;
+    this.invalid = false;
     if (localStorage.getItem('userData') === null) {
      // this.router.navigate(['/']);
     }
   }
 
   viewReport() {
-    this.test = true;
+    this.invalid = true;
 
     this.site = document.querySelector('#ddlSite');
     this.month = document.querySelector('#ddlMonth');

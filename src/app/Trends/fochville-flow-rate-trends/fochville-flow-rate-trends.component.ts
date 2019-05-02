@@ -18,9 +18,10 @@ export class FochvilleFlowRateTrendsComponent implements OnInit {
      // this.router.navigate(['/']);
     }
 
-    if (sessionStorage.getItem('username') === null) {
-       this.router.navigate(['/']);
-     }
+    if (sessionStorage.getItem('userData') === null) {
+      window.alert('Must Login First');
+    //  this.router.navigate(['/']);
+      }
   }
 
 }

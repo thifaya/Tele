@@ -10,7 +10,7 @@ export class VolumeTrendsReceivedComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  test: boolean;
+  invalid: boolean;
   index;
   site;
   siteNane;
@@ -19,14 +19,20 @@ export class VolumeTrendsReceivedComponent implements OnInit {
   dateSelect;
 
   ngOnInit() {
-    this.test = false;
+    this.invalid = false;
+
+    if (sessionStorage.getItem('userData') === null) {
+      window.alert('Must Login First');
+    //  this.router.navigate(['/']);
+      }
+
     if (localStorage.getItem('userData') === null) {
-      this.router.navigate(['/']);
+    //  this.router.navigate(['/']);
     }
   }
 
   viewReport() {
-    this.test = true;
+    this.invalid = true;
     this.site = document.querySelector('#ddlSite');
     this.date = document.querySelector('#dpDate');
 

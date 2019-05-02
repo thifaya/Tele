@@ -199,7 +199,7 @@
     </tbody>
   </table>
 
-  <form *ngIf="test">
+  <form *ngIf="invalid">
     <h6 class="header">Monthly Trends Analysis</h6>
     <p style="text-align: center">Today's Date: {{currentDate |date:"dd/MM/yyyy h:mm:ss a"}}</p>
     <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"

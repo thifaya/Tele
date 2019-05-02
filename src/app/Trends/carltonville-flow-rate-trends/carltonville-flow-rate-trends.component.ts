@@ -10,11 +10,14 @@ import { Router } from '@angular/router';
 })
 export class CarltonvilleFlowRateTrendsComponent implements OnInit {
 
+  invalid: boolean;
+
   constructor(private router: Router) { }
 
   currentDate: Date = new Date();
 
   ngOnInit() {
+    this.invalid = false;
     if (localStorage.getItem('userData') === null) {
       // this.router.navigate(['/']);
     }

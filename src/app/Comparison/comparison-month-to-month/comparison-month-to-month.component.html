@@ -218,13 +218,13 @@
         </div>
       </td>
     </tr>
-    <tr *ngIf="test">
+    <tr *ngIf="invalid">
       <h6 class="header"><b>Month to Month Comparison</b></h6>
       <p style="text-align: center; font-weight: bold">Today's Date: {{ currentDate | date: "dd/MM/yyyy h:mm a" }}</p>
     </tr>
   </tbody>
 </table>
-<table style="margin-left: 85px; width: 95%;" *ngIf="test" cellpadding="2">
+<table style="margin-left: 85px; width: 95%;" *ngIf="invalid" cellpadding="2">
   <tbody>
     <tr>
       <td style="width: 55%">
@@ -286,11 +286,5 @@
 </body>
 
 <!--
-
-    <input title="Show / Hide Parameters" align="middle" style="cursor:pointer;" onclick="void(0);" type="image"
-              alt="Show / Hide Parameters">
-src="/Reserved.ReportViewerWebControl.axd?OpType=Resource&amp;Version=10.0.30319.1&amp;Name=Microsoft.Reporting.WebForms.Icons.SplitterVertCollapse.png"
-src="/Reserved.ReportViewerWebControl.axd?OpType=Resource&amp;Version=10.0.30319.1&amp;Name=Microsoft.Reporting.WebForms.Icons.SplitterHorizCollapse.png"
-
 
 -->

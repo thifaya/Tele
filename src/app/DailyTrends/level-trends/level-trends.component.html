@@ -99,16 +99,7 @@
                               </span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>                                                     
-                                <input type="date" name="date" id="dpDate" class="dpDate" ngModule="dpDate" placeholder="Choose a Date" required>                            
-         
-
-                               
-                                <!--  <input matInput [matDatepicker]="picker" md-placeholder="Choose a date" readonly>
-                                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                  <mat-datepicker #picker></mat-datepicker>
-                                -->
-
-      
+                                <input type="date" name="date" id="dpDate" class="dpDate" ngModule="dpDate" placeholder="Choose a Date" required>                                  
 
                               </div>
                             </td>
@@ -200,7 +191,7 @@
   </table>
 
   <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
-  style="width: 100%; height: 400px; display: block;" *ngIf="test"></highcharts-chart>
+  style="width: 100%; height: 400px; display: block;" *ngIf="invalid"></highcharts-chart>
   <form >
     <div [chart]="chart" style="width: 65%"></div>
   </form>

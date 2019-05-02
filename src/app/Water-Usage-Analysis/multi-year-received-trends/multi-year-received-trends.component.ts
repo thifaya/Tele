@@ -13,7 +13,7 @@ highcharts3D(Highcharts);
 })
 export class MultiYearReceivedTrendsComponent implements OnInit {
 
-  test: boolean;
+  invalid: boolean;
   currentDate: Date = new Date();
   Highcharts = Highcharts;
 
@@ -534,7 +534,7 @@ export class MultiYearReceivedTrendsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.test = true;
+    this.invalid = true;
     if (localStorage.getItem('userData') === null) {
       //  this.router.navigate(['/']);
     }

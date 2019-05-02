@@ -175,7 +175,7 @@
                         <td  >{{user.Name}}</td>
                         <td  >{{user.Surname}}</td>
                         <td  >{{user.IsActive}}</td><!--"editClick(i, user.Name, user.Surname, user.Password, user.Email, user.UserName)"-->
-                        <td  ><a class="editLink" (click)="editClick(i, user.Name, user.Surname, user.Password, user.Email, user.UserName)" [class.active]="i == selectedRow">Edit</a></td>
+                        <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl01','')" class="editLink" (click)="editClick(i, user.Name, user.Surname, user.Password, user.Email, user.UserName)" [class.active]="i == selectedRow">Edit</a></td>
                         <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl01','')">Activate</a></td>
                         <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl02','')">Deactivate</a></td>
                         <td  ><a href="javascript:__doPostBack('ctl00$MainContent$dgUser$ctl03$ctl03','')">Add
