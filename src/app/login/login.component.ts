@@ -60,12 +60,15 @@ export class LoginComponent implements OnInit {
     .subscribe(
       res => {
         if (res.length === 1) {
-          this.invalid = false;
-          console.log(res);
-          console.log(res.length);
-
           this.userData = res[0];
-          localStorage.setItem('userData', JSON.stringify(this.userData));
+          
+          this.invalid = false;
+          console.log(this.userData.IsActive);
+
+
+          if( this.userData.IsActive ) {
+
+            localStorage.setItem('userData', JSON.stringify(this.userData));
           sessionStorage.setItem('userData', JSON.stringify(this.userData));
 
           this.Name    = this.userData.Name;
@@ -81,7 +84,6 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem('Username', JSON.stringify(this.userData.UserName));
 
           this.Password = this.userData.Password;
-          localStorage.setItem('Password', JSON.stringify(this.userData.Password));
 
           this.UserId = this.userData.UserId;
           localStorage.setItem('UserId', JSON.stringify(this.userData.UserId));
@@ -115,6 +117,12 @@ export class LoginComponent implements OnInit {
           console.log(this.Name);
 
           this.router.navigate(['/leveltrends']);
+
+          } else {
+            window.alert('User has been deactivated')
+            console.log('User Has Been Deactivated')
+          }
+          
         } else {
           this.invalid = true;
           console.log(res);
@@ -122,7 +130,7 @@ export class LoginComponent implements OnInit {
 
       },
       err => {
-        window.alert(err.name + ':  ' + err.statusText);
+        window.alert('No Internet Connection.');
         console.log(err);
       });
   }

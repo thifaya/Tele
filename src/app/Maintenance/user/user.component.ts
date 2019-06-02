@@ -6,8 +6,6 @@ import * as mssql from 'mssql';
 
 
 
-
-
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -26,6 +24,12 @@ export class UserComponent implements OnInit {
   email: any;
   username: any;
   password: any;
+  accessLevel: any;
+  Title: any;
+  Site: any;
+  Design: any;
+  active: boolean
+  row; userActive = {}
 
   selectedRow: Number;
 
@@ -43,20 +47,9 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.DropDownValue();
-   // this.DropDownValue2();
-    if (localStorage.getItem('userData') === null) {
-      // this.router.navigate(['/']);
-    }
-  }
+    
 
-  user() {
-    this._dataService.getUsers()
-      .subscribe(res => this.users = res);
-  }
-
-  DropDownValue() {
-    this._dataService.getUsers()
+   this._dataService.getUsers()
       .subscribe(_user => {
         this.users = _user;
         this._dataService.getTitle()
@@ -65,57 +58,106 @@ export class UserComponent implements OnInit {
             this._dataService.getDesignation()
               .subscribe(_designation => {
                 this.designations = _designation;
-                this._dataService.getSite()
+                this._dataService.getAllSite()
                   .subscribe(_site => {
                     this.sites = _site;
                     this._dataService.getAccessLevel()
                       .subscribe(_access => {
                         this.accessLevels = _access;
+                        
                       });
                   });
               });
           });
       });
+
+   if (localStorage.getItem('userData') === null) {
+    this.router.navigate(['/']);
+   }
+
+    
+    if (sessionStorage.getItem('userData') === null) {
+      // this.router.navigate(['/']);
+    }
   }
-  DropDownValue2() {
-    this._http.get('http://154.0.172.85:5000/users', { headers: this.getHeader }).subscribe(user => {
-      this.users = user;
-      this._http.get('http://154.0.172.85:5000/title', { headers: this.getHeader }).subscribe(title => {
-        this.titles = title;
-        this._http.get('http://154.0.172.85:5000/designation', { headers: this.getHeader }).subscribe(designation => {
-          this.designations = designation;
-          this._http.get('http://154.0.172.85:5000/site', { headers: this.getHeader }).subscribe(site => {
-            this.sites = site;
-          });
-        });
-      });
-    });
-  }
+  
+  
   //////////////////////////////////////////////////
 
+
   //  Edit button click Event
-  editClick(index, NAME, SURNAME, PASSWORD, EMAIL, USERNAME) {
+  editClick(index, NAME, SURNAME, PASSWORD, EMAIL, USERNAME, ACCESSLEVEL, DESIGNATION, SITE, TITLE) {
     this.selectedRow = index;
     console.log(this.selectedRow);
     console.log('Name: ' + NAME);
     console.log('Email: ' + EMAIL);
-
-    console.log('Titles: ' + this.titles);
-    console.log('Designation: ' + this.designations);
-    console.log('Site' + this.sites);
+    
 
     this.name = document.querySelector('#txtName');
     this.surname = document.querySelector('#txtSurname');
     this.email = document.querySelector('#txtEmail');
     this.username = document.querySelector('#txtUsername');
     this.password = document.querySelector('#txtPassword');
+    this.accessLevel = document.querySelector('#ddlAccessLevel');
+    this.Title = document.querySelector('#ddlTitle');
+    this.Site = document.querySelector('#ddlMunicipalSite');
+    this.Design = document.querySelector('#ddlDesignation');
 
     this.name.value = NAME;
     this.surname.value = SURNAME;
     this.email.value = EMAIL;
     this.username.value = USERNAME;
     this.password.value = PASSWORD;
+    this.accessLevel.value = ACCESSLEVEL;
+    this.Title.value = TITLE;
+    this.Site.value = SITE;
+    this.Design.value = DESIGNATION;
 
+//selected="selected"
+
+  }
+
+Activate(index, ID, ACTIVE){
+//{"activate": false, "userId": 2}  user.UserId   user.IsActive
+this.selectedRow = index;
+this.userActive = {"activate": ACTIVE, "userId": ID}
+
+this._dataService.ActivatteUser(ID, ACTIVE)
+  .subscribe(res => { 
+    console.log(this.userActive);
+    console.log(res);
+  }, 
+  err => console.log(err))
+
+}
+
+DeActivate(index, ID, ACTIVE){
+  //{"activate": false, "userId": 2}  user.UserId   user.IsActive
+  this.selectedRow = index;
+  this.userActive = {"activate": ACTIVE, "userId": ID}
+  
+  this._dataService.DeactivateUser(this.userActive)
+    .subscribe(res => {
+      console.log(this.userActive);
+      console.log(res);
+    })
+  
+  }
+
+
+  updateUser() {
+
+    this.name = document.querySelector('#txtName');
+    this.surname = document.querySelector('#txtSurname');
+    this.email = document.querySelector('#txtEmail');
+    this.username = document.querySelector('#txtUsername');
+    this.password = document.querySelector('#txtPassword');
+    this.accessLevel = document.querySelector('#ddlAccessLevel');
+    this.Title = document.querySelector('#ddlTitle');
+    this.Site = document.querySelector('#ddlMunicipalSite');
+    this.Design = document.querySelector('#ddlDesignation');
+
+  
   }
 
   testEvent() {

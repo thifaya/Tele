@@ -34,8 +34,9 @@
                             <td style="padding:5px;padding-right:0px;">
                               <div>
                                 <select class="ddlprovince" id="ddlprovince">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
+                                 <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="">All</option>
+                                  <option value="1">Gauteng</option>
                                 </select>
                               </div>
                             </td>
@@ -47,7 +48,7 @@
                             <td style="padding:5px;padding-right:0px;">
                               <div>
                                 <select class="ddldistrict" id="ddldistrict">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
                                   <option value="1">All</option>
 
                                 </select>
@@ -60,7 +61,7 @@
                             <td style="padding:5px;padding-right:0px;">
                               <div>
                                 <select class="ddlmunicipality" id="ddlmunicipality">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
                                   <option value="1">All</option>
                                 </select>
                               </div>
@@ -73,8 +74,12 @@
                             <td style="padding:5px;padding-right:0px;">
                               <div>
                                 <select class="ddlSite" id="ddlSite">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="0~ALL" >All</option>
+                                  <option value="22~Wedela Big" >Wedela Big</option>
+                                  <option value="21~Fochville" >Fochville</option>
+                                  <option value="18~North" >North</option>
+                                  <option value="20~Carltonville" >Carltonville</option>
 
                                 </select>
                               </div>
@@ -96,13 +101,14 @@
                               <div style="font-family:Verdana;font-size:8pt;">
                                 <select id="ddlYear" class="ddlYear" required>
                                   <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">2019</option>
-                                  <option value="2">2018</option>
-                                  <option value="3">2017</option>
-                                  <option value="4">2016</option>
-                                  <option value="5">2015</option>
-                                  <option value="6">2014</option>
-
+                                  <option  *ngFor="let year of years" value="{{year.YearID}}">{{year.Name}}</option>
+                                  <option value="2019">2019</option>
+                                  <option value="2018">2018</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2016">2016</option>
+                                  <option value="2015">2015</option>
+                                  <option value="2014">2014</option>
+                                  <option value="2013">2013</option>
                                 </select>
                               </div>
                             </td>
@@ -203,33 +209,33 @@
         </td>
       </tr>
       <tr>
-        <h6 class="header" *ngIf="invalid">Water Received Trends Per Site: {{currentDate | date: "dd/MM/yyyy h:mm:ss a"}}</h6>
+        <h6 class="header" *ngIf="visible">Water Received Trends Per Site: {{currentDate | date: "dd/MM/yyyy h:mm:ss a"}}</h6>
       </tr>
     </tbody>
   </table>
-  <table style=" width: 100%" *ngIf="invalid">
+  <table style=" width: 100%" *ngIf="visible">
     <tbody>
       <tr>
         <td>
           <!-- <div  [chart]="chart"></div> -->
           <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
-            style="height: 400px; display: block;"></highcharts-chart>
+          style="height: 400px; display: block;"></highcharts-chart>
         </td>
         <td>
-          <div *ngIf="invalid">
+          <div *ngIf="visible">
             <table class="tableBlock" border="1" width="93%" height="15%" rules="all" cellspacing="0">
               <tbody>
                 <tr class="titlerow">
-                  <td>SITE</td>
-                  <td>Amount Consumed (KL)</td>
+                  <th>SITE</th>
+                  <th>Amount Received (KL)</th>
                 </tr>
-                <tr>
-                  <td></td>
-                  <td>0</td>
+                <tr *ngFor="let result of results">
+                  <td>{{ result.Name }}</td>
+                  <td>{{ result.Analog1 | number}}</td>
                 </tr>
                 <tr style="background-color: lightgrey">
-                  <td><b>Total Water Consumed: </b></td>
-                  <td><b>22</b></td>
+                  <td><b>Total Water Received: </b></td>
+                  <td><b>{{ sum | number}}</b></td>
                 </tr>
               </tbody>
             </table>
@@ -238,5 +244,9 @@
       </tr>
     </tbody>
   </table>
+  <br/>
+<div class="lblResults" *ngIf="notFound">
+  <label>Data Not Found</label>
+</div>
 
 </body>

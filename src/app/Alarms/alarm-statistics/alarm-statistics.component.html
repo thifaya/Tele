@@ -91,13 +91,8 @@
                           <div style="font-family:Verdana;font-size:8pt;">
                             <select id="ddlYear" class="ddlYear" required>
                               <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                              <option value="1">2019</option>
-                              <option value="2">2018</option>
-                              <option value="3">2017</option>
-                              <option value="4">2016</option>
-                              <option value="5">2015</option>
-                              <option value="6">2014</option>
-
+                              <option value="0">2012</option>
+                              <option  *ngFor="let year of years" value="{{year.YearID}}">{{year.Name}}</option>
                             </select>
                           </div>
                         </td>

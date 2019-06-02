@@ -27,15 +27,15 @@
                         <tbody>
 
                           <!-- Compalsary row-->
-
+                          
+                          
                           <tr isparameterrow="true">
                             <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select
                                 Province:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlprovince" id="ddlprovince">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
+                                <select class="ddlprovince" id="ddlprovince" required >
+                                  <option value="1~gauteng" selected="selected">Gauteng</option>
                                 </select>
                               </div>
                             </td>
@@ -46,10 +46,9 @@
                                 Metropolitan Municipality:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddldistrict" id="ddldistrict">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
-
+                                <select class="ddldistrict" id="ddldistrict" required >
+                                  <option value="1~west_rand" selected="selected">West Rand</option>
+                                  
                                 </select>
                               </div>
                             </td>
@@ -59,13 +58,13 @@
                                 Municipality:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlmunicipality" id="ddlmunicipality">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
+                                <select class="ddlmunicipality" id="ddlmunicipality" name="municipality" required >
+                                  <option value="1~merafong" selected="selected">Merafong City</option>
                                 </select>
                               </div>
                             </td>
                           </tr>
+
 
                           <tr isparameterrow="true">
                             <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select
@@ -74,8 +73,7 @@
                               <div>
                                 <select class="ddlSite" id="ddlSite" name="ddlSite">
                                   <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="0">All</option>
-
+                                  <option *ngFor="let site of SITES" value="{{site.SITEID}}~{{site.Name}}">{{site.Name}}</option>
                                 </select>
                               </div>
                             </td>
@@ -173,23 +171,49 @@
           </div>
         </td>
       </tr>
-      <tr class="dataDisplay" *ngIf="invalid">
-        <h6 class="header"><b>Daily Volumes Report: Received for {{siteNane}} - Date: {{dateSelect}}</b></h6>
+      <tr class="dataDisplay" *ngIf="valid">
+        <h6 class="header"><b>Daily Volumes Report: Received for {{siteNane}} - Date: {{dateSelect.value}}</b></h6>
 
-        <div style="margin-left:30%;margin-top: 3%;"> 
-          <table class="tableBlock" border="1" width="35%" height="15%" rules="all" cellspacing="0">
-            <tbody>
-              <tr class="titlerow">
-                <td>Date</td>
-                <td>Time</td>
-                <td>Volume</td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="total">Total Water Received: <span class="value">KL</span></p>
+        <div style="margin-left:30%;margin-top: 3%;width: 45%;"> 
+          <table class="tableBlock" border="1" width="80%" height="15%" rules="all" cellspacing="0">
+              <thead>
+                <tr class="titlerow">
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Volume</th>
+                </tr>
+              </thead>
+              <tbody>
+                 <tr *ngFor="let result of results">
+                     <td>{{ result.Date }}</td>         
+                     <td>{{ result.Time }}</td>
+                     <td>{{ result.Volume | number}}</td>
+                   </tr>
+                   <tr style="border-color: white" colspan="3">
+                     <div></div>
+                     </tr>
+                     <tr style="border-color: white">
+                         <td>Total Water Consumed:  </td>         
+                         <td></td>
+                         <td style="background-color: lightskyblue"  >{{ sum | number}} KL </td>
+                       </tr>
+              </tbody>
+            </table>
         </div>
       </tr>
     </tbody>
   </table>
-
+  <div class="lblResults" *ngIf="notFound">
+    <label>Data Not Found</label>
+  </div>
+<!--
+  
+             <tbody>
+                <tr *ngFor="let result of results">
+                    <td>{{ result.Date }}</td>         
+                    <td>{{ result.Time }}</td>
+                    <td>{{ result.Volume }}</td>
+                  </tr>
+             </tbody>
+-->
 </body>

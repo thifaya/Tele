@@ -172,3 +172,14 @@ select:hover {
     padding-bottom: 2%;
 }
 
+.lblResults {
+    background-color: lightgrey;
+    text-align: center;
+    width: 95%;
+    margin-left: 40px;
+    color: grey;
+}
+
+select {
+    width: 70%
+}

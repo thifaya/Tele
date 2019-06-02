@@ -76,6 +76,10 @@ body {
     height: 5px
 }
 
+select {
+    width: 70%
+}
+
 .cellblock {
     margin: 0px;
     padding: 0px;
@@ -136,6 +140,14 @@ select:hover {
     text-align: center;
     font-size: 9pt;
     font-family: verdana;
-    border: 1px solid whitesmoke;
+    border: 1px solid grey;
     vertical-align: top;
+}
+
+.lblResults {
+    background-color: lightgrey;
+    text-align: center;
+    width: 95%;
+    margin-left: 40px;
+    color: grey;
 }

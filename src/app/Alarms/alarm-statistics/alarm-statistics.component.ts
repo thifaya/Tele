@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/Server/data.service';
 
 @Component({
   selector: 'app-alarm-statistics',
@@ -8,16 +9,26 @@ import { Router } from '@angular/router';
 })
 export class AlarmStatisticsComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  years
 
-  ngOnInit() {
+  constructor(private router: Router, private _dataService: DataService) { }
+
+  ngOnInit() { 
+
+    this._dataService.getYears()
+        .subscribe(res => {
+            this.years = res
+        },
+        err => console.log(err.message))
+
+        
     if (sessionStorage.getItem('userData') === null) {
       window.alert('Must Login First');
       this.router.navigate(['/']);
       }
 
     if (localStorage.getItem('userData') === null) {
-    //  this.router.navigate(['/']);
+     this.router.navigate(['/']);
     }
   }
 

@@ -117,6 +117,10 @@ select:hover {
     cursor: pointer;
 }
 
+select {
+    width: 70%
+}
+
 .pageHeading {
     margin-left: 40px;
     margin-top: 2.5%;
@@ -177,3 +181,14 @@ select:hover {
     font-size: 9pt;
 }
 
+.lblResults {
+    background-color: lightgrey;
+    text-align: center;
+    width: 95%;
+    margin-left: 40px;
+    color: grey;
+}
+
+.dataRow td {
+    padding: 1%;
+}

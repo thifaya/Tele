@@ -39,7 +39,9 @@ body {
     margin-top: 0px;
 }
 
-
+select {
+    width: 70%
+}
 
 .ddlprovince {
     font-family:Verdana;
@@ -157,4 +159,12 @@ select:hover {
 .financeTable tr td {
     text-align: center;
     font-size: 8.7pt;
+}
+
+.lblResults {
+    background-color: lightgrey;
+    text-align: center;
+    width: 95%;
+    margin-left: 40px;
+    color: grey;
 }

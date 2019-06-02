@@ -40,7 +40,9 @@ body {
     margin-top: 0px;
 }
 
-
+select {
+    width: 70%
+}
 
 .ddlprovince {
     font-family:Verdana;
@@ -144,17 +146,18 @@ select:hover {
 }
 
 .tableBlock {
-    font-weight: bold;
     font-size: 9pt;
     font-family: verdana;
     margin-left: 5%;
-    border: 1px solid whitesmoke;
+    border: 1px solid lightgray;
+    text-align: center;
 }
 
 .titlerow {
-    background-color: lightgrey;
+    background-color: grey;
     text-align: center;
     margin: 3%;
+    font-weight: bold;
 }
 
 .total {
@@ -164,4 +167,16 @@ select:hover {
 
 .value {
     margin-left: 15%;
+}
+
+.lblResults {
+    background-color: lightgrey;
+    text-align: center;
+    width: 95%;
+    margin-left: 40px;
+    color: grey;
+}
+
+.dataRow td {
+    padding: 1%;
 }

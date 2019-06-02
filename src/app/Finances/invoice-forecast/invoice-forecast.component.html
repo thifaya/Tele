@@ -35,7 +35,7 @@
                               <td style="padding:5px;padding-right:0px;">
                                 <div>
                                   <select class="ddlprovince" id="ddlprovince">
-                                    <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                    <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
                                     <option value="1">All</option>
                                   </select>
                                 </div>
@@ -48,7 +48,7 @@
                               <td style="padding:5px;padding-right:0px;">
                                 <div>
                                   <select class="ddldistrict" id="ddldistrict">
-                                    <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                    <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
                                     <option value="1">All</option>
 
                                   </select>
@@ -61,7 +61,7 @@
                               <td style="padding:5px;padding-right:0px;">
                                 <div>
                                   <select class="ddlmunicipality" id="ddlmunicipality">
-                                    <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                    <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
                                     <option value="1">All</option>
                                   </select>
                                 </div>
@@ -74,7 +74,7 @@
                               <td style="padding:5px;padding-right:0px;">
                                 <div>
                                   <select class="ddlSite" id="ddlSite">
-                                    <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                    <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
                                     <option value="1">All</option>
 
                                   </select>
@@ -117,12 +117,13 @@
                                 <div style="font-family:Verdana;font-size:8pt;">
                                   <select id="ddlYear" class="ddlYear" name="ddlYear" required>
                                     <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                    <option value="0">2019</option>
-                                    <option value="1">2018</option>
-                                    <option value="2">2017</option>
-                                    <option value="3">2016</option>
-                                    <option value="4">2015</option>
-                                    <option value="5">2014</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
 
                                   </select>
                                 </div>
@@ -134,18 +135,18 @@
                                 <div style="font-family:Verdana;font-size:8pt;">
                                   <select class="ddlMonth" id="ddlMonth" name="ddlMonth" required>
                                     <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
+                                    <option value="1~January">January</option>
+                                    <option value="2~February">February</option>
+                                    <option value="3~March">March</option>
+                                    <option value="4~April">April</option>
+                                    <option value="5~May">May</option>
+                                    <option value="6~June">June</option>
+                                    <option value="7~July">July</option>
+                                    <option value="8~August">August</option>
+                                    <option value="9~September">September</option>
+                                    <option value="10~October">October</option>
+                                    <option value="11~November">November</option>
+                                    <option value="12~December">December</option>
 
                                   </select>
                                 </div>
@@ -222,15 +223,16 @@
             </div>
           </td>
         </tr>
-        <tr *ngIf="invalid">
-          <h6 class="header">Water Revenue and Invoice Forecast for the month: {{monthName}}</h6>
+        <tr *ngIf="visible">
+          <h6 class="header">Water Revenue and Invoice Forecast for the month: {{ monthName }}</h6>
           <p style="text-align: center; font-weight: bold; color: black;">Today's Date:
             {{currentDate |date: "dd/MM/yyyy h:mm a"}}</p>
         </tr>
 
       </tbody>
     </table>
-    <table style="margin-left: 65px" width="94%" *ngIf="invalid">
+
+    <table style="margin-left: 65px" width="94%" *ngIf="visible">
       <tbody>
         <tr>
           <td>
@@ -238,20 +240,20 @@
             <p style="color: grey; font-weight: bold;">Water Revenue Forecast in ZAR </p>
             <table class="financeTable" id="financeTable" border="1" width="100%" rules="all" cellspacing="0">
               <tr class="titleRow">
-                <td>Consumed Water (KL)</td>
-                <td>Cost Price (R) per L</td>
-                <td>Selling Price (R) per L</td>
-                <td>Free Basic Water per Household (L)</td>
-                <td>Loss%</td>
-                <td>Revenue</td>
+                <th>Consumed Water (KL)</th>
+                <th>Cost Price (R) per L</th>
+                <th>Selling Price (R) per L</th>
+                <th>Free Basic Water per Household (L)</th>
+                <th>Loss%</th>
+                <th>Revenue</th>
               </tr>
               <tr>
-                <td></td>
-                <td>R</td>
-                <td>R</td>
-                <td>{{household.value}}</td>
-                <td></td>
-                <td style="color: white; background-color: slategrey; ">( R1 345 675 657.00 )</td>
+                <td>{{ ConsumedTotal | number: '1.2-2'}}</td>
+                <td>{{ costPrice | currency: 'ZAR':"symbol-narrow"}}</td>
+                <td>{{ sellPrice | currency: 'ZAR':"symbol-narrow"}}</td>
+                <td>{{ FBWperHouse.value }}</td>
+                <td>{{ loss | number: '1.2-2' }}</td>
+                <td style="color: white; background-color: slategrey;padding: 1%; font-weight: bold">{{ revenue  | currency: 'ZAR':"symbol-narrow"}}</td>
               </tr>
             </table>
             <hr border="5" color="black" style="margin-left:0%;" width="100%">
@@ -263,9 +265,9 @@
                 <td>Projected Payment</td>
               </tr>
               <tr>
-                <td></td>
-                <td>R</td>
-                <td style="color: white; background-color: slategrey; font-weight: bold">R</td>
+                <td>{{ ReceivedTotal | number: '1.2-2' }}</td>
+                <td>{{ costPrice | currency: 'ZAR':"symbol-narrow" }}</td>
+                <td style="color: white; background-color: slategrey; font-weight: bold">{{ payment  | currency: 'ZAR':"symbol-narrow"}}</td>
               </tr>
             </table>
           </td>
@@ -277,23 +279,23 @@
                 </tr>
                 <tr style="margin-top: 10%">
                   <td>Value of Allocated Free Basic Water: </td>
-                  <td style="text-align: right">R</td>
+                  <td style="text-align: right">{{ allocatedFBW  | currency: 'ZAR':"symbol-narrow"}}</td>
                 </tr>
                 <tr style="margin-top: 10%">
                   <td>Available Water (KL): </td>
-                  <td style="text-align: right">R</td>
+                  <td style="text-align: right">{{ availableWater | number: '1.2-2' }}</td>
                 </tr>
                 <tr style="margin-top: 10%">
                   <td>Cost of Available Water: </td>
-                  <td style="text-align: right; width: 30%">R1 652 836 893.00</td>
+                  <td style="text-align: right; width: 30%">{{ availableCost  | currency: 'ZAR':"symbol-narrow"}}</td>
                 </tr>
                 <tr style="margin-top: 10%">
                   <td>Revenue Margin Before Loss% and FBW Allocation: </td>
-                  <td style="text-align: right">R</td>
+                  <td style="text-align: right">{{ revenueMargin  | currency: 'ZAR':"symbol-narrow"}}</td>
                 </tr>
                 <tr style="margin-top: 10%">
                   <td><b>USAGE INDICATOR: </b></td>
-                  <td style="text-align: center; background-color: grey;"><b>%</b></td>
+                  <td style="text-align: center; background-color: grey;"><b>{{ usage | number: '1.2-2' }}%</b></td>
                 </tr>
               </tbody>
             </table>
@@ -301,6 +303,12 @@
         </tr>
       </tbody>
     </table>
+
+    
+  <div class="lblResults" *ngIf="notFound">
+    <label>Data Not Found</label>
+  </div>
+  
   </form>
 </body>
 

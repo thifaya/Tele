@@ -27,28 +27,28 @@
                         <tbody>
 
                           <!-- Compalsary row-->
-
+                          
+                          
                           <tr isparameterrow="true">
-                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select Province:</span></td>
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select
+                                Province:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlprovince" id="ddlprovince">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
+                                <select class="ddlprovince" id="ddlprovince" required >
+                                  <option value="1~gauteng" selected="selected">Gauteng</option>
                                 </select>
                               </div>
                             </td>
 
                           </tr>
                           <tr isparameterrow="true">
-                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select District
-                                or Metropolitan Municipality:</span></td>
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select District or
+                                Metropolitan Municipality:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddldistrict" id="ddldistrict">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
-
+                                <select class="ddldistrict" id="ddldistrict" required >
+                                  <option value="1~west_rand" selected="selected">West Rand</option>
+                                  
                                 </select>
                               </div>
                             </td>
@@ -58,22 +58,21 @@
                                 Municipality:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlmunicipality" id="ddlmunicipality">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
+                                <select class="ddlmunicipality" id="ddlmunicipality" name="municipality" required >
+                                  <option value="1~merafong" selected="selected">Merafong City</option>
                                 </select>
                               </div>
                             </td>
                           </tr>
+
 
                           <tr isparameterrow="true">
                             <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select Site:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
                                 <select class="ddlSite" id="ddlSite" name="ddlSite">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="0">All</option>
-
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option *ngFor="let site of SITES" value="{{site.SITEID}}~{{site.Name}}">{{site.Name}}</option>
                                 </select>
                               </div>
                             </td>
@@ -87,18 +86,18 @@
 
                           <!-- /Compalsary row -->
 
-                          <!--  Insert components here  -->
+                          <!--  Insert components here &nbsp; -->
                            <tr isparameterrow="true">
                             <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select
                                 Trend</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div id="ctl00_MainContent_ReportViewer1_ctl04_ctl07" style="font-family:Verdana;font-size:8pt;">
                                 <select class="ddlTrends" id="ddlTrends" name="ddlTrends" required>
-                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>                                  
-                                  <option value="0">Consumed&nbsp;Water</option>
-                                  <option value="1">Received&nbsp;Water</option>
-                                  <option value="2">Consumed&nbsp;And&nbsp;Received</option>
-                                  <option value="3">Water&nbsp;Level</option>
+                                  <option selected="selected" value="">&lt;Select a Value&gt;</option>                                  
+                                  <option value="ConsumedWater~Consumed Water">Consumed Water</option>
+                                  <option value="ReceivedWater~Received Water">Received Water</option>
+                                  <option value="ConsumedAndReceived~Consumed And Received">Consumed And Received</option>
+                                  <option value="WaterLevel~Water Level">Water Level</option>
 
                                 </select>
                               </div>
@@ -110,18 +109,18 @@
                             <div id="ctl00_MainContent_ReportViewer1_ctl04_ctl03" style="font-family:Verdana;font-size:8pt;">
                               <select class="ddlMonth" id="ddlMonth" name="ddlMonth" required>
                                 <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                <option value="0">January</option>
-                                <option value="1">February</option>
-                                <option value="2">March</option>
-                                <option value="3">April</option>
-                                <option value="4">May</option>
-                                <option value="5">June</option>
-                                <option value="6">July</option>
-                                <option value="6">August</option>
-                                <option value="8">September</option>
-                                <option value="9">October</option>
-                                <option value="10">November</option>
-                                <option value="11">December</option>
+                                <option value="1~January">January</option>
+                                <option value="2~February">February</option>
+                                <option value="3~March">March</option>
+                                <option value="4~April">April</option>
+                                <option value="5~May">May</option>
+                                <option value="6~June">June</option>
+                                <option value="7~July">July</option>
+                                <option value="8~August">August</option>
+                                <option value="9~September">September</option>
+                                <option value="10~October">October</option>
+                                <option value="11~November">November</option>
+                                <option value="12~December">December</option>
   
                               </select>
                             </div>
@@ -199,13 +198,17 @@
     </tbody>
   </table>
 
-  <form *ngIf="invalid">
+  <form *ngIf="visible">
     <h6 class="header">Monthly Trends Analysis</h6>
     <p style="text-align: center">Today's Date: {{currentDate |date:"dd/MM/yyyy h:mm:ss a"}}</p>
     <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
   style="width: 100%; height: 400px; display: block;"></highcharts-chart>
-    <div style="margin-left: 35px" [chart]="chart"></div>
+   <!-- <div style="margin-left: 35px" [chart]="chart"></div> -->
   </form>
+  <br/>
+<div class="lblResults" *ngIf="notFound">
+  <label>Data Not Found</label>
+</div>
 
 </body>
 

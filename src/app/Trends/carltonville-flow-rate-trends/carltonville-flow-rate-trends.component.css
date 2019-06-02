@@ -38,6 +38,10 @@ body {
     margin-top: 0px;
 }
 
+select {
+    width: 70%
+}
+
 .ddlprovince {
     font-family:Verdana;
     font-size:8pt;
@@ -137,4 +141,12 @@ select:hover {
     width: 99%;
     color: white;
     font-family: Verdana;
+}
+
+.lblResults {
+    background-color: lightgrey;
+    text-align: center;
+    width: 95%;
+    margin-left: 40px;
+    color: grey;
 }

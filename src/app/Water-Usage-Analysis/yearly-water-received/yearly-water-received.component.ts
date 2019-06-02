@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Chart } from 'angular-highcharts';
+import { DataService } from 'src/app/Server/data.service';
 import * as  moment from 'moment';
 import * as Highcharts from 'highcharts';
 import highcharts3D from 'highcharts/highcharts-3d.src';
@@ -15,117 +17,104 @@ export class YearlyWaterReceivedComponent implements OnInit {
 
   currentDate: Date = new Date();
   Highcharts = Highcharts;
+  chartOptions
 
- constructor(private router: Router) { }
+  results; i: number;
+  plotData = []
 
 
-  chartOptions = {
-    chart: {
-      type: 'column',
-      options3d: {
-          enabled: true,
-          alpha: 15,
-          beta: 5,
-          depth: 45,
-          frame: {
-            bottom: {
-              size: 1,
-              color: 'lightgrey' // rgba(0, 0, 0, 0.02)
-            },
-            back: {
-              size: 1,
-              color: 'lightgrey' // rgba(0, 0, 0, 0.04)
-            },
-            side: {
-              size: 1,
-              color: 'grey' // rgba(0, 0, 0, 0.06)
-            }
-          }
-      }
-    },
-    title: {
-      text: 'Yearly Water Received Per Reservoir as at ' + moment(this.currentDate).format('LL')
-    },
-    xAxis: {
-      type: 'category',
-      title: {
-        skew3d: true
-      }
-    },
-    yAxis: {
-      title: {
-        skew3d: true,
-        text: 'Total Water Received (KL)<br><br>'
-      }
+  visible: boolean = false;
+  notFound: boolean = false;
 
-    },
-    plotOptions: {
-      series: {
-        cursor: 'pointer',
-        dataLabels: {
-          enabled: true,
-          format: '{point.y:.1f}%'
-        }
-      },
-      column: {
-        colorByPoint: true
-      }
-    },
-    credits: {
-        enabled: false
-    },
-    tooltip: {
-      headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-      pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-    },
+  constructor(private router: Router, private _service: DataService) { }
 
-    series: [
-     {
-        name: 'Site',
-        data: [
-          {
-            name: 'Fochville',
-            y: 62.74,
-            drilldown: 'Fochville'
-          },
-          {
-            name: 'Carltonville',
-            y: 10.57,
-            drilldown: 'Carltonville'
-          },
-          {
-            name: 'Blydeville',
-            y: 7.23,
-            drilldown: 'Blydeville'
-          },
-          {
-            name: 'North',
-            y: 5.58,
-            drilldown: 'North'
-          },
-          {
-            name: 'South',
-            y: 4.02,
-            drilldown: 'South'
-          },
-          {
-            name: 'Wedela Small',
-            y: 1.92,
-            drilldown: 'Wedela Small'
-          },
-          {
-            name: 'Other',
-            y: 7.62,
-            drilldown: null
-          }
-        ]
-      }
-    ]
-  };
 
   ngOnInit() {
-    if (localStorage.getItem('userData') === null) {
-    //  this.router.navigate(['/']);
+
+    this._service.getYearlyReceived()
+      .subscribe(res => {
+      },
+        err => console.log(err))
+
+    this._service.getYearlyReceived()
+      .subscribe(res => {
+        if (res.length > 0) {
+
+          this.notFound = false;
+          this.results = res;
+          this.plotData = [];
+          
+          
+          for (this.i = 0; this.i < this.results.length; this.i++) {
+
+            this.plotData.push({ 'name': this.results[this.i].MyYear, 'data': [this.results[this.i].Water_Received] })
+
+          }
+
+          
+          this.chartOptions = {
+            chart: {
+              type: 'column'
+            },
+            title: {
+              text: 'Yearly Water Received Per Reservoir as at ' + moment(this.currentDate).format('LL')
+            },
+            xAxis: {
+              type: 'category',
+              title: {
+                skew3d: true
+              }
+            },
+            yAxis: {
+              title: {
+                skew3d: true,
+                text: 'Total Water Received (KL)<br><br>'
+              }
+        
+            },
+            plotOptions: {
+              series: {
+                cursor: 'pointer',
+                dataLabels: {
+                  enabled: true,
+                  format: '{point.y:.2f}'
+                }
+              },
+              column: {
+                colorByPoint: true
+              }
+            },
+            credits: {
+              enabled: false
+            },
+            tooltip: {
+              pointFormat: 'Total Water Received: <b>{point.y:.2f} KL</b> <br/>'
+            },
+            series: this.plotData
+          };
+
+          this.visible = true;
+          console.log(res)
+          console.log('DATA FOUND')
+
+        } else {
+          this.visible = false;
+
+
+          this.notFound = true;
+          console.log('DATA NOT FOUND')
+        }
+      },
+        err => console.log(err))
+
+   
+        if (localStorage.getItem('userData') === null) {
+          this.router.navigate(['/']);
+         }
+      
+
+    if (sessionStorage.getItem('userData') === null) {
+      //  this.router.navigate(['/']);
     }
   }
 

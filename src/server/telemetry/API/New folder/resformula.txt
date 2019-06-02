@@ -1,0 +1,76 @@
+Value of  Allocated Free Basic Water
+(Parameters!No_Of_Households.Value * Parameters!Free_Basic_Water.Value)*Sum(Fields!SellingPrice.Value, "Prices")
+
+
+
+Available Water (KL):
+=(Sum(Fields!Water_Received22.Value, "Wedela_Received")
++Sum(Fields!Water_Received20.Value, "Welverdiend_Received")
++Sum(Fields!Water_Received21A.Value, "Fochville_Received1")
++Sum(Fields!Water_Received21B.Value, "Fochville_Received2")
++Sum(Fields!Water_Received21C.Value, "Fochville_Received3")
++Sum(Fields!Water_Received18.Value, "North_Received")
++Sum(Fields!Water_Received25.Value, "Carltonville_Received")
++Sum(Fields!Water_Received26.Value, "BlyBank_Received")
++Sum(Fields!Water_Received24.Value, "South_Received"))
+-
+(Sum(Fields!Water_Received21.Value, "Month_Min_Max_Foch1")
++Sum(Fields!Water_Received21b.Value, "Month_Min_Max_Foch2")
++Sum(Fields!Water_Received21c.Value, "Month_Min_Max_Foch3")
++Sum(Fields!Water_Received22.Value, "Month_Min_Max_WedelaBig")
++Sum(Fields!Water_Received20.Value, "Month_Min_Max_Welverdiend")
++Sum(Fields!Water_Received18.Value, "Month_Min_Max_NorthX3")
++Sum(Fields!Water_Received18b.Value, "Month_Min_Max_NorthShawela")
++Sum(Fields!Water_Received24.Value, "Month_Min_Max_South")
++Sum(Fields!Water_Received25.Value, "Month_Min_Max_Carltonville")
++Sum(Fields!Water_Received26.Value, "Month_Min_Max_Blybank"))
+
+Cost Value of Available Water :
+
+=((Sum(Fields!Water_Received22.Value, "Wedela_Received")
++Sum(Fields!Water_Received20.Value, "Welverdiend_Received")
++Sum(Fields!Water_Received21A.Value, "Fochville_Received1")
++Sum(Fields!Water_Received21B.Value, "Fochville_Received2")
++Sum(Fields!Water_Received21C.Value, "Fochville_Received3")
++Sum(Fields!Water_Received18.Value, "North_Received")
++Sum(Fields!Water_Received25.Value, "Carltonville_Received")
++Sum(Fields!Water_Received26.Value, "BlyBank_Received")
++Sum(Fields!Water_Received24.Value, "South_Received"))
+-
+(Sum(Fields!Water_Received21.Value, "Month_Min_Max_Foch1")
++Sum(Fields!Water_Received21b.Value, "Month_Min_Max_Foch2")
++Sum(Fields!Water_Received21c.Value, "Month_Min_Max_Foch3")
++Sum(Fields!Water_Received22.Value, "Month_Min_Max_WedelaBig")
++Sum(Fields!Water_Received20.Value, "Month_Min_Max_Welverdiend")
++Sum(Fields!Water_Received18.Value, "Month_Min_Max_NorthX3")
++Sum(Fields!Water_Received18b.Value, "Month_Min_Max_NorthShawela")
++Sum(Fields!Water_Received24.Value, "Month_Min_Max_South")
++Sum(Fields!Water_Received25.Value, "Month_Min_Max_Carltonville")
++Sum(Fields!Water_Received26.Value, "Month_Min_Max_Blybank")))
+* Sum(Fields!CostPrice.Value, "Prices")
+
+Revenue margin before Loss% and FBW Allocation:
+=((Sum(Fields!Water_Received22.Value, "Wedela_Received")
++Sum(Fields!Water_Received20.Value, "Welverdiend_Received")
++Sum(Fields!Water_Received21A.Value, "Fochville_Received1")
++Sum(Fields!Water_Received21B.Value, "Fochville_Received2")
++Sum(Fields!Water_Received21C.Value, "Fochville_Received3")
++Sum(Fields!Water_Received18.Value, "North_Received")
++Sum(Fields!Water_Received25.Value, "Carltonville_Received")
++Sum(Fields!Water_Received26.Value, "BlyBank_Received")
++Sum(Fields!Water_Received24.Value, "South_Received"))
+-
+(Sum(Fields!Water_Received21.Value, "Month_Min_Max_Foch1")
++Sum(Fields!Water_Received21b.Value, "Month_Min_Max_Foch2")
++Sum(Fields!Water_Received21c.Value, "Month_Min_Max_Foch3")+
+Sum(Fields!Water_Received22.Value, "Month_Min_Max_WedelaBig")
++Sum(Fields!Water_Received20.Value, "Month_Min_Max_Welverdiend")
++Sum(Fields!Water_Received18.Value, "Month_Min_Max_NorthX3")
++Sum(Fields!Water_Received18b.Value, "Month_Min_Max_NorthShawela")
++Sum(Fields!Water_Received24.Value, "Month_Min_Max_South")
++Sum(Fields!Water_Received25.Value, "Month_Min_Max_Carltonville")
++Sum(Fields!Water_Received26.Value, "Month_Min_Max_Blybank")))
+* Sum(Fields!SellingPrice.Value, "Prices")
+
+AlarmT TYpe
+=IIF(Fields!Analog1.Value < 30,"Below Reserve","Reservoir Overflow")

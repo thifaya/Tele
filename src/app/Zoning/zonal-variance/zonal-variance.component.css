@@ -6,6 +6,10 @@
     overflow-y:hidden;
 }
 
+select {
+    width: 70%
+}
+
 .btnreport {
     font-family:Verdana;
     font-size:8pt;

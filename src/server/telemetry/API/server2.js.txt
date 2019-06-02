@@ -1,0 +1,90 @@
+var express = require('express');
+var app = express();
+
+    // config for your database
+    var config = {
+        user: 'sa',
+        password: '*1@dministrator',
+        server: '154.0.172.85', 
+        database: 'Telemetry' 
+    };
+
+app.get('/users', function (req, res) {
+    var sql = require("mssql");
+    // connect to your database
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+        // query to the database and get the records
+        request.query('EXEC User_All', function (err, recordset) {
+            if (err) console.log(err)
+            // send records as a response
+            res.send(recordset.recordsets[0]);
+            sql.close();
+        });
+    });
+});
+
+app.get('/title', function (req, res) {   
+    var sql = require("mssql");
+    // connect to your database
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+        // query to the database and get the records
+        request.query('select * from Lookup.Title', function (err, recordset) {
+            if (err) console.log(err)
+            // send records as a response
+            res.send(recordset.recordsets[0]);
+            sql.close()
+        });
+
+       ;
+    });
+});
+
+app.get('/designation', function (req, res) {
+  
+    var sql = require("mssql");
+    // connect to your database
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+        // query to the database and get the records
+        request.query('select * from Lookup.Designation', function (err, recordset) {
+            if (err) console.log(err)
+            // send records as a response
+            res.send(recordset.recordsets[0]);
+            sql.close();
+        });
+
+       
+    });
+});
+
+app.get('/site', function (req, res) {
+    
+    var sql = require("mssql");
+    // connect to your database
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+        // query to the database and get the records
+        request.query('select * from dbo.TBS_Site', function (err, recordset) {
+            if (err) console.log(err)
+            // send records as a response
+            res.send(recordset.recordsets[0]);
+            sql.close();
+        });
+
+   
+    });
+});
+
+var server = app.listen(5000, function () {
+    console.log('Server is running..');
+});

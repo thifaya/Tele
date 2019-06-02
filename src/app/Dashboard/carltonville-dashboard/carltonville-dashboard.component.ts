@@ -122,9 +122,10 @@ export class CarltonvilleDashboardComponent implements OnInit {
     //  this.router.navigate(['/']);
       }
 
-    if (localStorage.getItem('userData') === null) {
-      // this.router.navigate(['/']);
-    }
+      if (localStorage.getItem('userData') === null) {
+        this.router.navigate(['/']);
+       }
+    
   }
 
 }

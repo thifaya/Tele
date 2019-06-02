@@ -40,9 +40,11 @@ export class AppComponent {
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
     console.log(name);
-    if (localStorage.getItem('Name') != null) {
-        this.visible = true;
-    }
+
+    if (localStorage.getItem('userData') === null) {
+      this.router.navigate(['/']);
+     }
+  
   }
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnDestroy() {

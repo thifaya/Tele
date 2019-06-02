@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart } from 'angular-highcharts';
+import { DataService } from 'src/app/Server/data.service';
 import * as Highcharts from 'highcharts';
 import highcharts3D from 'highcharts/highcharts-3d.src';
 highcharts3D(Highcharts);
@@ -13,135 +14,140 @@ highcharts3D(Highcharts);
 })
 export class AggregateConsumedWaterComponent implements OnInit {
 
-    invalid: boolean;
+    visible: boolean;
+    notFound: boolean;
     currentDate: Date = new Date;
-    chart;
+
+    years; // bind to drop down list
+    year;
+    month;
+    site;
+
+    jsonDATA = {};
+    index
+    results
+    chart = []
+    i: number;
+    sum = 0;
+
 
     Highcharts = Highcharts;
     chartOptions;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private _service: DataService) { }
 
     ngOnInit() {
-        this.invalid = false;
+        this.visible = false;
+        this._service.getYears()
+            .subscribe(res => {
+                this.years = res
+            },
+                err => console.log(err.message))
+
         if (localStorage.getItem('userData') === null) {
+            //    this.router.navigate(['/']);
+        }
+
+        if (sessionStorage.getItem('userData') === null) {
             //    this.router.navigate(['/']);
         }
     }
 
+
     viewReport() {
-        this.invalid = true;
+        this.site = document.querySelector('#ddlSite');
+        this.month = document.querySelector('#ddlMonth');
+        this.year = document.querySelector('#ddlYear');
 
-        this.chartOptions = {
-            chart: {
-                type: 'pie',
-                options3d: {
-                    enabled: true,
-                    alpha: 65,
-                    beta: 0
-                }
-            },
+        this.index = this.site.value;
+        const month = this.month.value;
+        const year = this.year.value;
 
-            title: {
-                text: 'Water Consumed Per SITE'
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            credits: {
-                enabled: false
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    depth: 35,
-                    dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                        style: {
-                            color: 'grey'
+        const siteArray = this.index.split('~', 2)
+        const siteId = siteArray[0]
+
+        if (month == "" || year == "") {
+            console.log('NULL VALUES')
+            this.visible = false;
+            this.notFound = true;
+        } else {
+            this.notFound = false;
+            this.jsonDATA = { "month": month, "year": year }
+            console.log(this.jsonDATA)
+
+            this._service.getAggregateConsumed(this.jsonDATA)
+                .subscribe(res => {
+                    console.log(res)
+                    if (res.length >= 1) {
+
+                        this.results = res
+                        this.sum = 0;
+                        this.chart = [];
+
+                        for (this.i = 0; this.i < res.length; this.i++) {
+                            this.sum += this.results[this.i].Analog1
+                            this.chart.push([this.results[this.i].Name, this.results[this.i].Analog1])
                         }
-                    }
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Weeek Days',
-                data: [
-                    ['Monday', 30.0],
-                    ['Tuesday', 10.0],
-                    ['Wednesday', 26.8],
-                    {
-                        name: 'Thursday',
-                        y: 12.8,
-                        sliced: true,
-                        selected: true
-                    },
-                    ['Friday', 8.5],
-                    ['Saturday', 6.2],
-                    ['Sunday', 5.7]
-                ]
-            }]
-        };
+                        this.notFound = false;
+                        this.visible = true;
 
-        console.log('Report for Aggregate Water Consumed Retrieved');
+
+                        this.chartOptions = {
+                            chart: {
+                                type: 'pie',
+                                options3d: {
+                                    enabled: true,
+                                    alpha: 65,
+                                    beta: 0
+                                }
+                            },
+
+                            title: {
+                                text: 'Water Consumed Per SITE'
+                            },
+                            tooltip: {
+                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                            },
+                            credits: {
+                                enabled: false
+                            },
+                            plotOptions: {
+                                pie: {
+                                    allowPointSelect: true,
+                                    cursor: 'pointer',
+                                    depth: 35,
+                                    dataLabels: {
+                                        enabled: true, // '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                        format: '<b>{point.percentage:.1f} % </b>',
+                                        style: {
+                                            color: 'grey'
+                                        }
+                                    },
+                                    showInLegend: true,
+                                }
+                            },
+                            series: [{
+                                type: 'pie',
+                                name: 'Percentage of Amount Consumed',
+                                data: this.chart,
+                                enablePolling: true
+                            }]
+                        };
+
+                    } else {
+                        this.visible = false;
+                        this.notFound = true;
+
+                    }
+                },
+                    err => console.log(err))
+
+
+
+
+        }
+
+
     }
 
 }
-
-/* chart
-        this.chart = new Chart({
-            chart: {
-                type: 'pie',
-                options3d: {
-                    enabled: true,
-                    alpha: 45,
-                    beta: 0
-                }
-            },
-
-            title: {
-                text: 'Water Consumed Per SITE'
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            credits: {
-                enabled: false
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    depth: 35,
-                    dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                        style: {
-                            color: 'black'
-                        }
-                    }
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Weeek Days',
-                data: [
-                    ['Monday', 30.0],
-                    ['Tuesday', 10.0],
-                    ['Wednesday', 26.8],
-                    {
-                        name: 'Thursday',
-                        y: 12.8,
-                        sliced: true,
-                        selected: true
-                    },
-                    ['Friday', 8.5],
-                    ['Saturday', 6.2],
-                    ['Sunday', 5.7]
-                ]
-            }]
-        });
-*/
-

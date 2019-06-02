@@ -5,21 +5,29 @@
 </head>
 
 <body>
-    <app-nav-bar></app-nav-bar>
-    <h6 class="pageHeading"><b>Maintenance Page: Heartbeat</b></h6>
-<div>
-  <img src="{{heartbeatPath}}" class="heartbeatImg">
-</div>
+  <app-nav-bar></app-nav-bar>
+  <h6 class="pageHeading"><b>Maintenance Page: Heartbeat</b></h6>
+  <div>
+    <img src="{{heartbeatPath}}" class="heartbeatImg">
+  </div>
 
-<table rules="all" cellspacing="0">
-  <tr class="titlerow">
-    <td>SITE</td>
-    <td>CONNECTION STATUS</td>
-    <td>LAST CONNECTION DATE</td>
-    <td>BATTERY STATUS</td>
-    <td>ELECTRICITY STATUS</td>
-    <td>LENGEND</td>
-  </tr>
-</table>
+  <table cellpadding="1" cellspacing="0">
+    <tr class="titlerow">
+      <th>SITE</th>
+      <th>CONNECTION STATUS</th>
+      <th>LAST CONNECTION DATE</th>
+      <th>BATTERY STATUS</th>
+      <th>ELECTRICITY STATUS</th>
+      <th>LENGEND</th>
+    </tr>
+    <tr *ngFor="let heartbeat of heartbeats" >
+      <td>{{ heartbeat.Name }}</td>
+      <td>{{ heartbeat.GPRSConnected }}</td>
+      <td>{{ heartbeat.LastRXTimestamp }}</td>
+      <td>{{ heartbeat.Battery }}</td>
+      <td>{{ heartbeat.Counter8 }}</td>
+      <td> <img src="{{ legendPath }}" style="height: 15%;"> </td>
+    </tr>
+  </table>
 
 </body>

@@ -9,10 +9,15 @@
   <h6 class="pageHeading"><b>Water Usage Analysis: Multi Year Consumed Trends</b></h6>
   <div>
       <h5 class="header">Today's Date: {{currentDate |date:"M/dd/yyyy h:mm:ss a"}}</h5>
-      <div class="wrapper">
+      <div class="wrapper"  *ngIf="visible">
         <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
         style="width: 100%; height: 400px; display: block; margin-top: 4%;"></highcharts-chart>
       </div>
     </div>
+
+    <br/>
+  <div class="lblResults" *ngIf="notFound">
+    <label>Data Not Found</label>
+  </div>
 
 </body>

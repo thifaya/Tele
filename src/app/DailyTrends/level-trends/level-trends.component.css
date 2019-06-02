@@ -40,7 +40,9 @@ body {
     margin-top: 0px;
 }
 
-
+select {
+    width: 70%
+}
 
 .ddlprovince {
     font-family:Verdana;
@@ -139,4 +141,12 @@ form {
 
   [type="date"]::-webkit-calendar-picker-indicator:hover {
     cursor: pointer;
+  }
+
+  .lblResults {
+      background-color: lightgrey;
+      text-align: center;
+      width: 95%;
+      margin-left: 40px;
+      color: grey;
   }

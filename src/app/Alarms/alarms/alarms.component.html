@@ -7,8 +7,180 @@
     <body style="padding-bottom: 100px;">
   <app-nav-bar></app-nav-bar>
   <h6 class="pageHeading"><b>Alarms</b></h6>
-  <h5 class="header" ><b>Alarms</b></h5>
-  <div style="margin-left: 12%;margin-top: 3%">
+  
+  <table class="table1" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr style="background-color:#ECE9D8;">
+        <td style="width: 25%; display: none;"></td>
+        <td style="width: 6px; display: none;"></td>
+        <td style="width:100%;"></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div class="myDiv">
+            <div>
+              <table class="table2" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr>
+                    <td style="width: 100%;height: 100%">
+
+                      <table>
+                        <tbody>
+
+                          <!-- Compalsary row-->
+                          
+                          <tr isparameterrow="true">
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select
+                                Province:</span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div>
+                                <select class="ddlprovince" id="ddlprovince" required >
+                                  <option value="1~gauteng" selected="selected">Gauteng</option>
+                                </select>
+                              </div>
+                            </td>
+
+                          </tr>
+                          <tr isparameterrow="true">
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select District or
+                                Metropolitan Municipality:</span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div>
+                                <select class="ddldistrict" id="ddldistrict" required >
+                                  <option value="1~west_rand" selected="selected">West Rand</option>
+                                  
+                                </select>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr isparameterrow="true">
+                            <td style="padding:5px; "><span style="font-family:Verdana;font-size:8pt;">Select Local
+                                Municipality:</span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div>
+                                <select class="ddlmunicipality" id="ddlmunicipality" name="municipality" required >
+                                  <option value="1~merafong" selected="selected">Merafong City</option>
+                                </select>
+                              </div>
+                            </td>
+                          </tr>
+
+
+                          <tr isparameterrow="true">
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select
+                                Site:</span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div>
+                                <select class="ddlSite" id="ddlSite" name="site"  required>
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option *ngFor="let site of SITES" value="{{site.SITEID}}~{{site.Name}}">{{site.Name}}</option>
+                                  
+                                </select>
+                              </div>
+                            </td>
+                            <td>
+
+                            </td>
+
+                          </tr>
+                          <!--line space-->
+                          <div style="margin-bottom: 22px">
+                            <tr isparameterrow="true">
+                            </tr>
+                          </div>
+
+                          <!-- /Compalsary row -->
+                          <tr isparameterrow="true">
+                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select Date
+                              </span></td>
+                            <td style="padding:5px;padding-right:0px;">
+                              <div>                                                     
+                                <input type="date" name="date" id="dpDate" class="dpDate" ngModule="dpDate" placeholder="Choose a Date" required>                                  
+
+                              </div>
+                            </td>
+                            <!--  
+                        -->
+
+                          </tr>
+                          <tr isparameterrow="true">
+
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+
+
+                  </tr>
+                  <!--line space-->
+                  <div style="margin-bottom: 4%">
+                    <tr isparameterrow="true">
+                    </tr>
+                  </div>
+                  <tr style="margin-top: 1px;padding-bottom: 1px">
+                    <td class="buttoncell">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td><input type="submit" class="btnreport" id="btnreport" value="View Report" (click)="ViewReport()" ></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr style="height:6px;font-size:2pt;">
+        <td class="cellblock" colspan="3">
+          <div>
+            <input type="hidden"><input type="hidden" value="false">
+          </div>
+        </td>
+      </tr>
+      <tr style="display:none;"></tr>
+      <tr>
+        <td style="width: 25%; height: 100%; vertical-align: top; display: none;">
+          <div style="width:100%;height:100%;">
+            <span>
+              <div style="display:none;">
+                <input type="hidden">
+              </div>
+            </span>
+          </div>
+        </td>
+        <td
+          style="margin: 0px; padding: 0px; width: 4px; height: 100%; vertical-align: middle; display: none; background-color: rgb(236, 233, 216);">
+          <div>
+            <input type="hidden"><input type="hidden" value="false">
+          </div>
+        </td>
+        <td style="height: 100%; vertical-align: top;">
+          <div style="height:100%;width:100%;overflow:auto;position:relative;">
+            <div style="height:100%;display:none;"></div>
+            <div>
+              <div style="visibility:none;" fornonreportcontentarea="false"
+                newcontenttype="Microsoft.Reporting.WebFormsClient.ReportAreaContent.None">
+                <input type="hidden" value="None">
+              </div><input type="hidden"><span></span>
+              <div style="display:none;">
+                <span></span><input type="hidden"><input type="hidden"><input type="hidden" value="100">
+              </div>
+              <div style="width: 100%; height: 100%; display: none;">
+
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="header"  *ngIf="visible"><b>Alarms</b></h5>
+  <div style="margin-left: 12%;margin-top: 3%" *ngIf="visible">
     <table class="tableBlock" border="1" width="70%" rules="all" cellspacing="0">
 
       <tbody>
@@ -19,7 +191,17 @@
           <td >Date</td>
           <td >Time</td>
         </tr>
+        <tr *ngFor="let alarm of myJSON">
+          <td >{{ alarm.site }}</td>
+          <td >{{ alarm.value | number}}</td>
+          <td style="color:red">{{ alarm.type }}</td>
+          <td style="color:red">{{ alarm.date }}</td>
+          <td style="color:red">{{ alarm.time }}</td>
+        </tr>
       </tbody>
     </table>
+  </div>
+  <div class="lblResults" *ngIf="notFound">
+    <label>Data Not Found</label>
   </div>
  </body>

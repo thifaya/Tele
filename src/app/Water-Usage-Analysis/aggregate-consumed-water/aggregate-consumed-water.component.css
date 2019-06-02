@@ -34,6 +34,10 @@
     outline: transparent;
 }
 
+select {
+    width: 70%
+}
+
 body {
     margin-top: 0px;
 }
@@ -138,4 +142,12 @@ select:hover {
     border: 1px solid whitesmoke;
     vertical-align: top; 
     margin-top: -15%; 
+}
+
+.lblResults {
+    background-color: lightgrey;
+    text-align: center;
+    width: 95%;
+    margin-left: 40px;
+    color: grey;
 }

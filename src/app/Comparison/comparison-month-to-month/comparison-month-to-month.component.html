@@ -18,6 +18,7 @@
       <td colspan="3">
         <div class="myDiv" >
           <div>
+              <form  >
        <table class="table2" cellspacing="0" cellpadding="0">
               <tbody>
                 <tr>
@@ -33,8 +34,7 @@
                             <td style="padding:5px;padding-right:0px;">
                               <div >
                                 <select class="ddlprovince" id="ddlprovince">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
+                                  <option selected="selected" value="*">All</option>
                                  </select>
                               </div>
                             </td>
@@ -45,7 +45,7 @@
                             <td style="padding:5px;padding-right:0px;">
                               <div>
                                 <select class="ddldistrict" id="ddldistrict" >
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
                                   <option value="1">All</option>
   
                                 </select>
@@ -57,7 +57,7 @@
                             <td style="padding:5px;padding-right:0px;">
                               <div>
                                 <select class="ddlmunicipality" id="ddlmunicipality">                                  
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
                                   <option value="1">All</option>
                                 </select>
                               </div>
@@ -69,9 +69,15 @@
                             <td style="padding:5px;padding-right:0px;">
                               <div >
                                 <select class="ddlSite" id="ddlSite">
-                                  <option selected="selected" value="0">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
-  
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="ALL" >All</option><!---->
+                                  <option value="Wedela Big" >Wedela Big</option>
+                                  <option value="Fochville" >Fochville</option>
+                                  <option value="North" >North</option>
+                                  <option value="Carltonville.Outlet.Volume" >Carltonville</option>
+                                  <option value="South.Outlet.Volume" >South</option>
+                                  <option value="Welverdiend" >Welverdiend</option>
+                                  <option value="Wedela Small" >Wedela Small</option>
                                 </select>
                               </div>
                             </td>
@@ -112,15 +118,12 @@
                               Year 1:</span></td>
                           <td style="padding:5px;padding-right:0px;">
                             <div >
-                              <select class="ddlYear1" id="ddlYear1" name="ddlYear1" required>
+                              <select id="ddlYear1" class="ddlYear1" name="ddlYear1" required>
                                 <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                <option value="0">2019</option>
-                                <option value="1">2018</option>
-                                <option value="2">2017</option>
-                                <option value="3">2016</option>
-                                <option value="4">2015</option>
-                                <option value="5">2014</option>
-
+                                <option  *ngFor="let year of years" value="{{year.Name}}">{{year.Name}}</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
                               </select>
                             </div>
                           </td>
@@ -129,23 +132,15 @@
                             Comparison Year 2:</span></td>
                         <td style="padding:5px;padding-right:0px;">
                           <div>
-                            <select class="ddlYear2" id="ddlYear2" name="ddlYear2" required>
+                            <select id="ddlYear2" class="ddlYear2" name="ddlYear2" required>
                               <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                              <option value="0">2019</option>
-                              <option value="1">2018</option>
-                              <option value="2">2017</option>
-                              <option value="3">2016</option>
-                              <option value="4">2015</option>
-                              <option value="5">2014</option>
+                              <option  *ngFor="let year of years" value="{{year.Name}}">{{year.Name}}</option>
+                              <option value="2013">2013</option>
+                              <option value="2014">2014</option>
+                              <option value="2015">2015</option>
                             </select>
                           </div>
                         </td>
-                          <td ></td>
-                          <td ></td>
-                          <td ></td>
-                          <td ></td>
-                          <td ></td>                                  
-                        
                           
                         </tr>
                         <tr isparameterrow="true" >
@@ -174,6 +169,7 @@
                 </tr>
               </tbody>
             </table>
+            </form>
           </div>
         </div>
       </td>
@@ -218,13 +214,13 @@
         </div>
       </td>
     </tr>
-    <tr *ngIf="invalid">
+    <tr *ngIf="valid">
       <h6 class="header"><b>Month to Month Comparison</b></h6>
       <p style="text-align: center; font-weight: bold">Today's Date: {{ currentDate | date: "dd/MM/yyyy h:mm a" }}</p>
     </tr>
   </tbody>
 </table>
-<table style="margin-left: 85px; width: 95%;" *ngIf="invalid" cellpadding="2">
+<table style="margin-left: 85px; width: 95%;" *ngIf="valid" cellpadding="2">
   <tbody>
     <tr>
       <td style="width: 55%">
@@ -238,11 +234,11 @@
             <th>Utilization Percentage</th>
           </tr>
           <tr>
-            <td>{{year1}}</td>
-            <td>{{month.value}}</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{year1.value}}</td>
+            <td>{{ month.value }}</td>
+            <td>{{ recSum | number: '1.2-2'}}</td>
+            <td>{{ conSum | number: '1.2-2'}}</td>
+            <td>{{ util }}%</td>
           </tr>
         </table>
 
@@ -255,12 +251,12 @@
             <th>Water Consumed</th>
             <th>Utilization Percentage</th>
           </tr>
-          <tr>
-            <td>{{year2}}</td>
-            <td>{{month.value}}</td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr >
+            <td>{{year2.value}}</td>
+            <td>{{ month.value }}</td>
+            <td>{{ recSum | number: '1.2-2'}}</td>
+            <td>{{ conSum | number: '1.2-2'}}</td>
+            <td>{{ util }}%</td>
           </tr>
         </table>
       </td >
@@ -270,11 +266,11 @@
             <th class="tableHead" colspan="2" >Variances</th>
             <tr style="border-bottom: 1px solid white">
               <td>Water Received: </td>
-              <td style="text-align: center; background-color: lightgrey">%</td>
+              <td style="text-align: center; background-color: lightgrey">{{ recVar }}%</td>
             </tr>
             <tr>
               <td>Water Consumed: </td>
-              <td style="text-align: center; background-color: lightgrey;">%</td>
+              <td style="text-align: center; background-color: lightgrey;">{{ conVar }}%</td>
             </tr>
           </tbody>
         </table>
@@ -282,9 +278,14 @@
     </tr>
   </tbody>
 </table>
+<div class="lblResults" *ngIf="notFound">
+  <label>There is No data for the Selected fields!</label>
+</div>
 
 </body>
 
 <!--
-
--->
+        "Name": "South.Outlet.Volume",
+        "Consumed_Water": 139289.8999999999
+        "Received_Water": 139289.8999999999
+  -->

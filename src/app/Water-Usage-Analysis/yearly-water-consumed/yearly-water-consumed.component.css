@@ -147,3 +147,12 @@ form {
     color: steelblue;
     font-family: Verdana;
 }
+
+
+.lblResults {
+    background-color: lightgrey;
+    text-align: center;
+    width: 95%;
+    margin-left: 40px;
+    color: grey;
+}
