@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart } from 'angular-highcharts';
-import { DataService } from 'src/app/Server/data.service';
+import { DataService } from 'src/app/Service/data.service';
 import * as  moment from 'moment';
 import * as Highcharts from 'highcharts';
 import highcharts3D from 'highcharts/highcharts-3d.src';
@@ -33,25 +33,20 @@ export class YearlyWaterReceivedComponent implements OnInit {
 
     this._service.getYearlyReceived()
       .subscribe(res => {
-      },
-        err => console.log(err))
-
-    this._service.getYearlyReceived()
-      .subscribe(res => {
         if (res.length > 0) {
 
           this.notFound = false;
           this.results = res;
           this.plotData = [];
-          
-          
+
+
           for (this.i = 0; this.i < this.results.length; this.i++) {
 
             this.plotData.push({ 'name': this.results[this.i].MyYear, 'data': [this.results[this.i].Water_Received] })
 
           }
 
-          
+
           this.chartOptions = {
             chart: {
               type: 'column'
@@ -70,7 +65,7 @@ export class YearlyWaterReceivedComponent implements OnInit {
                 skew3d: true,
                 text: 'Total Water Received (KL)<br><br>'
               }
-        
+
             },
             plotOptions: {
               series: {
@@ -107,13 +102,13 @@ export class YearlyWaterReceivedComponent implements OnInit {
       },
         err => console.log(err))
 
-   
-        if (localStorage.getItem('userData') === null) {
-          this.router.navigate(['/']);
-         }
-      
 
-    if (sessionStorage.getItem('userData') === null) {
+    if (localStorage.getItem('UserId') === null) {
+      this.router.navigate(['/']);
+    }
+
+
+    if (sessionStorage.getItem('UserId') === null) {
       //  this.router.navigate(['/']);
     }
   }

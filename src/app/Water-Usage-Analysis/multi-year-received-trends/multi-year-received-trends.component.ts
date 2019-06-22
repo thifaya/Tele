@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'angular-highcharts';
 import { Router } from '@angular/router';
-import { DataService } from 'src/app/Server/data.service';
+import { DataService } from 'src/app/Service/data.service';
 import * as Highcharts from 'highcharts';
 import highcharts3D from 'highcharts/highcharts-3d.src';
 import { array } from '@amcharts/amcharts4/core';
@@ -111,11 +111,11 @@ export class MultiYearReceivedTrendsComponent implements OnInit {
       },
         err => console.log(err))
 
-    if (localStorage.getItem('userData') === null) {
+    if (localStorage.getItem('UserId') === null) {
       //  this.router.navigate(['/']);
     }
 
-    if (sessionStorage.getItem('userData') === null) {
+    if (sessionStorage.getItem('UserId') === null) {
       //  this.router.navigate(['/']);
     }
   }

@@ -34,8 +34,10 @@
                                 Province:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlprovince" id="ddlprovince" required >
-                                  <option value="1~gauteng" selected="selected">Gauteng</option>
+                                <select class="ddlprovince" id="ddlprovince" (change)="dropDownEnabled()" >
+                                  <option selected="selected" value="" >&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="0" >All</option>
+                                  <option value="1~gauteng"  >Gauteng</option>
                                 </select>
                               </div>
                             </td>
@@ -46,8 +48,10 @@
                                 Metropolitan Municipality:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddldistrict" id="ddldistrict" required >
-                                  <option value="1~west_rand" selected="selected">West Rand</option>
+                                <select class="ddldistrict" id="ddldistrict" required  (change)="districtEnable()" >
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="0">All</option>
+                                  <option value="1~west_rand" >West Rand</option>
                                   
                                 </select>
                               </div>
@@ -58,8 +62,10 @@
                                 Municipality:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlmunicipality" id="ddlmunicipality" name="municipality" required >
-                                  <option value="1~merafong" selected="selected">Merafong City</option>
+                                <select class="ddlmunicipality" id="ddlmunicipality" name="municipality" required  (change)="localEnable()">
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="0">All</option>
+                                  <option value="1~merafong"  >Merafong City</option>
                                 </select>
                               </div>
                             </td>
@@ -204,7 +210,7 @@
     </tbody>
   </table>
   <div class="lblResults" *ngIf="notFound">
-    <label>Data Not Found</label>
+    <label>No data found for the selected fields</label>
   </div>
 <!--
   

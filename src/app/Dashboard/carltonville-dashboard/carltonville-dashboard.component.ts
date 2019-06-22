@@ -117,12 +117,12 @@ export class CarltonvilleDashboardComponent implements OnInit {
 */
 
   ngOnInit() {
-    if (sessionStorage.getItem('userData') === null) {
-      window.alert('Must Login First');
+    if (sessionStorage.getItem('UserId') === null) {
+     // window.alert('Must Login First');
     //  this.router.navigate(['/']);
       }
 
-      if (localStorage.getItem('userData') === null) {
+      if (localStorage.getItem('UserId') === null) {
         this.router.navigate(['/']);
        }
     

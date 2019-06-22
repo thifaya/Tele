@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService } from 'src/app/Server/data.service';
+import { DataService } from 'src/app/Service/data.service';
 import * as  moment from 'moment';
 
 @Component({
@@ -18,6 +18,9 @@ export class AlarmsComponent implements OnInit {
   date; i: number
   site; SITES
   jsonDATA = {};
+
+  provinceDropdown; municipalityDropdown;
+  districtDropdown; siteDropdown
   // 
   constructor(private router: Router, private _dataservice: DataService) { 
     this._dataservice.getAllSite()
@@ -30,22 +33,30 @@ export class AlarmsComponent implements OnInit {
   ngOnInit() {
     this.visible = false;
     this.notFound = false;
-    if (sessionStorage.getItem('userData') === null) {
+    if (sessionStorage.getItem('UserId') === null) {
       // window.alert('Must Login First');
       //  this.router.navigate(['/']);
     }
 
 
-    if (localStorage.getItem('userData') === null) {
+    if (localStorage.getItem('UserId') === null) {
       this.router.navigate(['/']);
      }
+
+     this.districtDropdown = document.querySelector('#ddldistrict')
+     this.provinceDropdown = document.querySelector('#ddlprovince')
+     this.municipalityDropdown = document.querySelector('#ddlmunicipality')
+     this.date = document.querySelector('#dpDate');
+     this.site = document.querySelector('#ddlSite');
+ 
+     this.districtDropdown.disabled = true
+     this.municipalityDropdown.disabled = true
+     this.site.disabled = true
   
   }
 
   ViewReport() {
 
-    this.date = document.querySelector('#dpDate');
-    this.site = document.querySelector('#ddlSite');
 
     this.index = this.site.value;
     const date = this.date.value;
@@ -103,6 +114,61 @@ export class AlarmsComponent implements OnInit {
     
   }
 
+
+  dropDownEnabled() {
+
+
+    if (this.provinceDropdown.value == '') {
+
+      this.districtDropdown.value = ''
+      this.site.value = ''
+      this.municipalityDropdown.value = ''
+
+      this.districtDropdown.disabled = true
+      this.site.disabled = true
+      this.municipalityDropdown.disabled = true
+
+
+    } else{
+       this.districtDropdown.disabled = false
+  }
+
+
+    console.log('Selected= ' + !this.districtDropdown.disabled)
+  }
+
+  districtEnable() {
+      
+    if (this.districtDropdown.value == '') { 
+
+      this.site.value = ''
+      this.municipalityDropdown.value = ''
+
+      this.site.disabled = true
+      this.municipalityDropdown.disabled = true
+
+    } else {
+      this.municipalityDropdown.disabled = false 
+    }
+  }
+
+  localEnable() {
+    
+    if (this.municipalityDropdown.value == '') {
+
+      this.site.value = ''
+      
+      this.site.disabled = true
+      
+      if (this.site.value == '') {
+        console.log('site null')
+      }   else {
+        console.log('get value')
+      }
+    } else {
+      this.site.disabled = false 
+    }
+  }
 
 }
 //{"date": "2013/09/20", "siteId": 21}  moment(this.date.value).format('YYYY/MM/DD')

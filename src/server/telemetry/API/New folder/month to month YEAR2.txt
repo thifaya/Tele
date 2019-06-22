@@ -1,0 +1,58 @@
+-- YEAR 2--
+
+--consumed --
+SELECT     Name, CASE WHEN SiteId = 21 THEN ROUND(MAX(CAST(Counter4 AS float)) - MIN(CAST(Counter4 AS float)) 
+                                                + MAX(CAST(Counter5 AS float)) - MIN(CAST(Counter5 AS float)) 
+                                                + MAX(CAST(Counter6 AS float)) - MIN(CAST(Counter6 AS float)), 2) 
+                       WHEN SiteId  = 18 then
+                                           ROUND(MAX(CAST(Counter2 AS float)) - MIN(CAST(Counter2 AS float)) + 
+                                                 MAX(CAST(Counter3 AS float)) - MIN(CAST(Counter3 AS float)), 2) 
+                                        ELSE ROUND(MAX(CAST(Counter2 AS float)) - MIN(CAST(Counter2 AS float)), 2) 
+                                        END AS Consumed_Water
+FROM         viewMESSAGESRECEIVEDUNDELIMITED
+WHERE     (DATEPART(Month, Date) = @mymonth) AND (DATEPART(Year, Date) = @myYear) AND (SITEID <> 19) AND (SITEID <> 22) AND (SITEID <> 24) AND (SITEID <> 25) AND 
+                      (SITEID <> 26)
+GROUP BY Name, SITEID
+UNION
+SELECT     Tag_ID AS Name, MAX(CAST(Tag_Value AS float)) - MIN(CAST(Tag_Value AS float)) AS Consumed_Water
+FROM         TBS_IMPORTDATA
+WHERE     (DATEPART(Month, Tag_Timestamp) = @mymonth) AND (DATEPART(Year, Tag_Timestamp) = @myYear) AND (Tag_ID = 'South.Outlet.Volume')
+GROUP BY Tag_ID
+UNION
+SELECT     Tag_ID AS Name, MAX(CAST(Tag_Value AS float)) - MIN(CAST(Tag_Value AS float)) AS Consumed_Water
+FROM         TBS_IMPORTDATA AS TBS_IMPORTDATA_2
+WHERE     (DATEPART(Month, Tag_Timestamp) = @mymonth) AND (DATEPART(Year, Tag_Timestamp) = @myYear) AND (Tag_ID = 'Carltonville.Outlet.Volume')
+GROUP BY Tag_ID
+UNION
+SELECT     Tag_ID AS Name, MAX(CAST(Tag_Value AS float)) - MIN(CAST(Tag_Value AS float)) AS Consumed_Water
+FROM         TBS_IMPORTDATA AS TBS_IMPORTDATA_1
+WHERE     (DATEPART(Month, Tag_Timestamp) = @mymonth) AND (DATEPART(Year, Tag_Timestamp) = @myYear) AND (Tag_ID = 'Blybank.Outlet.Volume')
+GROUP BY Tag_ID
+
+-- Received --
+
+
+SELECT     Name, CASE WHEN SiteId = 21 THEN ROUND(MAX(CAST(Counter1 AS float)) - MIN(CAST(Counter1 AS float)) 
+                                                 + MAX(CAST(Counter2 AS float))- MIN(CAST(Counter2 AS float)) 
+                                                 + MAX(CAST(Counter3 AS float))- MIN(CAST(Counter3 AS float)), 2) 
+                                        ELSE ROUND(MAX(CAST(Counter1 AS float))- MIN(CAST(Counter1 AS float)), 2) 
+                                        END AS Received_Water
+FROM         viewMESSAGESRECEIVEDUNDELIMITED
+WHERE     (DATEPART(Month, Date) = @mymonth) AND (DATEPART(Year, Date) = @myYear) AND (SITEID <> 19) AND (SITEID <> 23) AND (SITEID <> 24) AND (SITEID <> 25) AND 
+                      (SITEID <> 26)
+GROUP BY Name, SITEID
+UNION
+SELECT     Tag_ID AS Name, MAX(CAST(Tag_Value AS float)) - MIN(CAST(Tag_Value AS float)) AS Received_Water
+FROM         TBS_IMPORTDATA
+WHERE     (DATEPART(Month, Tag_Timestamp) = @mymonth) AND (DATEPART(Year, Tag_Timestamp) = @myYear) AND (Tag_ID = 'South.Inlet.Volume')
+GROUP BY Tag_ID
+UNION
+SELECT     Tag_ID AS Name, MAX(CAST(Tag_Value AS float)) - MIN(CAST(Tag_Value AS float)) AS Received_Water
+FROM         TBS_IMPORTDATA
+WHERE     (DATEPART(Month, Tag_Timestamp) = @mymonth) AND (DATEPART(Year, Tag_Timestamp) = @myYear) AND (Tag_ID = 'Carltonville.Inlet.Volume')
+GROUP BY Tag_ID
+UNION
+SELECT     Tag_ID AS Name, MAX(CAST(Tag_Value AS float)) - MIN(CAST(Tag_Value AS float)) AS Received_Water
+FROM         TBS_IMPORTDATA
+WHERE     (DATEPART(Month, Tag_Timestamp) = @mymonth) AND (DATEPART(Year, Tag_Timestamp) = @myYear) AND (Tag_ID = 'Blybank.Inlet.Volume')
+GROUP BY Tag_ID

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy,  } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService } from '../app/Server/data.service';
+import { DataService } from './Service/data.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +22,7 @@ export class AppComponent {
 
   getUserData() {
     if (localStorage.getItem('Name') != null) {
-     JSON.parse(localStorage.getItem('userData'));
+     JSON.parse(localStorage.getItem('UserId'));
      this.myname = JSON.parse(localStorage.getItem('Name'));
     } else {
       return null;
@@ -41,7 +41,7 @@ export class AppComponent {
   ngOnInit() {
     console.log(name);
 
-    if (localStorage.getItem('userData') === null) {
+    if (localStorage.getItem('UserId') === null) {
       this.router.navigate(['/']);
      }
   

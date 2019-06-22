@@ -34,23 +34,25 @@
                                   Province:</span></td>
                               <td style="padding:5px;padding-right:0px;">
                                 <div>
-                                  <select class="ddlprovince" id="ddlprovince">
-                                    <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                    <option value="1">All</option>
+                                  <select class="ddlprovince" id="ddlprovince" (change)="dropDownEnabled()" >
+                                    <option selected="selected" value="" >&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                    <option value="0" >All</option>
+                                    <option value="1~gauteng"  >Gauteng</option>
                                   </select>
                                 </div>
                               </td>
-
+  
                             </tr>
                             <tr isparameterrow="true">
-                              <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select District
-                                  or Metropolitan Municipality:</span></td>
+                              <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select District or
+                                  Metropolitan Municipality:</span></td>
                               <td style="padding:5px;padding-right:0px;">
                                 <div>
-                                  <select class="ddldistrict" id="ddldistrict">
+                                  <select class="ddldistrict" id="ddldistrict" required  (change)="districtEnable()" >
                                     <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                    <option value="1">All</option>
-
+                                    <option value="0">All</option>
+                                    <option value="1~west_rand" >West Rand</option>
+                                    
                                   </select>
                                 </div>
                               </td>
@@ -60,27 +62,32 @@
                                   Municipality:</span></td>
                               <td style="padding:5px;padding-right:0px;">
                                 <div>
-                                  <select class="ddlmunicipality" id="ddlmunicipality">
+                                  <select class="ddlmunicipality" id="ddlmunicipality" name="municipality" required  (change)="localEnable()">
                                     <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                    <option value="1">All</option>
+                                    <option value="0">All</option>
+                                    <option value="1~merafong"  >Merafong City</option>
                                   </select>
                                 </div>
                               </td>
                             </tr>
-
-                            <tr isparameterrow="true">
-                              <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select
-                                  Site:</span></td>
+  
+                            <tr isparameterrow="true" >
+                              <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select Site:</span></td>
                               <td style="padding:5px;padding-right:0px;">
-                                <div>
+                                <div >
                                   <select class="ddlSite" id="ddlSite">
                                     <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                    <option value="1">All</option>
-
+                                    <option value="ALL" >All</option><!---->
+                                    <option value="Wedela Big" >Wedela Big</option>
+                                    <option value="Fochville" >Fochville</option>
+                                    <option value="North" >North</option>
+                                    <option value="Welverdiend" >Welverdiend</option>
+                                    <option value="Wedela Small" >Wedela Small</option>
                                   </select>
                                 </div>
                               </td>
-                            </tr>
+                          </tr>
+
                             <!--line space-->
                             <div style="margin-bottom: 22px">
                               <tr isparameterrow="true">
@@ -306,7 +313,7 @@
 
     
   <div class="lblResults" *ngIf="notFound">
-    <label>Data Not Found</label>
+    <label>There is no data for the Selected fields!</label>
   </div>
   
   </form>

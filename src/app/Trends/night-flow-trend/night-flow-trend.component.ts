@@ -26,7 +26,7 @@ export class NightFlowTrendComponent implements OnInit {
 
   ngOnInit() {
    
-    if (localStorage.getItem('userData') === null) {
+    if (localStorage.getItem('UserId') === null) {
       this.router.navigate(['/']);
      }
   

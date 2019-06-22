@@ -1,0 +1,15 @@
+=IIf(IsNothing(Sum(Fields!Received_Water.Value, "YearToYear_Rec_CurrY"))Or IsNothing(Sum(Fields!Received_Water.Value, "YearToYear_Rec")) ,0,
+
+Round((((Sum(Fields!Received_Water.Value, "YearToYear_Rec_CurrY") - Sum(Fields!Received_Water.Value, "YearToYear_Rec"))
+/
+Sum(Fields!Received_Water.Value, "YearToYear_Rec"))
+*
+100),2) & " %")
+
+
+=IIf(IsNothing(Sum(Fields!Consumed_Water.Value, "YearToYear_Cons_CurrY"))Or IsNothing(Sum(Fields!Consumed_Water.Value, "YearToYear_Cons")) ,0,
+Round((((Sum(Fields!Consumed_Water.Value, "YearToYear_Cons_CurrY")- Sum(Fields!Consumed_Water.Value, "YearToYear_Cons"))
+/
+Sum(Fields!Consumed_Water.Value, "YearToYear_Cons"))
+*
+100),2) & " %")

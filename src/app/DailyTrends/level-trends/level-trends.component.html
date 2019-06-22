@@ -33,8 +33,10 @@
                                 Province:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlprovince" id="ddlprovince" required >
-                                  <option value="1~gauteng" selected="selected">Gauteng</option>
+                                <select class="ddlprovince" id="ddlprovince" (change)="dropDownEnabled()" (click)="notEmpty()">
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="0">All</option>
+                                  <option value="1~gauteng">Gauteng</option>
                                 </select>
                               </div>
                             </td>
@@ -45,9 +47,11 @@
                                 Metropolitan Municipality:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddldistrict" id="ddldistrict" required >
-                                  <option value="1~west_rand" selected="selected">West Rand</option>
-                                  
+                                <select class="ddldistrict" id="ddldistrict" required (change)="districtEnable()" (click)="notEmpty()">
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="0">All</option>
+                                  <option value="1~west_rand">West Rand</option>
+
                                 </select>
                               </div>
                             </td>
@@ -57,8 +61,11 @@
                                 Municipality:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlmunicipality" id="ddlmunicipality" name="municipality" required >
-                                  <option value="1~merafong" selected="selected">Merafong City</option>
+                                <select class="ddlmunicipality" id="ddlmunicipality" name="municipality" required
+                                  (change)="localEnable()" (click)="notEmpty()">
+                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                  <option value="0">All</option>
+                                  <option value="1~merafong">Merafong City</option>
                                 </select>
                               </div>
                             </td>
@@ -69,9 +76,10 @@
                                 Site:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlSite" id="ddlSite" name="site" required>
+                                <select class="ddlSite" id="ddlSite" name="site" required (click)="notEmpty()">
                                   <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option *ngFor="let site of SITES" value="{{site.SITEID}}~{{site.Name}}">{{site.Name}}</option>
+                                  <option *ngFor="let site of SITES" value="{{site.SITEID}}~{{site.Name}}">{{site.Name}}
+                                  </option>
 
                                 </select>
                               </div>
@@ -94,7 +102,7 @@
                             <td style="padding:5px;padding-right:0px;">
                               <div>
                                 <input type="date" name="date" id="dpDate" class="dpDate" ngModule="dpDate"
-                                  placeholder="Choose a Date" required>
+                                  placeholder="Choose a Date" (click)="notEmpty()" required>
 
                               </div>
                             </td>
@@ -129,6 +137,9 @@
                           <tr>
                             <td><input type="submit" class="btnreport" id="btnreport" value="View Report"
                                 (click)="viewReport()"></td>
+                            <td>
+                                <span  *ngIf="empty" class="text-error" > Error! empty field</span>
+                            </td>
                           </tr>
                         </tbody>
                       </table>
@@ -187,12 +198,12 @@
   </table>
   <div *ngIf="visible" style="width: 95%">
     <!-- -->
-     <highcharts-chart  [Highcharts]="Highcharts" [options]="chartOptions"
-  style="width: 100%; height: 400px; display: block;" ></highcharts-chart> 
+    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+      style="width: 100%; height: 400px; display: block;"></highcharts-chart>
 
   </div>
   <div class="lblResults" *ngIf="notFound">
-    <label>No Data Available</label>
+    <label>No Data found for the selected fields</label>
   </div>
 
 </body>

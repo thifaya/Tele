@@ -14,7 +14,7 @@ export class PumpManagementComponent implements OnInit {
 
   pumpPath = '../assets/ImageView/waterTower.PNG';
   ngOnInit() {
-    if (localStorage.getItem('userData') === null) {
+    if (localStorage.getItem('UserId') === null) {
   this.router.navigate(['/']);
 }
   }

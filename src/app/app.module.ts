@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { CookieService } from 'ngx-cookie-service';
-import { DataService } from './Server/data.service';
+import { DataService } from './Service/data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ChartModule } from 'angular-highcharts';

@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+.has-error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+
+.text-error {
+    color: #D8000C;
+    text-align: center;
+}
+
+.has-info {
+    color: #00529B;
+    background-color: #BDE5F8;
+}
+.has-success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+.has-warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+}

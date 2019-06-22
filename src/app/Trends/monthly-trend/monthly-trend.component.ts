@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService } from 'src/app/Server/data.service';
+import { DataService } from 'src/app/Service/data.service';
 import * as Highcharts from 'highcharts';
 import highcharts3D from 'highcharts/highcharts-3d.src';
 highcharts3D(Highcharts);
@@ -39,6 +39,9 @@ export class MonthlyTrendComponent implements OnInit {
   sum
   jsonDATA
 
+  provinceDropdown; municipalityDropdown;
+  districtDropdown; siteDropdown
+
   constructor(private router: Router, private _service: DataService) {
     this._service.getAllSite()
       .subscribe(res => {
@@ -52,9 +55,18 @@ export class MonthlyTrendComponent implements OnInit {
 
   ngOnInit() {
    
-    if (localStorage.getItem('userData') === null) {
+    if (localStorage.getItem('UserId') === null) {
       this.router.navigate(['/']);
      }
+
+     this.districtDropdown = document.querySelector('#ddldistrict')
+     this.provinceDropdown = document.querySelector('#ddlprovince')
+     this.municipalityDropdown = document.querySelector('#ddlmunicipality')
+     this.site = document.querySelector('#ddlSite')
+ 
+     this.districtDropdown.disabled = true
+     this.municipalityDropdown.disabled = true
+     this.site.disabled = true
   
   }
                   
@@ -194,6 +206,62 @@ export class MonthlyTrendComponent implements OnInit {
 
 
   }
+
+  dropDownEnabled() {
+
+
+    if (this.provinceDropdown.value == '') {
+
+      this.districtDropdown.value = ''
+      this.site.value = ''
+      this.municipalityDropdown.value = ''
+
+      this.districtDropdown.disabled = true
+      this.site.disabled = true
+      this.municipalityDropdown.disabled = true
+
+
+    } else{
+       this.districtDropdown.disabled = false
+  }
+
+
+    console.log('Selected= ' + !this.districtDropdown.disabled)
+  }
+
+  districtEnable() {
+      
+    if (this.districtDropdown.value == '') { 
+
+      this.site.value = ''
+      this.municipalityDropdown.value = ''
+
+      this.site.disabled = true
+      this.municipalityDropdown.disabled = true
+
+    } else {
+      this.municipalityDropdown.disabled = false 
+    }
+  }
+
+  localEnable() {
+    
+    if (this.municipalityDropdown.value == '') {
+
+      this.site.value = ''
+      
+      this.site.disabled = true
+      
+      if (this.site.value == '') {
+        console.log('site null')
+      }   else {
+        console.log('get value')
+      }
+    } else {
+      this.site.disabled = false 
+    }
+  }
+
 }
 
     // {"month": 6, "siteId": 21, "trend": "WaterLevel"} 

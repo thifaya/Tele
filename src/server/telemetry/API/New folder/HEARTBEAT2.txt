@@ -1,0 +1,232 @@
+-- WEDELA SMALL --
+
+
+SELECT  Top (1) [SITEID]
+      ,[SiteNumber]
+      ,[CellNo]
+      ,[Name]
+      ,[GPRSEnabled]
+      ,[GPRSOnLoginCheck]
+      ,[GPRSConnected]
+      ,[LastRXTimestamp]
+      ,[TheDateTimeStamp]
+      ,[ReceiveID]
+      ,[FromSiteID]
+      ,[Date]
+      ,[Time]
+      ,[Charger]
+      ,[Battery]
+      ,[Counter8]
+  FROM [Telemetry].[dbo].[Heart_Beat_View]
+  WHERE    
+   SITEID=23     
+   Order by Date Desc, Time Desc  
+
+-- WEDELA BIG --
+
+SELECT  Top (1) [SITEID]
+      ,[SiteNumber]
+      ,[CellNo]
+      ,[Name]
+      ,[GPRSEnabled]
+      ,[GPRSOnLoginCheck]
+      ,[GPRSConnected]
+      ,[LastRXTimestamp]
+      ,[TheDateTimeStamp]
+      ,[ReceiveID]
+      ,[FromSiteID]
+      ,[Date]
+      ,[Time]
+      ,[Charger]
+      ,[Battery]
+      ,[Counter8]
+  FROM [Telemetry].[dbo].[Heart_Beat_View]
+  WHERE     /*(DATEPART(DAY, Date) = DATEPART(DAY,Getdate())) AND 
+                 (DATEPART(Month, Date) = DATEPART(Month,Getdate())) AND
+                  (DATEPART(Year, Date) = DATEPART(Year,Getdate())) AND */
+   SITEID=22    
+   Order by Date Desc, Time Desc
+
+
+-- WELVERDIEND --
+
+SELECT  Top (1) [SITEID]
+      ,[SiteNumber]
+      ,[CellNo]
+      ,[Name]
+      ,[GPRSEnabled]
+      ,[GPRSOnLoginCheck]
+      ,[GPRSConnected]
+      ,[LastRXTimestamp]
+      ,[TheDateTimeStamp]
+      ,[ReceiveID]
+      ,[FromSiteID]
+      ,[Date]
+      ,[Time]
+      ,[Charger]
+      ,[Battery]
+      ,[Counter8]
+  FROM [Telemetry].[dbo].[Heart_Beat_View]
+  WHERE    /* (DATEPART(DAY, Date) = DATEPART(DAY,Getdate())) AND 
+                 (DATEPART(Month, Date) = DATEPART(Month,Getdate())) AND
+                  (DATEPART(Year, Date) = DATEPART(Year,Getdate())) AND */
+   SITEID=20    
+   Order by Date Desc, Time Desc  
+
+-- FOCHVILLE --
+
+
+SELECT  Top (1) [SITEID]
+      ,[SiteNumber]
+      ,[CellNo]
+      ,[Name]
+      ,[GPRSEnabled]
+      ,[GPRSOnLoginCheck]
+      ,[GPRSConnected]
+      ,[LastRXTimestamp]
+      ,[TheDateTimeStamp]
+      ,[ReceiveID]
+      ,[FromSiteID]
+      ,[Date]
+      ,[Time]
+      ,[Charger]
+      ,[Battery]
+      ,[Counter8]
+  FROM [Telemetry].[dbo].[Heart_Beat_View]
+  WHERE   /*  (DATEPART(DAY, Date) = DATEPART(DAY,Getdate())) AND 
+                 (DATEPART(Month, Date) = DATEPART(Month,Getdate())) AND
+                  (DATEPART(Year, Date) = DATEPART(Year,Getdate())) AND */
+   SITEID=21     
+   Order by Date Desc, Time Desc  
+
+-- NORTH --
+
+
+SELECT  Top (1) [SITEID]
+      ,[SiteNumber]
+      ,[CellNo]
+      ,[Name]
+      ,[GPRSEnabled]
+      ,[GPRSOnLoginCheck]
+      ,[GPRSConnected]
+      ,[LastRXTimestamp]
+      ,[TheDateTimeStamp]
+      ,[ReceiveID]
+      ,[FromSiteID]
+      ,[Date]
+      ,[Time]
+      ,[Charger]
+      ,[Battery]
+      ,[Counter8]
+  FROM [Telemetry].[dbo].[Heart_Beat_View]
+  WHERE   /*  (DATEPART(DAY, Date) = DATEPART(DAY,Getdate())) AND 
+                 (DATEPART(Month, Date) = DATEPART(Month,Getdate())) AND
+                  (DATEPART(Year, Date) = DATEPART(Year,Getdate())) AND */
+   SITEID=18     
+   Order by Date Desc, Time Desc  
+
+
+-- SHAWELA --
+
+
+SELECT  Top (1) [SITEID]
+      ,[SiteNumber]
+      ,[CellNo]
+      ,[Name]
+      ,[GPRSEnabled]
+      ,[GPRSOnLoginCheck]
+      ,[GPRSConnected]
+      ,[LastRXTimestamp]
+      ,[TheDateTimeStamp]
+      ,[ReceiveID]
+      ,[FromSiteID]
+      ,[Date]
+      ,[Time]
+      ,[Charger]
+      ,[Battery]
+      ,[Counter8]
+  FROM [Telemetry].[dbo].[Heart_Beat_View]
+  WHERE   /*  (DATEPART(DAY, Date) = DATEPART(DAY,Getdate())) AND 
+                 (DATEPART(Month, Date) = DATEPART(Month,Getdate())) AND
+                  (DATEPART(Year, Date) = DATEPART(Year,Getdate())) AND */
+   SITEID=19    
+   Order by Date Desc, Time Desc  
+
+-- SOUTH --
+
+
+SELECT  Top (1) [SITEID]
+      ,[SiteNumber]
+      ,[CellNo]
+      ,[Name]
+      ,[GPRSEnabled]
+      ,[GPRSOnLoginCheck]
+      ,[GPRSConnected]
+      ,[LastRXTimestamp]
+      ,[TheDateTimeStamp]
+      ,[ReceiveID]
+      ,[FromSiteID]
+      ,[Date]
+      ,[Time]
+      ,[Charger]
+      ,[Battery]
+      ,[Counter8]
+  FROM [Telemetry].[dbo].[Heart_Beat_View]
+  WHERE   /*  (DATEPART(DAY, Date) = DATEPART(DAY,Getdate())) AND 
+                 (DATEPART(Month, Date) = DATEPART(Month,Getdate())) AND
+                  (DATEPART(Year, Date) = DATEPART(Year,Getdate())) AND */
+   SITEID=24 
+   Order by Date Desc, Time Desc  
+
+-- CARLTONVILLE --
+ 
+
+SELECT  Top (1) [SITEID]
+      ,[SiteNumber]
+      ,[CellNo]
+      ,[Name]
+      ,[GPRSEnabled]
+      ,[GPRSOnLoginCheck]
+      ,[GPRSConnected]
+      ,[LastRXTimestamp]
+      ,[TheDateTimeStamp]
+      ,[ReceiveID]
+      ,[FromSiteID]
+      ,[Date]
+      ,[Time]
+      ,[Charger]
+      ,[Battery]
+      ,[Counter8]
+  FROM [Telemetry].[dbo].[Heart_Beat_View]
+  WHERE   /*  (DATEPART(DAY, Date) = DATEPART(DAY,Getdate())) AND 
+                 (DATEPART(Month, Date) = DATEPART(Month,Getdate())) AND
+                  (DATEPART(Year, Date) = DATEPART(Year,Getdate())) AND */
+   SITEID=25     
+   Order by Date Desc, Time Desc  
+
+-- BLYBANK --
+
+
+SELECT  Top (1) [SITEID]
+      ,[SiteNumber]
+      ,[CellNo]
+      ,[Name]
+      ,[GPRSEnabled]
+      ,[GPRSOnLoginCheck]
+      ,[GPRSConnected]
+      ,[LastRXTimestamp]
+      ,[TheDateTimeStamp]
+      ,[ReceiveID]
+      ,[FromSiteID]
+      ,[Date]
+      ,[Time]
+      ,[Charger]
+      ,[Battery]
+      ,[Counter8]
+  FROM [Telemetry].[dbo].[Heart_Beat_View]
+  WHERE   /*  (DATEPART(DAY, Date) = DATEPART(DAY,Getdate())) AND 
+                 (DATEPART(Month, Date) = DATEPART(Month,Getdate())) AND
+                  (DATEPART(Year, Date) = DATEPART(Year,Getdate())) AND */
+   SITEID=26    
+   Order by Date Desc, Time Desc  
+

@@ -113,7 +113,7 @@
     background-color: rgba(255, 0, 0, 0.493);
     border: 1px ridge white;
     outline: transparent;
-}
+}btn
 */
 .btnClear:active {
     border-style: unset;
@@ -135,5 +135,27 @@
     cursor: pointer;
     color: #006699;
     border-bottom: 1px thin #006699
+}
+
+
+.btnAdd:active {
+    
+    border-style: unset;
+    background-color:  rgba(255, 0, 0, 0.493);
+    color: black;
+    border-radius: 8px;
+    outline: transparent;
+}
+
+.btnAdd {
+    font-family:Verdana;
+    font-size:8pt;
+    color: whitesmoke;
+    background-color: red;
+    height: 0.67cm;
+    border: 1px ridge white;
+    text-align: right;
+    border-radius: 6px;
+    outline: transparent;
 }
 

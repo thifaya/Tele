@@ -97,7 +97,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'carltonvilleflowratetrends',
+    path: 'flowratetrends',
     component: CarltonvilleFlowRateTrendsComponent
   },
 

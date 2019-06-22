@@ -1,10 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { DataService } from '../Server/data.service';
+import { DataService } from '../Service/data.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import swal from 'sweetalert';
 
 
 @Component({
@@ -25,9 +26,10 @@ export class LoginComponent implements OnInit {
   Surname: string;
   Username: string;
   Password: string;
+  IsActive: boolean;
+ /*
   ModifiedDate: Date;
   ModifiedUserId: number;
-  IsActive: boolean;
   Email: string;
   DesignationID: number;
   MunicipalSiteID: number;
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
   Start_Stop_Pump: boolean;
   View_Financial_Report: boolean;
   Amend_Financial_Details: boolean;
-
+*/
   @Output() NameEvent: EventEmitter<string> = new EventEmitter();
 
   constructor(private cookie: CookieService, private _auth: DataService, private router: Router) {
@@ -47,6 +49,8 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(event) {
+
+    //swal('Login Button')
 
     this.invalid = false;
     event.preventDefault();
@@ -66,11 +70,9 @@ export class LoginComponent implements OnInit {
           console.log(this.userData.IsActive);
 
 
+
           if( this.userData.IsActive ) {
-
-            localStorage.setItem('userData', JSON.stringify(this.userData));
-          sessionStorage.setItem('userData', JSON.stringify(this.userData));
-
+            
           this.Name    = this.userData.Name;
           localStorage.setItem('Name', JSON.stringify(this.userData.Name));
           sessionStorage.setItem('Name', JSON.stringify(this.userData.Name));
@@ -88,27 +90,7 @@ export class LoginComponent implements OnInit {
           this.UserId = this.userData.UserId;
           localStorage.setItem('UserId', JSON.stringify(this.userData.UserId));
           sessionStorage.setItem('UserId', JSON.stringify(this.userData.UserId));
-
-          this.Email = this.userData.Email;
-          localStorage.setItem('Email', JSON.stringify(this.userData.Email));
-          sessionStorage.setItem('Email', JSON.stringify(this.userData.Email));
-
-          this.ModifiedDate = this.userData.ModifiedDate;
-          localStorage.setItem('ModifiedDate', JSON.stringify(this.userData.ModifiedDate));
-          sessionStorage.setItem('ModifiedDate', JSON.stringify(this.userData.ModifiedDate));
-
-          this.TitleId = this.userData.TitleId;
-          localStorage.setItem('TitleId', JSON.stringify(this.userData.TitleId));
-          sessionStorage.setItem('TitleId', JSON.stringify(this.userData.TitleId));
-
-          this.DesignationID = this.userData.DesignationID;
-          localStorage.setItem('DesignationID', JSON.stringify(this.userData.DesignationID));
-
-          this.MunicipalSiteID = this.userData.MunicipalSiteID;
-          localStorage.setItem('MunicipalSiteID', JSON.stringify(this.userData.MunicipalSiteID));
-
-          this.UserAccessLevelId = this.userData.UserAccessLevelId;
-          localStorage.setItem('UserAccessLevelId', JSON.stringify(this.userData.UserAccessLevelId));
+        
 
           this._auth.dataChanged(this.Name);
 
@@ -119,7 +101,8 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/leveltrends']);
 
           } else {
-            window.alert('User has been deactivated')
+           // window.alert('User has been deactivated')
+            swal('User has been deactivated')
             console.log('User Has Been Deactivated')
           }
           
@@ -130,7 +113,8 @@ export class LoginComponent implements OnInit {
 
       },
       err => {
-        window.alert('No Internet Connection.');
+        //window.alert('Server Error');
+        swal('Server Error')
         console.log(err);
       });
   }

@@ -29,39 +29,46 @@
                         
                         <!-- Compalsary row-->
                    
-                        <tr isparameterrow="true" >
-                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select Province:</span></td>
-                            <td style="padding:5px;padding-right:0px;">
-                              <div >
-                                <select class="ddlprovince" id="ddlprovince">
-                                  <option selected="selected" value="*">All</option>
-                                 </select>
-                              </div>
-                            </td>
-                            
+                        <tr isparameterrow="true">
+                          <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select
+                              Province:</span></td>
+                          <td style="padding:5px;padding-right:0px;">
+                            <div>
+                              <select class="ddlprovince" id="ddlprovince" (change)="dropDownEnabled()" >
+                                <option selected="selected" value="" >&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                <option value="0" >All</option>
+                                <option value="1~gauteng"  >Gauteng</option>
+                              </select>
+                            </div>
+                          </td>
+
                         </tr>
-                        <tr isparameterrow="true" >
-                            <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select District or Metropolitan Municipality:</span></td>
-                            <td style="padding:5px;padding-right:0px;">
-                              <div>
-                                <select class="ddldistrict" id="ddldistrict" >
-                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
-  
-                                </select>
-                              </div>
-                            </td>
+                        <tr isparameterrow="true">
+                          <td style="padding:5px;"><span style="font-family:Verdana;font-size:8pt;">Select District or
+                              Metropolitan Municipality:</span></td>
+                          <td style="padding:5px;padding-right:0px;">
+                            <div>
+                              <select class="ddldistrict" id="ddldistrict" required  (change)="districtEnable()" >
+                                <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                <option value="0">All</option>
+                                <option value="1~west_rand" >West Rand</option>
+                                
+                              </select>
+                            </div>
+                          </td>
                         </tr>
-                        <tr isparameterrow="true" >
-                            <td style="padding:5px; "><span style="font-family:Verdana;font-size:8pt;">Select Local Municipality:</span></td>
-                            <td style="padding:5px;padding-right:0px;">
-                              <div>
-                                <select class="ddlmunicipality" id="ddlmunicipality">                                  
-                                  <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
-                                </select>
-                              </div>
-                            </td>
+                        <tr isparameterrow="true">
+                          <td style="padding:5px; "><span style="font-family:Verdana;font-size:8pt;">Select Local
+                              Municipality:</span></td>
+                          <td style="padding:5px;padding-right:0px;">
+                            <div>
+                              <select class="ddlmunicipality" id="ddlmunicipality" name="municipality" required  (change)="localEnable()">
+                                <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
+                                <option value="0">All</option>
+                                <option value="1~merafong"  >Merafong City</option>
+                              </select>
+                            </div>
+                          </td>
                         </tr>
                         
                         <tr isparameterrow="true" >
@@ -74,8 +81,6 @@
                                   <option value="Wedela Big" >Wedela Big</option>
                                   <option value="Fochville" >Fochville</option>
                                   <option value="North" >North</option>
-                                  <option value="Carltonville.Outlet.Volume" >Carltonville</option>
-                                  <option value="South.Outlet.Volume" >South</option>
                                   <option value="Welverdiend" >Welverdiend</option>
                                   <option value="Wedela Small" >Wedela Small</option>
                                 </select>
@@ -122,7 +127,7 @@
                                 <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
                                 <option  *ngFor="let year of years" value="{{year.Name}}">{{year.Name}}</option>
                                 <option value="2013">2013</option>
-                                <option value="2014">2014</option>
+                                <option value="2012">2012</option>
                                 <option value="2015">2015</option>
                               </select>
                             </div>
@@ -136,7 +141,7 @@
                               <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
                               <option  *ngFor="let year of years" value="{{year.Name}}">{{year.Name}}</option>
                               <option value="2013">2013</option>
-                              <option value="2014">2014</option>
+                              <option value="2012">2012</option>
                               <option value="2015">2015</option>
                             </select>
                           </div>
@@ -236,9 +241,9 @@
           <tr>
             <td>{{year1.value}}</td>
             <td>{{ month.value }}</td>
-            <td>{{ recSum | number: '1.2-2'}}</td>
-            <td>{{ conSum | number: '1.2-2'}}</td>
-            <td>{{ util }}%</td>
+            <td>{{ Year1_recSum | number: '1.2-2'}}</td>
+            <td>{{ Year1_conSum | number: '1.2-2'}}</td>
+            <td>{{ Year1_util }}%</td>
           </tr>
         </table>
 
@@ -252,25 +257,25 @@
             <th>Utilization Percentage</th>
           </tr>
           <tr >
-            <td>{{year2.value}}</td>
+            <td>{{ year2.value }}</td>
             <td>{{ month.value }}</td>
-            <td>{{ recSum | number: '1.2-2'}}</td>
-            <td>{{ conSum | number: '1.2-2'}}</td>
-            <td>{{ util }}%</td>
+            <td>{{ Year2_recSum | number: '1.2-2'}}</td>
+            <td>{{ Year2_conSum | number: '1.2-2'}}</td>
+            <td>{{ Year2_util }}%</td>
           </tr>
         </table>
       </td >
       <td>
-        <table style="margin-left: 25%;" width="50%"> 
+        <table style="margin-left: 25%;" width="60%"> 
           <tbody style="width: 30%">
             <th class="tableHead" colspan="2" >Variances</th>
             <tr style="border-bottom: 1px solid white">
               <td>Water Received: </td>
-              <td style="text-align: center; background-color: lightgrey">{{ recVar }}%</td>
+              <td style="text-align: center; background-color: lightgrey">{{ recVar | number: '1.2-2' }}%</td>
             </tr>
             <tr>
               <td>Water Consumed: </td>
-              <td style="text-align: center; background-color: lightgrey;">{{ conVar }}%</td>
+              <td style="text-align: center; background-color: lightgrey;">{{ conVar | number: '1.2-2' }}%</td>
             </tr>
           </tbody>
         </table>
@@ -279,7 +284,7 @@
   </tbody>
 </table>
 <div class="lblResults" *ngIf="notFound">
-  <label>There is No data for the Selected fields!</label>
+  <label>There is no data for the Selected fields!</label>
 </div>
 
 </body>

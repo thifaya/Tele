@@ -7,11 +7,16 @@
 <body>
   <app-nav-bar></app-nav-bar>
   <h6 class="pageHeading"><b>Maintenance Page: Heartbeat</b></h6>
+
+
+
+<div *ngIf="visible" >
+
   <div>
     <img src="{{heartbeatPath}}" class="heartbeatImg">
   </div>
 
-  <table cellpadding="1" cellspacing="0">
+  <table class="heartTable" cellpadding="0" cellspacing="0">
     <tr class="titlerow">
       <th>SITE</th>
       <th>CONNECTION STATUS</th>
@@ -20,14 +25,24 @@
       <th>ELECTRICITY STATUS</th>
       <th>LENGEND</th>
     </tr>
-    <tr *ngFor="let heartbeat of heartbeats" >
+    <tr *ngFor="let heartbeat of heartbeats">
       <td>{{ heartbeat.Name }}</td>
       <td>{{ heartbeat.GPRSConnected }}</td>
       <td>{{ heartbeat.LastRXTimestamp }}</td>
       <td>{{ heartbeat.Battery }}</td>
       <td>{{ heartbeat.Counter8 }}</td>
-      <td> <img src="{{ legendPath }}" style="height: 15%;"> </td>
+      <td> <img src="{{ heartbeat.Legend }}" style="height: 15%;"> </td>
     </tr>
   </table>
 
+</div>
+
 </body>
+
+
+<!--
+
+
+
+
+-->

@@ -615,7 +615,7 @@ app.get('/heartbeat', function (req, res) {
 }); 
 
 
-app.put('/activateuser/:id', function (req, res) {    
+app.put('/sactivateuser/:id', function (req, res) {    
   
     var activate =  req.body.activate
         
@@ -635,7 +635,7 @@ app.put('/activateuser/:id', function (req, res) {
             // send records as a response
             console.log('id: ' + req.body.userId)
 
-            res.send('USER DEACTIVATED');    
+            res.send(recordset.recordset);    
             sql.close();
         });
             
@@ -658,7 +658,7 @@ app.put('/activateuser/:id', function (req, res) {
 
 app.put('/activate/:id', function (req, res) {
 
-      var id = req.params.id  
+      
     var sql = require("mssql");
     // connect to your database
     sql.connect(config, function (err) {
@@ -667,12 +667,12 @@ app.put('/activate/:id', function (req, res) {
         var request = new sql.Request();
         // query to the database and get the records
 
-       request.query(" UPDATE Security.Users SET IsActive='" + true + "' WHERE UserId= '" +  req.params.id + "' ", function (err, recordset) {
+       request.query(" UPDATE Security.Users SET IsActive='" + true + "' WHERE UserId= '" +  req.params.id  + "' ", function (err, recordset) {
             if (err) console.log(err)
             // send records as a response
-            console.log('id: ' +id)
+            console.log('id: ' +req.params.id )
 
-            res.send('USER ACTIVATED');    
+            res.send(recordset.recordset);    
             sql.close();
         });
         
@@ -680,7 +680,7 @@ app.put('/activate/:id', function (req, res) {
     });
 });
 
-app.put('/deactivate', function (req, res) {
+app.put('/deactivate/:id', function (req, res) {
     
     
         
@@ -693,18 +693,268 @@ app.put('/deactivate', function (req, res) {
         // query to the database and get the records
 
             
-       request.query(" UPDATE Security.Users SET IsActive='" + false + "' WHERE UserId= '" + req.body.userId + "' ", function (err, recordset) {
+       request.query(" UPDATE Security.Users SET IsActive='" + false + "' WHERE UserId= '" + req.params.id + "' ", function (err, recordset) {
             if (err) console.log(err)
             // send records as a response
             console.log('id: ' + req.body.userId)
 
-            res.send('USER DEACTIVATED');    
+            res.send(recordset.recordset);    
             sql.close();
         });
             
                
     });
 });
+
+app.post('/YEAR2comparemonthtomonth', function (req, res) {
+
+    var compareMonth = []
+  
+    var sql = require("mssql");
+    // connect to your database
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+        // query to the database and get the records
+        request.query("EXEC dbo.MonthToMonthCompareYEAR2   @mymonth =  '"+ req.body.month +"', @myYear2 =  '"+ req.body.year2 +"' ", function (err, recordset) {
+            if (err) console.log(err)
+            // send records as a response
+                      
+            for (var i = 0; i < recordset.recordsets.length; i++) {
+                compareMonth.push(recordset.recordsets[i]);
+              }
+
+            res.send(compareMonth);    
+            console.log(recordset.recordsets.length)
+            sql.close();
+        });
+
+       
+    });
+});
+
+
+
+app.post('/YEAR1compareyeartoyear', function (req, res) {
+
+    var compareYear = []
+  
+    var sql = require("mssql");
+    // connect to your database
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+        // query to the database and get the records
+        request.query("EXEC dbo.YearToYearCompareYEAR1   @myYear =  '"+ req.body.year1 +"' ", function (err, recordset) {
+            if (err) console.log(err)
+            // send records as a response
+                      
+            for (var i = 0; i < recordset.recordsets.length; i++) {
+                compareYear.push(recordset.recordsets[i]);
+              }
+
+            res.send(compareYear);   
+            console.log('Year1: ' + req.body.year1)
+            sql.close();
+        });
+
+       
+    });
+});
+
+
+app.post('/YEAR2compareyeartoyear', function (req, res) {
+
+    var compareYear = []
+  
+    var sql = require("mssql");
+    // connect to your database
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+        // query to the database and get the records
+        request.query("EXEC dbo.YearToYearCompareYEAR2  @myYear2 =  '"+ req.body.year2 +"' ", function (err, recordset) {
+            if (err) console.log(err)
+            // send records as a response
+                      
+            for (var i = 0; i < recordset.recordsets.length; i++) {
+                compareYear.push(recordset.recordsets[i]);
+              }
+
+            res.send(compareYear);    
+            console.log('Year2: ' + req.body.year2)
+            sql.close();
+        });
+
+       
+    });
+});
+
+
+
+
+app.post('/YEAR1comparemonthtomonth', function (req, res) {
+
+    var compareMonth = []
+  
+    var sql = require("mssql");
+    // connect to your database
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+        // query to the database and get the records
+        request.query("EXEC dbo.MonthToMonthCompareYEAR1   @mymonth =  '"+ req.body.month +"', @myYear =  '"+ req.body.year1 +"' ", function (err, recordset) {
+            if (err) console.log(err)
+            // send records as a response 
+            for (var i = 0; i < recordset.recordsets.length; i++) {
+                compareMonth.push(recordset.recordsets[i]);
+              }
+
+            res.send(compareMonth);    
+            console.log(recordset.recordsets.length)
+            sql.close();
+        });
+
+       
+    });
+});
+
+
+
+// update user
+app.put('/updateusers/:id', function (req, res) {
+    
+    
+        
+    var sql = require("mssql");
+    // connect to your database
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+        // query to the database and get the records  , ModifiedDate='" + new Date + "'
+            
+       request.query(" UPDATE Security.Users SET Name='" + req.body.Name + "', TitleId='" + req.body.TitleId + "', Surname='" + req.body.Surname + "', UserName='" + req.body.UserName + "', Password='" + req.body.Password + "' , ModifiedUserId='" + req.body.ModifiedUserId + "', MunicipalSiteID='" + req.body.MunicipalSiteID + "' , Email='" + req.body.Email + "', DesignationID='" + req.body.DesignationID + "', Create_Update_User='" + req.body.Create_Update_User + "', Start_Stop_Pump='" + req.body.Start_Stop_Pump + "', View_Financial_Report='" + req.body.View_Financial_Report + "', Amend_Financial_Details='" + req.body.Amend_Financial_Details + "', UserAccessLevelId='" + req.body.UserAccessLevelId + "'  WHERE UserId= '" + req.params.id + "' ", function (err, recordset) {
+                     
+            if (err) console.log(err)
+            // send records as a response
+            console.log('id: ' + req.params.id)
+
+            res.send(recordset.recordset);    
+            sql.close();
+        });
+            
+               
+    });
+});
+
+
+
+
+// get flow rate trend of single site with Analog 2, 3
+app.post('/FRTanalog23', function (req, res) {
+    
+    var sql = require("mssql");
+    // connect to your database
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+        // query to the database and get the records
+        request.query(" SELECT      SITEID, Analog2, Analog3, CAST(Date AS Date) AS nDate, Time FROM viewMESSAGESRECEIVEDUNDELIMITED WHERE (SITEID = '"+ req.body.siteId +"') AND (DATEPART(Day, Date) = DATEPART(Day, '"+ req.body.date +"')) AND (DATEPART(Month, Date) = DATEPART(Month, '"+ req.body.date +"')) AND (DATEPART(Year, Date) = DATEPART(Year, '"+ req.body.date +"')) ORDER BY Time ", function (err, recordset) {
+            if (err) console.log(err)
+            // send records as a response
+            console.log("Date: "+req.body.date+ " SiteID: "+req.body.siteId)
+            res.send(recordset.recordset);
+            sql.close();
+        });
+
+   
+    });
+});
+
+// get flow rate trend of a single site using stored procedure
+app.post('/MoreFlowRateTrend', function (req, res) {
+
+    var RateTrend = []
+  
+    var sql = require("mssql");
+    // connect to your database
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+        // query to the database and get the records
+        request.query(" EXEC dbo.FlowRateTrends  @mydate =  '"+ req.body.date +"', @tagIdIN =  '"+ req.body.inlet +"', @tagIdOUT =  '"+ req.body.outlet +"'  ", function (err, recordset) {
+            if (err) console.log(err)
+            // send records as a response
+            console.log('date: ' + req.body.date + ', INlet: ' + req.body.inlet  + ', OUTlet: ' + req.body.outlet)
+            for (var i = 0; i < recordset.recordsets.length; i++) {
+                RateTrend.push(recordset.recordsets[i]);
+              }
+
+            res.send(RateTrend);    
+            sql.close();
+        });
+
+       
+    });
+});
+
+
+// get flow rate trend of single site with Analog 3, 4
+app.post('/flowratetrends', function (req, res) {
+    
+    var sql = require("mssql");
+    // connect to your database
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+        // query to the database and get the records
+        request.query(" SELECT SITEID, Analog2, Analog3, Analog4, CAST(Date AS Date) AS nDate, Time FROM viewMESSAGESRECEIVEDUNDELIMITED WHERE (SITEID = '"+ req.body.siteId +"') AND (DATEPART(Day, Date) = DATEPART(Day, '"+ req.body.date +"')) AND (DATEPART(Month, Date) = DATEPART(Month, '"+ req.body.date +"')) AND (DATEPART(Year, Date) = DATEPART(Year, '"+ req.body.date +"')) ORDER BY Time ", function (err, recordset) {
+            if (err) console.log(err)
+            // send records as a response
+            console.log("Date: "+req.body.date+ " SiteID: "+req.body.siteId)
+            res.send(recordset.recordset);
+            sql.close();
+        });
+
+   
+    });
+});
+
+
+
+
+
+
+
+// used only on users page
+app.post('/test', function (req, res) {
+    
+    var sql = require("mssql");
+    // connect to your database
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+        // query to the database and get the records
+        request.query("SELECT      SITEID, Analog3, Analog4, CAST(Date AS Date) AS nDate, Time FROM         viewMESSAGESRECEIVEDUNDELIMITED WHERE     (SITEID = '"+ req.body.site +"') AND (DATEPART(Day, Date) = DATEPART(Day, '"+ req.body.date +"')) AND (DATEPART(Month, Date) = DATEPART(Month, '"+ req.body.date +"')) AND (DATEPART(Year, Date)= DATEPART(Year, '"+ req.body.date +"')) ORDER BY Time ", function (err, recordset) {
+            if (err) console.log(err)
+            // send records as a response
+            res.send(recordset.recordset);
+            sql.close();
+        });
+
+   
+    });
+});
+
 
 
 

@@ -13,7 +13,7 @@ export class UserManualComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    if (localStorage.getItem('userData') === null) {
+    if (localStorage.getItem('UserId') === null) {
       this.router.navigate(['/']);
     }
   }

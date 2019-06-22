@@ -1,0 +1,118 @@
+--fochville--
+
+SELECT     SITEID, Analog3, Analog4, CAST(Date AS Date) AS Date, Time
+FROM         viewMESSAGESRECEIVEDUNDELIMITED
+WHERE     (SITEID = 21) AND (DATEPART(Day, Date) = DATEPART(Day, @mydate)) AND (DATEPART(Month, Date) = DATEPART(Month, @mydate)) AND (DATEPART(Year, Date) 
+                      = DATEPART(Year, @mydate))
+ORDER BY Time
+
+
+-- WEDELA SMALL --
+
+SELECT     SITEID, Analog2, Analog3, CAST(Date AS Date) AS Date, Time
+FROM         viewMESSAGESRECEIVEDUNDELIMITED
+WHERE     (SITEID = 23) AND (DATEPART(Day, Date) = DATEPART(Day, @mydate)) AND (DATEPART(Month, Date) = DATEPART(Month, @mydate)) AND (DATEPART(Year, Date) 
+                      = DATEPART(Year, @mydate))
+ORDER BY Time
+
+
+
+-- WEDELA BIG --
+
+SELECT     SITEID, Analog2, Analog3, CAST(Date AS Date) AS nDate, Time
+FROM         viewMESSAGESRECEIVEDUNDELIMITED
+WHERE     (SITEID = 22) AND (DATEPART(Day, Date) = DATEPART(Day, @mydate)) AND (DATEPART(Month, Date) = DATEPART(Month, @mydate)) AND (DATEPART(Year, Date) 
+                      = DATEPART(Year, @mydate))
+ORDER BY Time
+
+
+
+-- KHUTSONG NORTH --
+
+SELECT      SITEID, Analog3, Analog4, CAST(Date AS Date) AS nDate, Time
+FROM         viewMESSAGESRECEIVEDUNDELIMITED
+WHERE     (SITEID = 18) AND (DATEPART(Day, Date) = DATEPART(Day, @mydate)) AND (DATEPART(Month, Date) = DATEPART(Month, @mydate)) AND (DATEPART(Year, Date) 
+                      = DATEPART(Year, @mydate))
+ORDER BY Time
+
+
+-- WELVERDIEND --
+
+SELECT      SITEID, Analog2, Analog3, CAST(Date AS Date) AS nDate, Time
+FROM         viewMESSAGESRECEIVEDUNDELIMITED
+WHERE     (SITEID = 20) AND (DATEPART(Day, Date) = DATEPART(Day, @mydate)) AND (DATEPART(Month, Date) = DATEPART(Month, @mydate)) AND (DATEPART(Year, Date) 
+                      = DATEPART(Year, @mydate))
+ORDER BY Time
+
+
+-- CASRLTONVILLE --
+
+SELECT      SITEID, Analog3, Analog4, CAST(Date AS Date) AS nDate, Time
+FROM         viewMESSAGESRECEIVEDUNDELIMITED
+WHERE     (SITEID = 25) AND (DATEPART(Day, Date) = DATEPART(Day, @mydate)) AND (DATEPART(Month, Date) = DATEPART(Month, @mydate)) AND (DATEPART(Year, Date) 
+                      = DATEPART(Year, @mydate))
+ORDER BY Time
+
+
+-- KHUTSONG SOUTH INFLOW --
+
+SELECT     Tag_ID AS Name, Tag_Value as InFlow,cast(Tag_Timestamp as time) as myTime
+FROM         TBS_IMPORTDATA
+Where     (DATEPART(Day, Tag_Timestamp)   = DATEPART(Day, @mydate))   AND 
+          (DATEPART(Month, Tag_Timestamp) = DATEPART(Month, @mydate)) AND 
+          (DATEPART(Year, Tag_Timestamp)  = DATEPART(Year, @mydate))  AND 
+          (Tag_ID = 'South.Intlet.FlowRate')
+  Order by  cast(Tag_Timestamp as time) desc
+
+-- KHUTSONG SOUTH OUTFLOW --
+
+SELECT     Tag_ID AS Name, Tag_Value as OutFlow,cast(Tag_Timestamp as time) as myTime
+FROM         TBS_IMPORTDATA
+Where     (DATEPART(Day, Tag_Timestamp)   = DATEPART(Day, @mydate))   AND 
+          (DATEPART(Month, Tag_Timestamp) = DATEPART(Month, @mydate)) AND 
+          (DATEPART(Year, Tag_Timestamp)  = DATEPART(Year, @mydate))  AND 
+          (Tag_ID = 'South.Outlet.FlowRate')
+  Order by  cast(Tag_Timestamp as time) desc
+
+-- BLYBANK INFLOW --
+
+SELECT     Tag_ID, Tag_Value as InFlow,cast(Tag_Timestamp as time) as myTime
+FROM         TBS_IMPORTDATA
+Where     (DATEPART(Day, Cast(Tag_Timestamp as date))   = DATEPART(Day, @mydate))   AND 
+          (DATEPART(Month, Cast(Tag_Timestamp as date)) = DATEPART(Month, @mydate)) AND 
+          (DATEPART(Year, Cast(Tag_Timestamp as date))  = DATEPART(Year, @mydate))  AND 
+          (Tag_ID = 'BlyBank.Inlet.FlowRate')
+          Order by cast(Tag_Timestamp as time)
+
+
+-- BLYBANK OUTFLOW --
+
+SELECT     Tag_ID, Tag_Value as OutFlow,cast(Tag_Timestamp as time) as myTime
+FROM         TBS_IMPORTDATA
+Where     (DATEPART(Day, Cast(Tag_Timestamp as date))   = DATEPART(Day, @mydate))   AND 
+          (DATEPART(Month, Cast(Tag_Timestamp as date)) = DATEPART(Month, @mydate)) AND 
+          (DATEPART(Year, Cast(Tag_Timestamp as date))  = DATEPART(Year, @mydate))  AND 
+          (Tag_ID = 'BlyBank.Outlet.FlowRate')
+          Order by cast(Tag_Timestamp as time)
+
+
+-- CARLTONVILLE INFLOW --
+
+SELECT     Tag_ID, Tag_Value as InFlow,cast(Tag_Timestamp as time) as myTime
+FROM         TBS_IMPORTDATA
+Where     (DATEPART(Day, Cast(Tag_Timestamp as date))   = DATEPART(Day, @mydate))   AND 
+          (DATEPART(Month, Cast(Tag_Timestamp as date)) = DATEPART(Month, @mydate)) AND 
+          (DATEPART(Year, Cast(Tag_Timestamp as date))  = DATEPART(Year, @mydate))  AND 
+          (Tag_ID = 'Carltonville.Inlet.FlowRate')
+          Order by cast(Tag_Timestamp as time)
+
+-- CARLTONVILLE OUTFLOW --
+
+SELECT     Tag_ID, Tag_Value as OutFlow,cast(Tag_Timestamp as time) as myTime
+FROM         TBS_IMPORTDATA
+Where     (DATEPART(Day, Cast(Tag_Timestamp as date))   = DATEPART(Day, @mydate))   AND 
+          (DATEPART(Month, Cast(Tag_Timestamp as date)) = DATEPART(Month, @mydate)) AND 
+          (DATEPART(Year, Cast(Tag_Timestamp as date))  = DATEPART(Year, @mydate))  AND 
+          (Tag_ID = 'Carltonville.Outlet.FlowRate')
+          Order by cast(Tag_Timestamp as time)
+

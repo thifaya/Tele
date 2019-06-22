@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService } from 'src/app/Server/data.service';
+import { DataService } from 'src/app/Service/data.service';
 
 @Component({
   selector: 'app-alarm-statistics',
@@ -22,12 +22,12 @@ export class AlarmStatisticsComponent implements OnInit {
         err => console.log(err.message))
 
         
-    if (sessionStorage.getItem('userData') === null) {
+    if (sessionStorage.getItem('UserId') === null) {
       window.alert('Must Login First');
       this.router.navigate(['/']);
       }
 
-    if (localStorage.getItem('userData') === null) {
+    if (localStorage.getItem('UserId') === null) {
      this.router.navigate(['/']);
     }
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart } from 'angular-highcharts';
-import { DataService } from 'src/app/Server/data.service';
+import { DataService } from 'src/app/Service/data.service';
 import * as Highcharts from 'highcharts';
 import highcharts3D from 'highcharts/highcharts-3d.src';
 highcharts3D(Highcharts);
@@ -44,11 +44,11 @@ export class AggregateConsumedWaterComponent implements OnInit {
             },
                 err => console.log(err.message))
 
-        if (localStorage.getItem('userData') === null) {
+        if (localStorage.getItem('UserId') === null) {
             //    this.router.navigate(['/']);
         }
 
-        if (sessionStorage.getItem('userData') === null) {
+        if (sessionStorage.getItem('UserId') === null) {
             //    this.router.navigate(['/']);
         }
     }

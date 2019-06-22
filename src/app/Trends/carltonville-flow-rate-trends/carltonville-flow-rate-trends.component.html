@@ -7,7 +7,7 @@
 
 <body>
   <app-nav-bar></app-nav-bar>
-  <h6 class="pageHeading"><b>Trends: Carltonville Flow Rate Trends</b></h6>
+  <h6 class="pageHeading"><b>Trends: Flow Rate Trends</b></h6>
   <table class="table1" cellspacing="0" cellpadding="0">
     <tbody>
       <tr style="background-color:#ECE9D8;">
@@ -34,9 +34,10 @@
                                 Province:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlprovince" id="ddlprovince">
+                                <select class="ddlprovince" id="ddlprovince" (change)="dropDownEnabled()">
                                   <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
+                                  <option value="0">All</option>
+                                  <option value="gauteng">Gauteng</option>
                                 </select>
                               </div>
                             </td>
@@ -47,9 +48,10 @@
                                 Metropolitan Municipality:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddldistrict" id="ddldistrict">
+                                <select class="ddldistrict" id="ddldistrict" required (change)="districtEnable()">
                                   <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
+                                  <option value="0">All</option>
+                                  <option value="1~west_rand">West Rand</option>
 
                                 </select>
                               </div>
@@ -60,9 +62,11 @@
                                 Municipality:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlmunicipality" id="ddlmunicipality">
+                                <select class="ddlmunicipality" id="ddlmunicipality" name="municipality" required
+                                  (change)="localEnable()">
                                   <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="1">All</option>
+                                  <option value="0">All</option>
+                                  <option value="1~merafong">Merafong City</option>
                                 </select>
                               </div>
                             </td>
@@ -73,13 +77,16 @@
                                 Site:</span></td>
                             <td style="padding:5px;padding-right:0px;">
                               <div>
-                                <select class="ddlSite" id="ddlSite">
+                                <select class="ddlSite" id="ddlSite" (change)="dropDownEnabled()">
                                   <option selected="selected" value="">&lt;Select&nbsp;a&nbsp;Value&gt;</option>
-                                  <option value="0~ALL">All</option>
-                                  <option value="22~Wedela Big">Wedela Big</option>
-                                  <option value="21~Fochville">Fochville</option>
-                                  <option value="18~North">North</option>
-                                  <option value="20~Carltonville">Carltonville</option>
+                                  <option value="All">All</option>
+                                  <option value="id~22~Wedela Big">Wedela Big</option>
+                                  <option value="id~23~Wedela Small">Wedela Small</option>
+                                  <option value="id~21~Fochville">Fochville</option>
+                                  <option value="id~18~North">Khutsong North</option>
+                                  <option value="id~20~Welverdiend">Welverdiend</option>
+                                  <option value="sp~26~Blybank">Blybank</option>
+                                  <option value="sp~24~South">Khutsong South</option>
 
                                 </select>
                               </div>
@@ -178,7 +185,7 @@
         </td>
       </tr>
       <tr>
-        <div *ngIf="visible">
+        <div *ngIf="one || many">
           <!--  -->
           <h6 class="header"><b>Rapid Analyser System Flow Rate Chart Dashboard</b></h6>
           <p style="text-align: center;">Today's Date: {{ currentDate | date: "dd/MM/yyyy h:mm a" }}</p>
@@ -186,61 +193,43 @@
       </tr>
     </tbody>
   </table>
-  <div id="myChart" class="myChart" *ngIf="visible" style="width: 96%">
-
-
-    <!--     ROW 1     -->
-    <table style=" margin-left: 42px; width: 97%;margin-bottom: 1%" cellspacing="1">
+  <!--                     SINGLE SITE                             -->
+  <div id="myChart" class="myChart" *ngIf="one" style="width: 96%">
+    <!--   TABLE  ROW 1     -->
+    <!--      Khutsong North Reservoir   -->
+    <table style=" background-color: #fcfcfc ; width: 48%; margin-left: 42px;margin-bottom: 1%" cellspacing="1">
+      <tbody style="border: 1px inset black;padding: 5%;">
+        <th colspan="2" style=" background-color: lightgrey; text-align: center; color: grey"> {{siteName}} Reservoir
+        </th>
+        <tr>
+          <td style="padding: 2.2%">
+            <!--  INLET FLOW RATE -->
+            <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptionsX">
+            </highcharts-chart>
+          </td>
+          <td style="padding: 2.2%">
+            <!--   OUTLET FLOW RATE -->
+            <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptionsY">
+            </highcharts-chart>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style=" margin-left: 42px;margin-bottom: 1%" cellspacing="1">
       <tr>
         <td>
-          <!--      Khutsong North Reservoir   -->
-          <table style=" background-color: #fcfcfc ; width: 48%;" cellspacing="1">
-            <tbody style="border: 1px inset black;padding: 5%;">
-              <th colspan="2" style=" background-color: lightgrey; text-align: center; color: grey"> Khutsong North
-                Reservoir</th>
-              <tr>
-                <td style="padding: 2.2%">
-                  <!--  ANALOG 3 INLET FLOW RATE -->
-                  <highcharts-chart [Highcharts]="Highcharts" [options]="khutsongNorthChart1">
-                  </highcharts-chart>
-                </td>
-                <td style="padding: 2.2%">
-                  <!--  ANALOG 4 OUTLET FLOW RATE -->
-                  <highcharts-chart [Highcharts]="Highcharts" [options]="khutsongNorthChart2">
-                  </highcharts-chart>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-        <td>
-          <!--      BLYBANK RESEVOIR    -->
-          <table style="  background-color: #fcfcfc ; width: 48%; margin-left: 1.9%" cellspacing="1">
-            <tbody style="border: 1px inset black;padding: 5%;">
-              <th colspan="2" style=" background-color: lightgrey; text-align: center; color: grey"> BlyBank Reservoir
-              </th>
-              <tr>
-                <td style="padding: 2.2%">
-                  <!--  ANALOG 2 INLET FLOW RATE -->
-                  <highcharts-chart [Highcharts]="Highcharts" [options]="blybankChart1">
-                  </highcharts-chart>
-                </td>
-                <td style="padding: 2.2%">
-                  <!--  ANALOG 3 OUTLET FLOW RATE -->
-                  <highcharts-chart [Highcharts]="Highcharts" [options]="blybankChart2">
-                  </highcharts-chart>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+
         </td>
       </tr>
     </table>
 
+  </div>
 
+  <!--                     ALL SITES                            -->
+  <div id="myChart" class="myChart" *ngIf="many" style="width: 96%">
+    <!--   TABLE  ROW 1     -->
 
-    <!--      WEDELA            -->
-    <table style=" margin-left: 42px; width: 97%;" *ngIf="false" cellspacing="1">
+    <table style=" margin-left: 42px; width: 96%;" cellspacing="1">
       <tr>
         <td>
           <!--      WEDELA BIG RESEVOIR    -->
@@ -251,12 +240,33 @@
               <tr>
                 <td style="padding: 2.2%">
                   <!--  ANALOG 2 INLET FLOW RATE -->
-                  <highcharts-chart [Highcharts]="Highcharts" [options]="khutsongNorthChart1">
+                  <highcharts-chart [Highcharts]="Highcharts" [options]="wedelaBigChart1">
                   </highcharts-chart>
                 </td>
                 <td style="padding: 2.2%">
                   <!--  ANALOG 3 OUTLET FLOE RATE -->
-                  <highcharts-chart [Highcharts]="Highcharts" [options]="khutsongNorthChart1">
+                  <highcharts-chart [Highcharts]="Highcharts" [options]="wedelaBigChart2">
+                  </highcharts-chart>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td>
+          <!--      WEDELA SMALL RESEVOIR    -->
+          <table style="  background-color: #fcfcfc ; width: 48%; margin-left: 1.9%" cellspacing="1">
+            <tbody style="border: 1px inset black;padding: 5%;">
+              <th colspan="2" style=" background-color: lightgrey; text-align: center; color: grey"> Wedela Small
+                Reservor</th>
+              <tr>
+                <td style="padding: 2.2%">
+                  <!--  ANALOG 2 INLET FLOW RATE -->
+                  <highcharts-chart [Highcharts]="Highcharts" [options]="wedelaSmallChart1">
+                  </highcharts-chart>
+                </td>
+                <td style="padding: 2.2%">
+                  <!--  ANALOG 3 OUTLET FLOE RATE -->
+                  <highcharts-chart [Highcharts]="Highcharts" [options]="wedelaSmallChart2">
                   </highcharts-chart>
                 </td>
               </tr>
@@ -268,11 +278,11 @@
 
   </div>
 
-
+ 
   <br />
   <div class="lblResults" *ngIf="notFound">
     <!--  -->
-    <label>Data Not Found</label>
+    <label>Data not found for the selected fields</label>
   </div>
 
 </body>

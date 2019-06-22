@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'angular-highcharts';
-import { DataService } from 'src/app/Server/data.service';
+import { DataService } from 'src/app/Service/data.service';
 import { Router } from '@angular/router';
 import * as  moment from 'moment';
 //////////////////////////
@@ -39,12 +39,12 @@ export class AggregateReceivedWaterComponent implements OnInit {
         this.visible = false;
         
       
-    if (localStorage.getItem('userData') === null) {
+    if (localStorage.getItem('UserId') === null) {
         this.router.navigate(['/']);
        }
     
 
-        if (sessionStorage.getItem('userData') === null) {
+        if (sessionStorage.getItem('UserId') === null) {
             //   this.router.navigate(['/']);
         }
     }
