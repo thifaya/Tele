@@ -46,7 +46,7 @@
     "ngx-cookie-service": "^2.1.0",
     "ngx-loading": "^3.0.1",
     "nodemon": "^1.18.11",
-    "npm": "^6.9.0",
+    "npm": "^6.13.4",
     "rxjs": "~6.2.0",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^8.12.1",
